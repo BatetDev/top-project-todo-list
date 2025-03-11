@@ -81,12 +81,35 @@ button {
 }
 
 #task-list li {
-  align-items: center;
   background-color: #fafafa;
   border: 1px solid #5a3e36;
   border-radius: 5px;
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
   margin-bottom: 10px;
+  line-height: 1;
 }
+
+.task-circle {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #5a3e36;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.task-circle.completed {
+  background-color: #5a3e36;
+  border-color: #5a3e36;
+}
+
+/*
+
+
+
+*/
