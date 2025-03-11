@@ -1,5 +1,32 @@
 @import "normalize.css";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rebeccapurple;
+  background-color: #f4f0e8;
+  color: #333;
+  font-family: "Courier Prime", monospace;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #5a3e36;
+}
+
+p,
+input,
+button,
+li {
+  font-family: "Courier Prime", monospace;
 }
