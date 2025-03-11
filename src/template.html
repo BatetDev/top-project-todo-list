@@ -4,9 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./assets/favicon.ico" />
-    <title>Webpack Project Starter</title>
+    <title>TOP - Project Todo List</title>
   </head>
   <body>
-    <h1>Webpack Project Starter</h1>
+    <div class="container">
+      <h1>To-Do or Not To-Do</h1>
+      <p>A Distinguished Productivity Apparatus</p>
+
+      <!-- Input Section -->
+      <form id="task-form">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Commit to a worthy task..."
+          required
+        />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <!-- Task List -->
+      <ul id="task-list">
+        <li>Dummy task</li>
+      </ul>
+    </div>
   </body>
 </html>

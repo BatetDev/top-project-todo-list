@@ -1,7 +1,7 @@
 {
-  "name": "webpack-starter",
+  "name": "top-project-todo-list",
   "version": "1.0.0",
-  "description": "A webpack starter template",
+  "description": "The Odin Project - Project Todo List",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
