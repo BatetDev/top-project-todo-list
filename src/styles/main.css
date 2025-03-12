@@ -7,11 +7,11 @@
 }
 
 body {
-  color: #434343;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
   font-family: "Courier Prime", monospace;
   line-height: 1.6;
-  padding: 30px 15px;
-  background-color: #121212;
+  padding: 20px;
 }
 
 h1,
@@ -22,55 +22,54 @@ h5,
 h6 {
   font-family: "Merriweather", serif;
   font-weight: 700;
-  color: #5a3e36;
+  color: #d4af37;
 }
 
-p,
-input,
-button,
-li {
-  font-family: "Courier Prime", monospace;
+p {
+  color: #cccccc;
 }
 
 /* Layout */
 .container {
-  background-color: rgba(235, 235, 235, 0.9);
+  background-color: #2d2d2d;
+  border: 1px solid #8b4513;
   border-radius: 8px;
   padding: 15px;
   margin: 0 auto;
   width: 100%;
   max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 /* Input Section */
 
 #task-form {
-  background-color: gainsboro;
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  padding: 6px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 #task-input {
-  border: 2px solid #5a3e36;
-  border-radius: 5px;
-  font-size: 1rem;
+  flex: 1;
   padding: 10px;
-  width: 70%;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  background-color: #1a1a1a;
 }
 
-button {
-  background-color: #5a3e36;
+#task-form button {
+  background-color: #8b4513;
   border: none;
-  border-radius: 5px;
-  color: #fff;
+  border-radius: 4px;
+  color: #e0e0e0;
   cursor: pointer;
-  font-size: 1rem;
   font-weight: 700;
   padding: 10px 20px;
-  margin-left: 10px;
+}
+
+#task-form button:hover {
+  background-color: #6b3410;
 }
 
 /* Task List */
@@ -81,31 +80,28 @@ button {
 }
 
 #task-list li {
-  background-color: #fafafa;
-  border: 1px solid #5a3e36;
-  border-radius: 5px;
+  background-color: #333333;
+  border: 1px solid #444444;
+  border-radius: 4px;
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 12px;
-  padding: 12px;
+  gap: 10px;
+  padding: 10px;
   margin-bottom: 10px;
   line-height: 1;
 }
 
 .task-circle {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #5a3e36;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #8b4513;
   border-radius: 50%;
-  background-color: transparent;
   cursor: pointer;
 }
 
 .task-circle.completed {
-  background-color: #5a3e36;
-  border-color: #5a3e36;
+  background-color: #8b4513;
 }
 
 /*

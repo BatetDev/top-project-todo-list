@@ -8,30 +8,40 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Courier+Prime&display=swap"
       rel="stylesheet"
     />
-    <title>TOP - Project Todo List</title>
+    <title>To-Do or Not To-Do</title>
   </head>
   <body>
     <div class="container">
-      <h1>To-Do or Not To-Do</h1>
-      <p>A Most Distinguished Productivity Gadget</p>
+      <!-- Header Section -->
+      <header>
+        <h1>To-Do or Not To-Do</h1>
+        <p>A Most Distinguished Productivity Gadget</p>
+      </header>
 
-      <!-- Input Section -->
-      <form id="task-form">
-        <input
-          type="text"
-          id="task-input"
-          placeholder="Commit to a worthy task..."
-          required
-        />
-        <button type="submit">Add</button>
-      </form>
+      <!-- Main Content -->
+      <main>
+        <!-- Input Section -->
+        <section>
+          <form id="task-form">
+            <input
+              type="text"
+              id="task-input"
+              placeholder="Commit to a worthy task..."
+              required
+            />
+            <button type="submit">Add</button>
+          </form>
+        </section>
 
-      <!-- Task List -->
-      <ul id="task-list">
-        <li><span class="task-circle"></span>Dummy task 1</li>
-        <li><span class="task-circle completed"></span>Dummy task 2</li>
-        <li><span class="task-circle"></span>Dummy task 3</li>
-      </ul>
+        <!-- Task List Section -->
+        <section>
+          <ul id="task-list">
+            <li><span class="task-circle"></span>Dummy task 1</li>
+            <li><span class="task-circle completed"></span>Dummy task 2</li>
+            <li><span class="task-circle"></span>Dummy task 3</li>
+          </ul>
+        </section>
+      </main>
     </div>
   </body>
 </html>
