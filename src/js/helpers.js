@@ -8,3 +8,11 @@ export function createTodo(title, description, dueDate, priority) {
     completed: false,
   };
 }
+
+// Factory function for creating Projects
+export function createProject(name) {
+  return {
+    name,
+    todos: [],
+  };
+}
