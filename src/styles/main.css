@@ -18,6 +18,7 @@ h1 {
   font-family: "Merriweather", serif;
   font-size: 2.5rem;
   text-align: center;
+  letter-spacing: 1px;
   color: #d4af37;
   margin-bottom: 10px;
 }
@@ -61,7 +62,7 @@ p {
 }
 
 #task-form button {
-  background-color: #cd7f32;
+  background-color: #b87333;
   border: none;
   border-radius: 4px;
   color: #e0e0e0;
@@ -72,7 +73,7 @@ p {
 }
 
 #task-form button:hover {
-  background-color: #a66722;
+  background-color: #9a5c2b;
 }
 
 /* Task List */
@@ -98,13 +99,13 @@ p {
 .task-circle {
   width: 20px;
   height: 20px;
-  border: 2px solid #cd7f32;
+  border: 2px solid #b87333;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .task-circle.completed {
-  background-color: #cd7f32;
+  background-color: #b87333;
 }
 
 /*
