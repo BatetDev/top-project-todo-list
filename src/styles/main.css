@@ -25,6 +25,7 @@ h1 {
 
 p {
   font-family: "Courier Prime", monospace;
+  font-weight: 700;
   text-align: center;
   color: #cccccc;
   margin-bottom: 20px;
@@ -78,12 +79,12 @@ p {
 
 /* Task List */
 
-#task-list {
+.task-list {
   list-style-type: none;
   padding: 0;
 }
 
-#task-list li {
+.task-list li {
   background-color: #333333;
   border: 1px solid #444444;
   border-radius: 4px;
@@ -106,6 +107,28 @@ p {
 
 .task-circle.completed {
   background-color: #b87333;
+}
+
+/* Project Card */
+.project-card {
+  background-color: #2b2b2b;
+  border: 2px solid #9a5c2b;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Project Title */
+.project-title {
+  font-family: "Courier Prime", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #b87333;
+  margin-bottom: 10px;
 }
 
 /*
