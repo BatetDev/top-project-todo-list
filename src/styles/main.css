@@ -14,31 +14,31 @@ body {
   padding: 20px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
   font-family: "Merriweather", serif;
-  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
   color: #d4af37;
+  margin-bottom: 10px;
 }
 
 p {
+  font-family: "Courier Prime", monospace;
+  text-align: center;
   color: #cccccc;
+  margin-bottom: 20px;
 }
 
 /* Layout */
 .container {
   background-color: #2d2d2d;
-  border: 1px solid #8b4513;
+  border: 1px solid #444444;
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px;
   margin: 0 auto;
   width: 100%;
   max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -46,12 +46,14 @@ p {
 
 #task-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
 }
 
 #task-input {
   flex: 1;
+  min-width: 150px;
   padding: 10px;
   border: 1px solid #444444;
   border-radius: 4px;
@@ -59,17 +61,18 @@ p {
 }
 
 #task-form button {
-  background-color: #8b4513;
+  background-color: #cd7f32;
   border: none;
   border-radius: 4px;
   color: #e0e0e0;
   cursor: pointer;
   font-weight: 700;
   padding: 10px 20px;
+  white-space: nowrap;
 }
 
 #task-form button:hover {
-  background-color: #6b3410;
+  background-color: #a66722;
 }
 
 /* Task List */
@@ -95,13 +98,13 @@ p {
 .task-circle {
   width: 20px;
   height: 20px;
-  border: 2px solid #8b4513;
+  border: 2px solid #cd7f32;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .task-circle.completed {
-  background-color: #8b4513;
+  background-color: #cd7f32;
 }
 
 /*
