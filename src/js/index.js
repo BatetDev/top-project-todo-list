@@ -72,3 +72,11 @@ function renderProjects(projects) {
 // Call renderProjects to display the Inbox
 const projects = [inbox];
 renderProjects(projects);
+
+// Select Add Task Button
+const addTaskButton = document.querySelector("#add-task-btn");
+
+// Add click event listener
+addTaskButton.addEventListener("click", () => {
+  console.log("Add Task button clicked!");
+});
