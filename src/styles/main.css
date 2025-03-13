@@ -163,4 +163,75 @@ p {
 
 /* Add Task Modal */
 .modal {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #444;
+  padding: 10px;
+  border-top: 1px solid #9a5c2b;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.close-modal {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #b87333;
+}
+
+.close-modal:hover {
+  color: #fafafa;
+}
+
+/* Form Styles */
+#add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#add-task-form label {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+#add-task-form input,
+#add-task-form textarea,
+#add-task-form select {
+  padding: 10px;
+  border: 1px solid #da8973;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+#add-task-form button {
+  background-color: #b33f4a;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 200ms ease-in-out;
+}
+
+#add-task-form button:hover {
+  transform: scale(1.01);
+  background-color: #cf4452;
 }
