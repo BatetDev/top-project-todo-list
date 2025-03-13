@@ -76,7 +76,30 @@ renderProjects(projects);
 // Select Add Task Button
 const addTaskButton = document.querySelector("#add-task-btn");
 
-// Add click event listener
+// Modal
+const modal = document.querySelector("#add-task-modal");
+const modalContent = document.querySelector(".modal-content");
+const closeModalButton = document.querySelector(".close-modal");
+
+// Show modal and hide "+" button
 addTaskButton.addEventListener("click", () => {
-  console.log("Add Task button clicked!");
+  modal.classList.remove("hidden");
+  addTaskButton.style.display = "none";
+});
+
+// Hide modal and show the "+" button
+closeModalButton.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  addTaskButton.style.display = "block";
+});
+
+// Close modal when clicking outside of it
+document.addEventListener("click", (event) => {
+  if (
+    !modalContent.contains(event.target) &&
+    !addTaskButton.contains(event.target)
+  ) {
+    modal.classList.add("hidden");
+    addTaskButton.style.display = "block";
+  }
 });
