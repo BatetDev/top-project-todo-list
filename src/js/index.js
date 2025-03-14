@@ -126,5 +126,19 @@ addTaskForm.addEventListener("submit", (event) => {
     taskPriority
   );
 
-  console.log("New Todo;", newTodo);
+  // Find the selected project (defaulting to "Inbox")
+  const selectedProject = projects.find(
+    (project) => project.name === taskProject
+  );
+
+  if (selectedProject) {
+    // Add the new todo to the selected project's todos array
+    selectedProject.todos.push(newTodo);
+
+    // Re-render the projects to update the UI
+    renderProjects(projects);
+  }
+
+  // Log the updated project to the console
+  console.log("Update Project:", selectedProject);
 });
