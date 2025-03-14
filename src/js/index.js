@@ -118,10 +118,13 @@ addTaskForm.addEventListener("submit", (event) => {
   const taskPriority = document.querySelector("#task-priority").value;
   const taskProject = document.querySelector("#task-project").value;
 
-  // Log the captured values to the console
-  console.log("Task Name:", taskName);
-  console.log("Description:", taskDescription);
-  console.log("Due Date:", taskDueDate);
-  console.log("Priority:", taskPriority);
-  console.log("Project:", taskProject);
+  // Create a new todo object using the factory function
+  const newTodo = createTodo(
+    taskName,
+    taskDescription,
+    taskDueDate,
+    taskPriority
+  );
+
+  console.log("New Todo;", newTodo);
 });
