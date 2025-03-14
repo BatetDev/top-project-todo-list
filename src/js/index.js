@@ -73,6 +73,25 @@ function renderProjects(projects) {
 const projects = [inbox];
 renderProjects(projects);
 
+// Function to populate the project picker dropdown
+function populateProjectPicker(projects) {
+  const projectPicker = document.querySelector("#task-project");
+
+  // Clear existing options
+  projectPicker.innertHTML = "";
+
+  // Add an option element for each project
+  projects.forEach((project) => {
+    const option = document.createElement("option");
+    option.value = project.name;
+    option.textContent = project.name;
+    projectPicker.appendChild(option);
+  });
+}
+
+// Call populateProjectPicker when the app starts
+populateProjectPicker(projects);
+
 // Select Add Task Button
 const addTaskButton = document.querySelector("#add-task-btn");
 
