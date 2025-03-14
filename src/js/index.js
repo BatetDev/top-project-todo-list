@@ -36,7 +36,7 @@ function renderTodos(project) {
     const li = document.createElement("li");
     li.innerHTML = `
       <span class="task-circle ${todo.completed ? "completed" : ""}"></span>
-      ${todo.title}
+      <span class="task-text">${todo.title}</span>
     `;
     taskList.appendChild(li);
   });
