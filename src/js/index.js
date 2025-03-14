@@ -107,8 +107,21 @@ document.addEventListener("click", (event) => {
 // Select Task Form
 const addTaskForm = document.querySelector("#add-task-form");
 
-// Prevent default form submission
+// Prevent default form submission; capture user input
 addTaskForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  console.log("Form submitted!");
+  event.preventDefault(); // Prevent page from reloading
+
+  // Capture form field values
+  const taskName = document.querySelector("#task-name").value;
+  const taskDescription = document.querySelector("#task-description").value;
+  const taskDueDate = document.querySelector("#task-due-date").value;
+  const taskPriority = document.querySelector("#task-priority").value;
+  const taskProject = document.querySelector("#task-project").value;
+
+  // Log the captured values to the console
+  console.log("Task Name:", taskName);
+  console.log("Description:", taskDescription);
+  console.log("Due Date:", taskDueDate);
+  console.log("Priority:", taskPriority);
+  console.log("Project:", taskProject);
 });
