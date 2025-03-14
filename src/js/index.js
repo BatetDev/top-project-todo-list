@@ -103,3 +103,12 @@ document.addEventListener("click", (event) => {
     addTaskButton.style.display = "block";
   }
 });
+
+// Select Task Form
+const addTaskForm = document.querySelector("#add-task-form");
+
+// Prevent default form submission
+addTaskForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("Form submitted!");
+});
