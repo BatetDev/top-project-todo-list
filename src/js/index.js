@@ -107,7 +107,7 @@ document.addEventListener("click", (event) => {
 // Select Task Form
 const addTaskForm = document.querySelector("#add-task-form");
 
-// Prevent default form submission; capture user input
+// Prevent default form submission; capture user input, create new todo, add it to selected project
 addTaskForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent page from reloading
 
@@ -141,4 +141,7 @@ addTaskForm.addEventListener("submit", (event) => {
 
   // Log the updated project to the console
   console.log("Update Project:", selectedProject);
+
+  // Reset form fields
+  addTaskForm.reset();
 });
