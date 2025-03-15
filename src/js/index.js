@@ -13,7 +13,7 @@ import { initModal } from "./modal.js";
 const projects = [createProject("Inbox")];
 
 // Add sample todos to the default project
-inbox.todos.push(
+projects[0].todos.push(
   createTodo(
     "Refactor code",
     "Organize JavaScript into modules.",
