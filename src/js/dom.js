@@ -41,3 +41,19 @@ export function renderTodos(project) {
 
   return taskList; // Return the ul element
 }
+
+// Function to populate the project picker dropdown
+export function populateProjectPicker(projects) {
+  const projectPicker = document.querySelector("#task-project");
+
+  // Clear existing options
+  projectPicker.innertHTML = "";
+
+  // Add an option element for each project
+  projects.forEach((project) => {
+    const option = document.createElement("option");
+    option.value = project.name;
+    option.textContent = project.name;
+    projectPicker.appendChild(option);
+  });
+}

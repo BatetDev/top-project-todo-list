@@ -6,19 +6,14 @@ import {
   updateTodoPriority,
 } from "./todos.js";
 import { createProject, addTodoToProject } from "./projects.js";
-import { renderProjects } from "./dom.js";
+import { renderProjects, populateProjectPicker } from "./dom.js";
+import { initModal } from "./modal.js";
 
-// Create Inbox (default project)
-const inbox = createProject("Inbox");
+// Initialize app state
+const projects = [createProject("Inbox")];
 
 // Add sample todos to the default project
 inbox.todos.push(
-  createTodo(
-    "Commit to a worthy task",
-    "Add interactivity for task completion.",
-    "2025-03-15",
-    "high"
-  ),
   createTodo(
     "Refactor code",
     "Organize JavaScript into modules.",
@@ -33,98 +28,9 @@ inbox.todos.push(
   )
 );
 
-// Call renderProjects to display the Inbox
-const projects = [inbox];
+// Populate project picker and render initial projects
+populateProjectPicker(projects);
 renderProjects(projects);
 
-// Function to populate the project picker dropdown
-function populateProjectPicker(projects) {
-  const projectPicker = document.querySelector("#task-project");
-
-  // Clear existing options
-  projectPicker.innertHTML = "";
-
-  // Add an option element for each project
-  projects.forEach((project) => {
-    const option = document.createElement("option");
-    option.value = project.name;
-    option.textContent = project.name;
-    projectPicker.appendChild(option);
-  });
-}
-
-// Call populateProjectPicker when the app starts
-populateProjectPicker(projects);
-
-// Select Add Task Button
-const addTaskButton = document.querySelector("#add-task-btn");
-
-// Modal
-const modal = document.querySelector("#add-task-modal");
-const modalContent = document.querySelector(".modal-content");
-const closeModalButton = document.querySelector(".close-modal");
-
-// Show modal and hide "+" button
-addTaskButton.addEventListener("click", () => {
-  modal.classList.remove("hidden");
-  addTaskButton.style.display = "none";
-});
-
-// Hide modal and show the "+" button
-closeModalButton.addEventListener("click", () => {
-  modal.classList.add("hidden");
-  addTaskButton.style.display = "block";
-});
-
-// Close modal when clicking outside of it
-document.addEventListener("click", (event) => {
-  if (
-    !modalContent.contains(event.target) &&
-    !addTaskButton.contains(event.target)
-  ) {
-    modal.classList.add("hidden");
-    addTaskButton.style.display = "block";
-  }
-});
-
-// Select Task Form
-const addTaskForm = document.querySelector("#add-task-form");
-
-// Prevent default form submission; capture user input, create new todo, add it to selected project
-addTaskForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent page from reloading
-
-  // Capture form field values
-  const taskName = document.querySelector("#task-name").value;
-  const taskDescription = document.querySelector("#task-description").value;
-  const taskDueDate = document.querySelector("#task-due-date").value;
-  const taskPriority = document.querySelector("#task-priority").value;
-  const taskProject = document.querySelector("#task-project").value;
-
-  // Create a new todo object using the factory function
-  const newTodo = createTodo(
-    taskName,
-    taskDescription,
-    taskDueDate,
-    taskPriority
-  );
-
-  // Find the selected project (defaulting to "Inbox")
-  const selectedProject = projects.find(
-    (project) => project.name === taskProject
-  );
-
-  if (selectedProject) {
-    // Add the new todo to the selected project's todos array
-    addTodoToProject(selectedProject, newTodo);
-
-    // Re-render the projects to update the UI
-    renderProjects(projects);
-  }
-
-  // Log the updated project to the console
-  console.log("Update Project:", selectedProject);
-
-  // Reset form fields
-  addTaskForm.reset();
-});
+// Initialize modal functionality
+initModal(projects, renderProjects);
