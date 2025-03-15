@@ -8,9 +8,13 @@ import {
 import { createProject, addTodoToProject } from "./projects.js";
 import { renderProjects, populateProjectPicker } from "./dom.js";
 import { initModal } from "./modal.js";
+import { loadProjects, saveProjects } from "./storage.js";
 
 // Initialize app state
-const projects = [createProject("Inbox")];
+let projects = loadProjects();
+if (projects.length === 0) {
+  projects = [createProject("Inbox")];
+}
 
 // Add sample todos to the default project
 projects[0].todos.push(
@@ -31,6 +35,10 @@ projects[0].todos.push(
 // Populate project picker and render initial projects
 populateProjectPicker(projects);
 renderProjects(projects);
+saveProjects(projects); // Save projects to localStorage
 
 // Initialize modal functionality
-initModal(projects, renderProjects);
+initModal(projects, () => {
+  renderProjects(projects);
+  saveProjects(projects); // Save Projects after updating
+});
