@@ -1,6 +1,10 @@
 import "../styles/main.css";
 
-import { createTodo } from "./helpers.js";
+import {
+  createTodo,
+  toggleTodoCompletion,
+  updateTodoPriority,
+} from "./todos.js";
 import { createProject, addTodoToProject } from "./projects.js";
 
 // Create Inbox (default project)
