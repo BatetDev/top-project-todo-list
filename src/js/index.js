@@ -1,6 +1,7 @@
 import "../styles/main.css";
 
-import { createTodo, createProject } from "./helpers.js";
+import { createTodo } from "./helpers.js";
+import { createProject, addTodoToProject } from "./projects.js";
 
 // Create Inbox (default project)
 const inbox = createProject("Inbox");
@@ -152,7 +153,7 @@ addTaskForm.addEventListener("submit", (event) => {
 
   if (selectedProject) {
     // Add the new todo to the selected project's todos array
-    selectedProject.todos.push(newTodo);
+    addTodoToProject(selectedProject, newTodo);
 
     // Re-render the projects to update the UI
     renderProjects(projects);
