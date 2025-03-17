@@ -10,6 +10,18 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Project Title */
+.project-title {
+  font-family: "Courier Prime", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #b87333;
+  margin-bottom: 10px;
+}
+
 /* Floating Add Task Button */
 .floating-btn {
   position: fixed;
