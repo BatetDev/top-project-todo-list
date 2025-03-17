@@ -32,11 +32,22 @@ export function renderTodos(project) {
 
   project.todos.forEach((todo) => {
     const li = document.createElement("li");
+    li.dataset.index = project.todos.indexOf(todo); // Add an index to identify the task
     li.innerHTML = `
       <span class="task-circle ${todo.completed ? "completed" : ""}"></span>
       <span class="task-text">${todo.title}</span>
     `;
     taskList.appendChild(li);
+  });
+
+  // Use event delegation to handle task clicks
+  taskList.addEventListener("click", (e) => {
+    const clickedTask = e.target.closest("li"); // Find the closest <li> element
+    if (clickedTask) {
+      const taskIndex = clickedTask.dataset.index; // Get the task index
+      const task = project.todos[taskIndex]; // Get the corresponding task
+      openExpandedTaskModal(task);
+    }
   });
 
   return taskList; // Return the ul element
@@ -47,7 +58,7 @@ export function populateProjectPicker(projects) {
   const projectPicker = document.querySelector("#task-project");
 
   // Clear existing options
-  projectPicker.innertHTML = "";
+  projectPicker.innerHTML = "";
 
   // Add an option element for each project
   projects.forEach((project) => {
@@ -57,3 +68,37 @@ export function populateProjectPicker(projects) {
     projectPicker.appendChild(option);
   });
 }
+
+// Select the expanded task modal and its elements
+const expandedTaskModal = document.querySelector("#expanded-task-modal");
+
+// Function to open the expanded task modal
+function openExpandedTaskModal(task) {
+  // Populate the modal with task details
+  expandedTaskModal.querySelector("#task-title").textContent =
+    task.title || "No title";
+  expandedTaskModal.querySelector("#task-description").textContent =
+    task.description || "No description";
+  expandedTaskModal.querySelector("#task-due-date").textContent =
+    task.dueDate || "No due date";
+  expandedTaskModal.querySelector("#task-priority").textContent =
+    task.priority || "No priority";
+  expandedTaskModal.querySelector("#task-project").textContent =
+    task.project || "No project";
+
+  // Show the modal by removing the "hidden" class
+  expandedTaskModal.classList.remove("hidden");
+}
+
+// Function to close the expanded task modal
+function closeExpandedTaskModal() {
+  // Hide the modal by adding the "hidden" class
+  expandedTaskModal.classList.add("hidden");
+}
+
+// Close modal when clicking outside the modal content
+expandedTaskModal.addEventListener("click", (e) => {
+  if (e.target === expandedTaskModal) {
+    closeExpandedTaskModal();
+  }
+});
