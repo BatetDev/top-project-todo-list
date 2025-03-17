@@ -65,6 +65,39 @@
           </form>
         </div>
       </div>
+
+      <!-- Expanded Task View Modal -->
+      <div id="expanded-task-modal" class="">
+        <div class="modal-content">
+          <!-- Header with Edit and Delete Buttons -->
+          <div class="modal-header">
+            <h2 id="task-title">Task Title</h2>
+            <div class="modal-actions">
+              <button id="edit-task-btn">Edit</button>
+              <button id="delete-task-btn">Delete</button>
+            </div>
+          </div>
+
+          <!-- Task Details -->
+          <div class="task-details">
+            <p>
+              <strong>Description:</strong>
+              <span id="task-description">No description</span>
+            </p>
+            <p>
+              <strong>Due Date:</strong>
+              <span id="task-due-date">No due date</span>
+            </p>
+            <p>
+              <strong>Priority:</strong>
+              <span id="task-priority">No priority</span>
+            </p>
+            <p>
+              <strong>Project:</strong> <span id="task-project">Inbox</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Floating Add Task Button -->
