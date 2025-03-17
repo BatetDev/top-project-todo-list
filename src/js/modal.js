@@ -9,19 +9,12 @@ export function initModal(projects, renderProjects) {
   const addTaskButton = document.querySelector("#add-task-btn");
   const modal = document.querySelector("#add-task-modal");
   const modalContent = document.querySelector(".modal-content");
-  const closeModalButton = document.querySelector(".close-modal");
   const addTaskForm = document.querySelector("#add-task-form");
 
   // Show modal and hide "+" button
   addTaskButton.addEventListener("click", () => {
-    modal.classList.remove("hidden");
+    modal.classList.add("visible");
     addTaskButton.style.display = "none";
-  });
-
-  // Hide modal and show the "+" button
-  closeModalButton.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    addTaskButton.style.display = "block";
   });
 
   // Close modal when clicking outside of it
@@ -30,7 +23,7 @@ export function initModal(projects, renderProjects) {
       !modalContent.contains(event.target) &&
       !addTaskButton.contains(event.target)
     ) {
-      modal.classList.add("hidden");
+      modal.classList.remove("visible");
       addTaskButton.style.display = "block";
     }
   });

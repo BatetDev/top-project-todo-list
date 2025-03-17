@@ -87,18 +87,22 @@ function openExpandedTaskModal(task) {
     task.project || "No project";
 
   // Show the modal by removing the "hidden" class
-  expandedTaskModal.classList.remove("hidden");
+  expandedTaskModal.classList.add("visible");
 }
 
 // Function to close the expanded task modal
 function closeExpandedTaskModal() {
   // Hide the modal by adding the "hidden" class
-  expandedTaskModal.classList.add("hidden");
+  console.log("closeExpandedTaskModal is closing modal...");
+  expandedTaskModal.classList.remove("visible");
 }
 
 // Close modal when clicking outside the modal content
 expandedTaskModal.addEventListener("click", (e) => {
-  if (e.target === expandedTaskModal) {
+  const modalContent = expandedTaskModal.querySelector(".modal-content");
+  console.log("Clicked inside #expanded-task-modal");
+  if (!modalContent.contains(e.target)) {
+    console.log("Clicked outside .modal-content, closing modal...");
     closeExpandedTaskModal();
   }
 });
