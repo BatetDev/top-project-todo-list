@@ -1,0 +1,76 @@
+/* COMPONENTS */
+
+/* Project Card */
+.project-card {
+  background-color: #2b2b2b;
+  border: 2px solid #9a5c2b;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating Add Task Button */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #b33f4a;
+  color: #fafafa;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: inherit;
+  line-height: 0;
+  border: none;
+  border-radius: 25%;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: 250ms ease-in-out;
+}
+
+.floating-btn:hover {
+  transform: scale(1.03);
+  background-color: #fb8136;
+  box-shadow: 0px 0px 10px 3px rgba(240, 179, 141, 0.3);
+}
+
+/* Task Modal */
+.modal {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #444;
+  padding: 10px;
+  border-top: 1px solid #9a5c2b;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #b87333;
+}
+
+.close-modal:hover {
+  color: #fafafa;
+}
