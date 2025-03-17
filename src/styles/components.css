@@ -86,3 +86,58 @@
 .close-modal:hover {
   color: #fafafa;
 }
+
+/* Expanded Task View Modal */
+#expanded-task-modal {
+  z-index: 1001;
+}
+
+#expanded-task-modal .modal-content {
+  background-color: #315241;
+  animation: slide-up 0.2s ease-in-out;
+}
+
+/* Slide-Up Animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h3 {
+  font-family: "Courier Prime", Courier, monospace;
+  font-size: 1.2rem;
+  color: #d4af37;
+}
+
+.modal-actions button {
+  background-color: #b33f4a;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.modal-actions button:hover {
+  background-color: #cf4452;
+}
+
+/* Task Details */
+.task-details p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
