@@ -1,0 +1,103 @@
+/* FORMS */
+
+/* Input Section */
+#task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#task-input {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+}
+
+#task-form button {
+  background-color: #b87333;
+  border: none;
+  border-radius: 4px;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+#task-form button:hover {
+  background-color: #9a5c2b;
+}
+
+/* Task List */
+.task-list li {
+  background-color: #333333;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.task-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #b87333;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-circle.completed {
+  background-color: #b87333;
+}
+
+.task-text {
+  line-height: 1;
+  text-align: left;
+  padding-top: 3px;
+}
+
+/* Form Styles */
+#add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#add-task-form label {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+#add-task-form input,
+#add-task-form textarea,
+#add-task-form select {
+  padding: 10px;
+  border: 1px solid #da8973;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+#add-task-form button {
+  background-color: #b33f4a;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 200ms ease-in-out;
+}
+
+#add-task-form button:hover {
+  transform: scale(1.01);
+  background-color: #cf4452;
+}
