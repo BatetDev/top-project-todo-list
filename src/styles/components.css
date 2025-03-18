@@ -197,3 +197,7 @@
 #edit-task-form button:hover {
   background-color: #cf4452;
 }
+
+.hidden {
+  display: none;
+}

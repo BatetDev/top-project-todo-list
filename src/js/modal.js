@@ -64,3 +64,54 @@ export function initModal(projects, renderProjects) {
     addTaskForm.reset();
   });
 }
+
+// Select the expanded task modal and its elements
+const expandedTaskModal = document.querySelector("#expanded-task-modal");
+const taskDetails = expandedTaskModal.querySelector(".task-details");
+const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
+const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
+const cancelEditBtn = expandedTaskModal.querySelector("#cancel-edit-btn");
+
+let currentTask = null; // Variable to stroe the currently selected task
+
+// Function to open the expanded task modal
+export function openExpandedTaskModal(task) {
+  // Store the current task
+  currentTask = task;
+
+  // Populate the modal with task details
+  expandedTaskModal.querySelector("#task-title").textContet =
+    task.title || "No title";
+}
+
+// Function to populate the edit task form with task details
+function populateEditTaskForm(task) {
+  editTaskForm.querySelector("#edit-task-name").value = task.title || "";
+  editTaskForm.querySelector("#edit-task-description").value =
+    task.description || "";
+  editTaskForm.querySelector("#edit-task-due-date").value = task.dueDate || "";
+  editTaskForm.querySelector("#edit-task-priority").value =
+    task.priority || "medium";
+  editTaskForm.querySelector("#edit-task-project").value =
+    task.project || "Inbox";
+}
+
+// Function to toggle between view and edit modes
+function toggleEditMode(isEditing) {
+  if (isEditing) {
+    taskDetails.classList.add("hidden"); // Hide task details
+    editTaskForm.classList.add("visible"); // Show edit form
+  } else {
+    taskDetails.classList.remove("hidden"); // Show task details
+    editTaskForm.classList.remove("visible"); // Hide edit form
+  }
+}
+
+// Attach event listeners for toggling edit mode
+editTaskBtn.addEventListener("click", () => {
+  toggleEditMode(true); // Switch to edit mode
+});
+
+cancelEditBtn.addEventListener("click", () => {
+  toggleEditMode(false); // Switch back to view mode
+});
