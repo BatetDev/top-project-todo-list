@@ -3,7 +3,12 @@
 import { createTodo } from "./todos.js";
 import { addTodoToProject } from "./projects.js";
 import { renderProjects } from "./dom.js";
-import { currentTask } from "./dom.js";
+import {
+  currentTask,
+  taskDetails,
+  editTaskForm,
+  toggleEditMode,
+} from "./dom.js";
 
 // Initialize modal functionality
 export function initModal(projects, renderProjects) {
@@ -68,8 +73,6 @@ export function initModal(projects, renderProjects) {
 
 // Select the expanded task modal and its elements
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
-const taskDetails = expandedTaskModal.querySelector(".task-details");
-const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
 console.log("Edit task form:", editTaskForm);
 const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
 const cancelEditBtn = expandedTaskModal.querySelector("#cancel-edit-btn");
@@ -108,24 +111,16 @@ function populateEditTaskForm(task) {
   projectField.value = task.project || "Inbox";
 }
 
-// Function to toggle between view and edit modes
-function toggleEditMode(isEditing) {
-  if (isEditing) {
-    taskDetails.classList.add("hidden"); // Hide task details
-    editTaskForm.classList.remove("hidden"); // Show edit form
-    editTaskForm.classList.add("visible");
-  } else {
-    taskDetails.classList.remove("hidden"); // Show task details
-    editTaskForm.classList.remove("visible"); // Hide edit form
-    editTaskForm.classList.add("hidden");
-  }
-}
-
 // Attach event listeners for toggling edit mode
 editTaskBtn.addEventListener("click", () => {
-  console.log("Current task in editTaskBtn:", currentTask);
-  populateEditTaskForm(currentTask); // Pre-fill the form with the current task's details
+  console.log("Current task in editTaskBtn:", currentTask); // Debugging log
+
   toggleEditMode(true); // Switch to edit mode
+
+  // Delay population of the form to ensure the DOM is updated
+  setTimeout(() => {
+    populateEditTaskForm(currentTask);
+  }, 0);
 });
 
 cancelEditBtn.addEventListener("click", () => {

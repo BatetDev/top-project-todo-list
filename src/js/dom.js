@@ -110,8 +110,32 @@ function closeExpandedTaskModal() {
 expandedTaskModal.addEventListener("click", (e) => {
   const modalContent = expandedTaskModal.querySelector(".modal-content");
   console.log("Clicked inside #expanded-task-modal");
+
   if (!modalContent.contains(e.target)) {
     console.log("Clicked outside .modal-content, closing modal...");
     closeExpandedTaskModal();
+
+    // Reset edit mode to ensure  the expanded task modal is shown
+    toggleEditMode(false);
   }
 });
+
+// Select modal elements
+export const taskDetails = expandedTaskModal.querySelector(".task-details");
+export const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
+
+// Function to toggle between view and edit modes
+export function toggleEditMode(isEditing) {
+  console.log(
+    "Toggling edit mode:",
+    isEditing ? "Switching to edit mode" : "Switching to view mode"
+  );
+
+  if (isEditing) {
+    taskDetails.classList.add("hidden"); // Hide task details
+    editTaskForm.classList.remove("hidden"); // Show edit form
+  } else {
+    taskDetails.classList.remove("hidden"); // Show task details
+    editTaskForm.classList.remove("hidden"); // Hide edit form
+  }
+}
