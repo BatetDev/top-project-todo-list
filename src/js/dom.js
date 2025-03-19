@@ -49,6 +49,7 @@ export function renderTodos(project) {
     if (clickedTask) {
       const taskIndex = clickedTask.dataset.index; // Get the task index
       const task = project.todos[taskIndex]; // Get the corresponding task
+      console.log("Task clicked:", task);
       openExpandedTaskModal(task);
     }
   });
@@ -77,6 +78,11 @@ const expandedTaskModal = document.querySelector("#expanded-task-modal");
 
 // Function to open the expanded task modal
 export function openExpandedTaskModal(task) {
+  console.log("Task passed to openExpandedTaskModal:", task);
+
+  // Store the current task
+  currentTask = task;
+
   // Populate the modal with task details
   expandedTaskModal.querySelector("#task-title").textContent =
     task.title || "No title";

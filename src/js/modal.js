@@ -3,8 +3,7 @@
 import { createTodo } from "./todos.js";
 import { addTodoToProject } from "./projects.js";
 import { renderProjects } from "./dom.js";
-import { openExpandedTaskModal } from "./dom.js"; // Import the consolidated function
-import { currentTask } from "./state.js"; // Import shared state
+import { currentTask } from "./dom.js";
 
 // Initialize modal functionality
 export function initModal(projects, renderProjects) {
@@ -71,21 +70,42 @@ export function initModal(projects, renderProjects) {
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
 const taskDetails = expandedTaskModal.querySelector(".task-details");
 const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
+console.log("Edit task form:", editTaskForm);
 const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
 const cancelEditBtn = expandedTaskModal.querySelector("#cancel-edit-btn");
 
 // Function to populate the edit task form with task details
 function populateEditTaskForm(task) {
-  console.log("Populating edit form with task:", task); // Debugging log
+  console.log("Populating edit form with task:", task);
 
-  editTaskForm.querySelector("#edit-task-name").value = task.title || "";
-  editTaskForm.querySelector("#edit-task-description").value =
-    task.description || "";
-  editTaskForm.querySelector("#edit-task-due-date").value = task.dueDate || "";
-  editTaskForm.querySelector("#edit-task-priority").value =
-    task.priority || "medium";
-  editTaskForm.querySelector("#edit-task-project").value =
-    task.project || "Inbox";
+  const nameField = editTaskForm.querySelector("#edit-task-name");
+  const descriptionField = editTaskForm.querySelector("#edit-task-description");
+  const dueDateField = editTaskForm.querySelector("#edit-task-due-date");
+  const priorityField = editTaskForm.querySelector("#edit-task-priority");
+  const projectField = editTaskForm.querySelector("#edit-task-project");
+
+  console.log("Name field:", nameField);
+  console.log("Description field:", descriptionField);
+  console.log("Due date field:", dueDateField);
+  console.log("Priority field:", priorityField);
+  console.log("Project field:", projectField);
+
+  if (
+    !nameField ||
+    !descriptionField ||
+    !dueDateField ||
+    !priorityField ||
+    !projectField
+  ) {
+    console.error("One or more form fields are missing in the DOM.");
+    return;
+  }
+
+  nameField.value = task.title || "";
+  descriptionField.value = task.description || "";
+  dueDateField.value = task.dueDate || "";
+  priorityField.value = task.priority || "medium";
+  projectField.value = task.project || "Inbox";
 }
 
 // Function to toggle between view and edit modes
@@ -103,7 +123,7 @@ function toggleEditMode(isEditing) {
 
 // Attach event listeners for toggling edit mode
 editTaskBtn.addEventListener("click", () => {
-  console.log("Current task in editTaskBtn:", currentTask); // Debugging log
+  console.log("Current task in editTaskBtn:", currentTask);
   populateEditTaskForm(currentTask); // Pre-fill the form with the current task's details
   toggleEditMode(true); // Switch to edit mode
 });
