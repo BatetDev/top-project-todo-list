@@ -1,3 +1,4 @@
+/* INDEX */
 import "../styles/main.css";
 
 import {
@@ -12,25 +13,29 @@ import { loadProjects, saveProjects } from "./storage.js";
 
 // Initialize app state
 let projects = loadProjects();
+
+// Add default project ("Inbox") only if no projects exist
 if (projects.length === 0) {
   projects = [createProject("Inbox")];
-}
 
-// Add sample todos to the default project
-projects[0].todos.push(
-  createTodo(
-    "Refactor code",
-    "Organize JavaScript into modules.",
-    "2025-03-20",
-    "medium"
-  ),
-  createTodo(
-    "Style the app",
-    "Apply steampunk-inspired design.",
-    "2025-03-25",
-    "low"
-  )
-);
+  // Add sample todos only if no tasks exists
+  if (projects[0].todos.length === 0) {
+    projects[0].todos.push(
+      createTodo(
+        "Refactor code",
+        "Organize JavaScript into modules.",
+        "2025-03-20",
+        "medium"
+      ),
+      createTodo(
+        "Style the app",
+        "Apply greco-roman-inspired design.",
+        "2025-03-25",
+        "low"
+      )
+    );
+  }
+}
 
 // Populate project picker and render initial projects
 populateProjectPicker(projects);
