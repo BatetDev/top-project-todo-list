@@ -3,6 +3,8 @@
 import { createTodo } from "./todos.js";
 import { addTodoToProject } from "./projects.js";
 import { renderProjects } from "./dom.js";
+import { openExpandedTaskModal } from "./dom.js"; // Import the consolidated function
+import { currentTask } from "./state.js"; // Import shared state
 
 // Initialize modal functionality
 export function initModal(projects, renderProjects) {
@@ -72,20 +74,10 @@ const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
 const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
 const cancelEditBtn = expandedTaskModal.querySelector("#cancel-edit-btn");
 
-let currentTask = null; // Variable to stroe the currently selected task
-
-// Function to open the expanded task modal
-export function openExpandedTaskModal(task) {
-  // Store the current task
-  currentTask = task;
-
-  // Populate the modal with task details
-  expandedTaskModal.querySelector("#task-title").textContet =
-    task.title || "No title";
-}
-
 // Function to populate the edit task form with task details
 function populateEditTaskForm(task) {
+  console.log("Populating edit form with task:", task); // Debugging log
+
   editTaskForm.querySelector("#edit-task-name").value = task.title || "";
   editTaskForm.querySelector("#edit-task-description").value =
     task.description || "";
@@ -100,15 +92,19 @@ function populateEditTaskForm(task) {
 function toggleEditMode(isEditing) {
   if (isEditing) {
     taskDetails.classList.add("hidden"); // Hide task details
-    editTaskForm.classList.add("visible"); // Show edit form
+    editTaskForm.classList.remove("hidden"); // Show edit form
+    editTaskForm.classList.add("visible");
   } else {
     taskDetails.classList.remove("hidden"); // Show task details
     editTaskForm.classList.remove("visible"); // Hide edit form
+    editTaskForm.classList.add("hidden");
   }
 }
 
 // Attach event listeners for toggling edit mode
 editTaskBtn.addEventListener("click", () => {
+  console.log("Current task in editTaskBtn:", currentTask); // Debugging log
+  populateEditTaskForm(currentTask); // Pre-fill the form with the current task's details
   toggleEditMode(true); // Switch to edit mode
 });
 

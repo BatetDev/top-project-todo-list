@@ -1,5 +1,8 @@
 // DOM manipulation logic
 
+let currentTask = null; // Variable to store the currently selected task
+export { currentTask }; // Export currentTask for use in other modules
+
 // Render all projects
 export function renderProjects(projects) {
   const main = document.querySelector("main");
@@ -30,9 +33,9 @@ export function renderTodos(project) {
   const taskList = document.createElement("ul");
   taskList.classList.add("task-list");
 
-  project.todos.forEach((todo) => {
+  project.todos.forEach((todo, index) => {
     const li = document.createElement("li");
-    li.dataset.index = project.todos.indexOf(todo); // Add an index to identify the task
+    li.dataset.index = index; // Add an index to identify the task
     li.innerHTML = `
       <span class="task-circle ${todo.completed ? "completed" : ""}"></span>
       <span class="task-text">${todo.title}</span>
@@ -73,7 +76,7 @@ export function populateProjectPicker(projects) {
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
 
 // Function to open the expanded task modal
-function openExpandedTaskModal(task) {
+export function openExpandedTaskModal(task) {
   // Populate the modal with task details
   expandedTaskModal.querySelector("#task-title").textContent =
     task.title || "No title";

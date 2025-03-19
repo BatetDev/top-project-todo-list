@@ -68,50 +68,31 @@
       <!-- Expanded Task View Modal -->
       <div id="expanded-task-modal" class="modal">
         <div class="modal-content">
-          <!-- Header with Edit and Delete Buttons -->
-          <div class="modal-header">
-            <h3 id="task-title">Task Title</h3>
-            <div class="modal-actions">
-              <button id="edit-task-btn">Edit</button>
-              <button id="delete-task-btn">Delete</button>
-            </div>
-          </div>
-
-          <!-- Task Details -->
+          <!-- Task Details View -->
           <div class="task-details">
-            <p>
-              <strong>Description:</strong>
-              <span id="task-description">No description</span>
-            </p>
-            <p>
-              <strong>Due Date:</strong>
-              <span id="task-due-date">No due date</span>
-            </p>
-            <p>
-              <strong>Priority:</strong>
-              <span id="task-priority">No priority</span>
-            </p>
-            <p>
-              <strong>Project:</strong> <span id="task-project">Inbox</span>
-            </p>
+            <div class="modal-header">
+              <h3 id="task-title">Task Title</h3>
+              <div class="modal-actions">
+                <button id="edit-task-btn">Edit</button>
+                <button id="delete-task-btn">Delete</button>
+              </div>
+            </div>
+            <p id="task-description"></p>
+            <p>Due Date: <span id="task-due-date"></span></p>
+            <p>Priority: <span id="task-priority"></span></p>
+            <p>Project: <span id="task-project"></span></p>
           </div>
 
-          <!-- Edit Task Form -->
-          <form action="" id="edit-task-form">
+          <!-- Edit Task Form (hidden by default) -->
+          <form id="edit-task-form" class="hidden">
+            <div class="modal-header">
+              <h3>Edit Task</h3>
+            </div>
             <label for="edit-task-name">Task Name</label>
-            <input
-              type="text"
-              id="edit-task-name"
-              placeholder="Task name"
-              require
-            />
+            <input type="text" id="edit-task-name" required />
 
-            <label for="edit-task-description">Task Description</label>
-            <textarea
-              type="text"
-              id="edit-task-description"
-              placeholder="Task description"
-            ></textarea>
+            <label for="edit-task-description">Description</label>
+            <textarea id="edit-task-description"></textarea>
 
             <label for="edit-task-due-date">Due Date</label>
             <input type="date" id="edit-task-due-date" />
@@ -119,17 +100,14 @@
             <label for="edit-task-priority">Priority</label>
             <select id="edit-task-priority">
               <option value="low">Low</option>
-              <option value="medium" selected>Medium</option>
+              <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
 
-            <label for="edit-task-project">Project</label>
-            <select id="edit-task-project">
-              <!-- Project options will be dynamically populated -->
-            </select>
-
-            <button type="submit">Save Changes</button>
-            <button type="button" id="cancel-edit-btn">Cancel</button>
+            <div class="modal-actions">
+              <button type="submit">Save Changes</button>
+              <button type="button" id="cancel-edit-btn">Cancel</button>
+            </div>
           </form>
         </div>
       </div>
