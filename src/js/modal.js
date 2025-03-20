@@ -19,7 +19,7 @@ export function initModal(projects, renderProjects) {
 
   // Show modal and hide "+" button
   addTaskButton.addEventListener("click", () => {
-    modal.classList.add("visible");
+    modal.classList.remove("hidden");
     addTaskButton.style.display = "none";
   });
 
@@ -29,7 +29,7 @@ export function initModal(projects, renderProjects) {
       !modalContent.contains(event.target) &&
       !addTaskButton.contains(event.target)
     ) {
-      modal.classList.remove("visible");
+      modal.classList.add("hidden");
       addTaskButton.style.display = "block";
     }
   });

@@ -96,14 +96,14 @@ export function openExpandedTaskModal(task) {
     task.project || "No project";
 
   // Show the modal by removing the "hidden" class
-  expandedTaskModal.classList.add("visible");
+  expandedTaskModal.classList.remove("hidden");
 }
 
 // Function to close the expanded task modal
 function closeExpandedTaskModal() {
   // Hide the modal by adding the "hidden" class
   console.log("closeExpandedTaskModal is closing modal...");
-  expandedTaskModal.classList.remove("visible");
+  expandedTaskModal.classList.add("hidden");
 }
 
 // Close modal when clicking outside the modal content

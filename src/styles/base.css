@@ -34,3 +34,8 @@ p {
   color: #cccccc;
   margin-bottom: 20px;
 }
+
+/*  Hidden state */
+.hidden {
+  display: none !important;
+}

@@ -54,7 +54,9 @@
 
 /* Task Modal */
 .modal {
-  display: none;
+  display: flex;
+  align-items: end;
+  justify-content: center;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -64,9 +66,8 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal.visible {
-  display: flex;
-  align-items: flex-end;
+.modal.hidden {
+  display: none;
 }
 
 .modal-content {
