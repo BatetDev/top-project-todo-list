@@ -134,8 +134,10 @@ export function toggleEditMode(isEditing) {
   if (isEditing) {
     taskDetails.classList.add("hidden"); // Hide task details
     editTaskForm.classList.remove("hidden"); // Show edit form
+    editTaskForm.classList.add("visible"); // Ensure edit form is visible
   } else {
     taskDetails.classList.remove("hidden"); // Show task details
-    editTaskForm.classList.remove("hidden"); // Hide edit form
+    editTaskForm.classList.add("hidden"); // Hide edit form
+    editTaskForm.classList.remove("visible"); // Ensure edit form is not visible
   }
 }
