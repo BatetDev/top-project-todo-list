@@ -70,6 +70,7 @@
 }
 
 .modal-content {
+  display: block;
   background-color: #444;
   padding: 10px;
   border-top: 1px solid #9a5c2b;
@@ -78,7 +79,7 @@
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  animation: slice-up 0.2s ease-in-out;
+  animation: slide-up 0.2s ease-in-out;
 }
 
 .close-modal {
@@ -153,13 +154,17 @@
   font-size: 0.9rem;
 }
 
-/* Edit Task Form */
-#edit-task-form {
+.task-details.hidden {
   display: none;
 }
 
-#edit-task-form.visible {
+/* Edit Task Form */
+#edit-task-form {
   display: block;
+}
+
+#edit-task-form.hidden {
+  display: none;
 }
 
 #edit-task-form label {
@@ -196,8 +201,4 @@
 
 #edit-task-form button:hover {
   background-color: #cf4452;
-}
-
-.hidden {
-  display: none;
 }
