@@ -126,3 +126,10 @@ editTaskBtn.addEventListener("click", () => {
 cancelEditBtn.addEventListener("click", () => {
   toggleEditMode(false); // Switch back to view mode
 });
+
+// Attach event listener for saving changes
+editTaskForm.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent page reload
+
+  console.log("Save Changes button clicked. Form submission prevented.");
+});
