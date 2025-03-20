@@ -159,9 +159,6 @@
 }
 
 /* Edit Task Form */
-#edit-task-form {
-  display: block;
-}
 
 #edit-task-form.hidden {
   display: none;
