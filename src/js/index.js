@@ -25,7 +25,8 @@ if (projects.length === 0) {
         "Refactor code",
         "Organize JavaScript into modules.",
         "2025-03-20",
-        "medium"
+        "medium",
+        "Inbox"
       ),
       createTodo(
         "Style the app",

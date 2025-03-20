@@ -1,12 +1,19 @@
 // Todo management logic
 
 // Factory function for creating Todo tasks
-export function createTodo(title, description, dueDate, priority) {
+export function createTodo(
+  title,
+  description,
+  dueDate,
+  priority,
+  project = "Inbox"
+) {
   return {
     title,
     description,
     dueDate,
     priority,
+    project,
     completed: false,
   };
 }
