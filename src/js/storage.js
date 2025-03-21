@@ -1,3 +1,5 @@
+// storage.js
+
 // Data persistence logic
 
 // Save projects to localStorage

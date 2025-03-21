@@ -1,3 +1,5 @@
+// projects.js
+
 // Project management logic
 
 // Factory function for creating projects
