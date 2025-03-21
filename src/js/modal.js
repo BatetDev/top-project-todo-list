@@ -2,7 +2,7 @@
 
 import { createTodo } from "./todos.js";
 import { addTodoToProject } from "./projects.js";
-import { renderProjects } from "./dom.js";
+import { populateProjectPicker, renderProjects } from "./dom.js";
 import {
   currentTask,
   taskDetails,
@@ -17,10 +17,25 @@ export function initModal(projects, renderProjects) {
   const modalContent = document.querySelector(".modal-content");
   const addTaskForm = document.querySelector("#add-task-form");
 
+  // Get the project picker dropdown
+  const projectPicker = document.querySelector("#task-project");
+  console.log("Project picker element:", projectPicker);
+
+  if (!projectPicker) {
+    console.log("Project picker element (#task-project) not found");
+  }
+
   // Show modal and hide "+" button
   addTaskButton.addEventListener("click", () => {
     modal.classList.remove("hidden");
     addTaskButton.style.display = "none";
+
+    // Ensure the project picker element exists before populating it
+    if (projectPicker) {
+      populateProjectPicker(projects, projectPicker);
+    } else {
+      console.error("Project picker element (#task-project) not found.");
+    }
   });
 
   // Close modal when clicking outside of it
@@ -50,7 +65,8 @@ export function initModal(projects, renderProjects) {
       taskName,
       taskDescription,
       taskDueDate,
-      taskPriority
+      taskPriority,
+      taskProject
     );
 
     // Find the selected project (defaulting to "Inbox")
@@ -78,8 +94,9 @@ const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
 const cancelEditBtn = expandedTaskModal.querySelector("#cancel-edit-btn");
 
 // Function to populate the edit task form with task details
-function populateEditTaskForm(task) {
+function populateEditTaskForm(task, projects) {
   console.log("Populating edit form with task:", task);
+  console.log("Projects:", projects);
 
   const nameField = editTaskForm.querySelector("#edit-task-name");
   const descriptionField = editTaskForm.querySelector("#edit-task-description");
@@ -109,11 +126,21 @@ function populateEditTaskForm(task) {
   dueDateField.value = task.dueDate || "";
   priorityField.value = task.priority || "medium";
   projectField.value = task.project || "Inbox";
+
+  // Populate the project picker dynamically
+  if (projects && Array.isArray(projects)) {
+    populateProjectPicker(projects, projectField, task.project || "Inbox");
+  } else {
+    console.log(
+      "Invalid or undefined projects array passed to populateEditTaskForm."
+    );
+  }
 }
 
 // Attach event listeners for toggling edit mode
 editTaskBtn.addEventListener("click", () => {
   console.log("Current task in editTaskBtn:", currentTask); // Debugging log
+  console.log("Projects array:", projects); // Debugging log
 
   toggleEditMode(true); // Switch to edit mode
 

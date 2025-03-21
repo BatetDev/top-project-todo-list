@@ -58,18 +58,32 @@ export function renderTodos(project) {
 }
 
 // Function to populate the project picker dropdown
-export function populateProjectPicker(projects) {
-  const projectPicker = document.querySelector("#task-project");
+export function populateProjectPicker(
+  projects,
+  selectElement,
+  selectedProject = "Inbox"
+) {
+  // Ensure the selectElement exists
+  if (!selectElement) {
+    console.error("Invalid selectElement passed to populateProjectPicker.");
+    return;
+  }
 
   // Clear existing options
-  projectPicker.innerHTML = "";
+  selectElement.innerHTML = "";
 
   // Add an option element for each project
   projects.forEach((project) => {
     const option = document.createElement("option");
     option.value = project.name;
     option.textContent = project.name;
-    projectPicker.appendChild(option);
+
+    // Mark the option as selected if it matches the specified project
+    if (project.name === selectedProject) {
+      option.selected = true;
+    }
+
+    selectElement.appendChild(option);
   });
 }
 
