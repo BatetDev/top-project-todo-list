@@ -1,19 +1,22 @@
 // modal.js
-
 // Modal functionality logic
-
 import { createTodo } from "./todos.js";
 import { addTodoToProject } from "./projects.js";
-import { populateProjectPicker, renderProjects } from "./dom.js";
 import {
-  currentTask,
+  populateProjectPicker,
+  renderProjects,
+  openExpandedTaskModal,
+} from "./dom.js";
+import {
   taskDetails,
   editTaskForm,
   toggleEditMode,
+  currentTask,
 } from "./dom.js";
+import { getProjects, saveState } from "./state.js";
 
 // Initialize modal functionality
-export function initModal(projects, renderProjects) {
+export function initModal(renderProjectsCallback) {
   const addTaskButton = document.querySelector("#add-task-btn");
   const modal = document.querySelector("#add-task-modal");
   const modalContent = document.querySelector(".modal-content");
@@ -21,23 +24,15 @@ export function initModal(projects, renderProjects) {
 
   // Get the project picker dropdown
   const projectPicker = document.querySelector("#task-project");
-  console.log("Project picker element:", projectPicker);
-
-  if (!projectPicker) {
-    console.log("Project picker element (#task-project) not found");
-  }
 
   // Show modal and hide "+" button
   addTaskButton.addEventListener("click", () => {
     modal.classList.remove("hidden");
     addTaskButton.style.display = "none";
 
-    // Ensure the project picker element exists before populating it
-    if (projectPicker) {
-      populateProjectPicker(projects, projectPicker);
-    } else {
-      console.error("Project picker element (#task-project) not found.");
-    }
+    // Populate the project picker dynamically
+    const projects = getProjects(); // Use centralized state
+    populateProjectPicker(projects, projectPicker);
   });
 
   // Close modal when clicking outside of it
@@ -72,6 +67,7 @@ export function initModal(projects, renderProjects) {
     );
 
     // Find the selected project (defaulting to "Inbox")
+    const projects = getProjects(); // Use centralized state
     const selectedProject = projects.find(
       (project) => project.name === taskProject
     );
@@ -80,8 +76,11 @@ export function initModal(projects, renderProjects) {
       // Add the new todo to the selected project's todos array
       addTodoToProject(selectedProject, newTodo);
 
+      // Save the updated state to localStorage
+      saveState();
+
       // Re-render the projects to update the UI
-      renderProjects(projects);
+      renderProjectsCallback();
     }
 
     // Reset form fields
@@ -91,26 +90,19 @@ export function initModal(projects, renderProjects) {
 
 // Select the expanded task modal and its elements
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
-console.log("Edit task form:", editTaskForm);
 const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
 const cancelEditBtn = expandedTaskModal.querySelector("#cancel-edit-btn");
 
 // Function to populate the edit task form with task details
-function populateEditTaskForm(task, projects) {
+function populateEditTaskForm(task) {
   console.log("Populating edit form with task:", task);
-  console.log("Projects:", projects);
 
+  const projects = getProjects(); // Use centralized state
   const nameField = editTaskForm.querySelector("#edit-task-name");
   const descriptionField = editTaskForm.querySelector("#edit-task-description");
   const dueDateField = editTaskForm.querySelector("#edit-task-due-date");
   const priorityField = editTaskForm.querySelector("#edit-task-priority");
   const projectField = editTaskForm.querySelector("#edit-task-project");
-
-  console.log("Name field:", nameField);
-  console.log("Description field:", descriptionField);
-  console.log("Due date field:", dueDateField);
-  console.log("Priority field:", priorityField);
-  console.log("Project field:", projectField);
 
   if (
     !nameField ||
@@ -127,23 +119,13 @@ function populateEditTaskForm(task, projects) {
   descriptionField.value = task.description || "";
   dueDateField.value = task.dueDate || "";
   priorityField.value = task.priority || "medium";
-  projectField.value = task.project || "Inbox";
 
   // Populate the project picker dynamically
-  if (projects && Array.isArray(projects)) {
-    populateProjectPicker(projects, projectField, task.project || "Inbox");
-  } else {
-    console.log(
-      "Invalid or undefined projects array passed to populateEditTaskForm."
-    );
-  }
+  populateProjectPicker(projects, projectField, task.project || "Inbox");
 }
 
 // Attach event listeners for toggling edit mode
 editTaskBtn.addEventListener("click", () => {
-  console.log("Current task in editTaskBtn:", currentTask); // Debugging log
-  console.log("Projects array:", projects); // Debugging log
-
   toggleEditMode(true); // Switch to edit mode
 
   // Delay population of the form to ensure the DOM is updated
@@ -159,6 +141,7 @@ cancelEditBtn.addEventListener("click", () => {
 // Attach event listener for saving changes
 editTaskForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent page reload
-
   console.log("Save Changes button clicked. Form submission prevented.");
+
+  // TODO: Implement logic to update the task in the centralized state
 });
