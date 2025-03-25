@@ -1,10 +1,8 @@
 // state.js
 // Centralized state management for projects
-
-// Initialize the projects array with default "Inbox" project
 let projects = [];
 
-// Function to initialize the state (load from localStorage if available)
+// Initialize the state (load from localStorage if available)
 export function initializeState() {
   const savedProjects = JSON.parse(localStorage.getItem("projects"));
   if (savedProjects && Array.isArray(savedProjects)) {
@@ -23,14 +21,20 @@ export function getProjects() {
 // Setter for projects
 export function setProjects(newProjects) {
   projects = newProjects;
+  saveState(); // Save changes to localStorage immediately
 }
 
 // Function to add a new project
 export function addProject(newProject) {
   projects.push(newProject);
+  saveState(); // Save changes to localStorage immediately
 }
 
 // Function to save the current state to localStorage
 export function saveState() {
-  localStorage.setItem("projects", JSON.stringify(projects));
+  try {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  } catch (error) {
+    console.error("Failed to save projects:", error);
+  }
 }

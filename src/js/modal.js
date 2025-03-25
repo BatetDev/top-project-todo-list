@@ -1,4 +1,5 @@
 // modal.js
+
 // Modal functionality logic
 import { createTodo } from "./todos.js";
 import { addTodoToProject } from "./projects.js";

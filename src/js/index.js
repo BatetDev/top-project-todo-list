@@ -1,4 +1,5 @@
-/* INDEX */
+/* index.js */
+
 import "../styles/main.css";
 import {
   createTodo,

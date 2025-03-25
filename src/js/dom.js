@@ -1,4 +1,5 @@
 // dom.js
+
 // DOM manipulation logic
 import { getProjects, saveState } from "./state.js";
 
