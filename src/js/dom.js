@@ -1,12 +1,13 @@
 // dom.js
-
 // DOM manipulation logic
+import { getProjects, saveState } from "./state.js";
 
 let currentTask = null; // Variable to store the currently selected task
 export { currentTask }; // Export currentTask for use in other modules
 
 // Render all projects
 export function renderProjects(projects) {
+  const projects = getProjects(); // use centralized state
   const main = document.querySelector("main");
   main.innerHTML = ""; // Clear the main content before rendering
 
@@ -61,10 +62,11 @@ export function renderTodos(project) {
 
 // Function to populate the project picker dropdown
 export function populateProjectPicker(
-  projects,
   selectElement,
   selectedProject = "Inbox"
 ) {
+  const projects = getProjects(); // Use centralized state
+
   // Ensure the selectElement exists
   if (!selectElement) {
     console.error("Invalid selectElement passed to populateProjectPicker.");
