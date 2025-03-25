@@ -1,5 +1,7 @@
+/* main.css */
 @import "normalize.css";
 @import "base.css";
-@import "layout.css";
-@import "components.css";
+@import "buttons.css";
+@import "modals.css";
+@import "projects.css";
 @import "forms.css";
