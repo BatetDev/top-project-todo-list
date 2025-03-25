@@ -1,19 +1,8 @@
 // modal.js
 
 // Modal functionality logic
-import { createTodo } from "./todos.js";
-import { addTodoToProject } from "./projects.js";
-import {
-  populateProjectPicker,
-  renderProjects,
-  openExpandedTaskModal,
-} from "./dom.js";
-import {
-  taskDetails,
-  editTaskForm,
-  toggleEditMode,
-  currentTask,
-} from "./dom.js";
+import { populateProjectPicker, openExpandedTaskModal } from "./dom-render.js";
+import { toggleEditMode, editTaskForm, currentTask } from "./dom-modals.js";
 import { getProjects, saveState } from "./state.js";
 
 // Initialize modal functionality

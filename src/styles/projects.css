@@ -33,6 +33,7 @@
   padding: 10px;
   margin-bottom: 10px;
 }
+
 .task-circle {
   width: 20px;
   height: 20px;
@@ -41,9 +42,11 @@
   cursor: pointer;
   flex-shrink: 0;
 }
+
 .task-circle.completed {
   background-color: #b87333;
 }
+
 .task-text {
   line-height: 1;
   text-align: left;
