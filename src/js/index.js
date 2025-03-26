@@ -1,15 +1,16 @@
 /* index.js */
 import "../styles/main.css";
 import { initializeState, getProjects, saveState } from "./state.js";
-import { createProject, addTodoToProject, createTodo } from "./project-todo.js";
+import { createProject, addTodoToProject } from "./project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
 import { initModal } from "./modal-logic.js";
+import { handleAddTaskFormSubmit } from "./form-handlers.js";
 
 // Initialize app state
 initializeState();
 
 // Get the centralized projects array
-let projects = getProjects();
+const projects = getProjects();
 
 // Add default project ("Inbox") only if no projects exist
 if (projects.length === 0) {
