@@ -59,31 +59,35 @@ export function renderTodos(project) {
 
 // Function to populate the project picker dropdown
 export function populateProjectPicker(
+  projects,
   selectElement,
-  selectedProject = "Inbox"
+  selectedProject = null
 ) {
-  const projects = getProjects(); // Use centralized state
-
-  // Ensure the selectElement exists
-  if (!selectElement) {
-    console.error("Invalid selectElement passed to populateProjectPicker.");
+  // Add type checking and validation
+  if (!selectElement || !(selectElement instanceof HTMLSelectElement)) {
+    console.error("Invalid select element:", selectElement);
     return;
   }
 
   // Clear existing options
-  selectElement.innerHTML = "";
+  while (selectElement.firstChild) {
+    selectElement.removeChild(selectElement.firstChild);
+  }
 
-  // Add an option element for each project
-  projects.forEach((project) => {
-    const option = document.createElement("option");
-    option.value = project.name;
-    option.textContent = project.name;
-
-    // Mark the option as selected if it matches the specified project
-    if (project.name === selectedProject) {
-      option.selected = true;
-    }
-
-    selectElement.appendChild(option);
-  });
+  try {
+    // Add an option element for each project
+    projects.forEach((project) => {
+      const option = document.createElement("option");
+      option.value = project.name;
+      option.textContent = project.name;
+      if (selectedProject && project.name === selectedProject) {
+        option.selected = true;
+      }
+      selectElement.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Error populating project picker:", error);
+    console.log("SelectElement:", selectElement);
+    console.log("Projects:", projects);
+  }
 }

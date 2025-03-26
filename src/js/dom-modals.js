@@ -1,6 +1,8 @@
 // dom-modals.js
 let currentTask = null; // Variable to store the currently selected task
 export { currentTask }; // Export currentTask for use in other modules
+import { getProjects } from "./state.js";
+import { populateProjectPicker } from "./dom-render.js";
 
 // Select the expanded task modal and its elements
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
@@ -50,6 +52,13 @@ expandedTaskModal.addEventListener("click", (e) => {
 // Select modal elements
 export const taskDetails = expandedTaskModal.querySelector(".task-details");
 export const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
+const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
+
+// Add edit button event listener
+editTaskBtn.addEventListener("click", () => {
+  console.log("Edit button clicked");
+  toggleEditMode(true);
+});
 
 // Function to toggle between view and edit modes
 export function toggleEditMode(isEditing) {
@@ -60,8 +69,37 @@ export function toggleEditMode(isEditing) {
   if (isEditing) {
     taskDetails.classList.add("hidden"); // Hide task details
     editTaskForm.classList.remove("hidden"); // Show edit form
+    populateEditForm(currentTask);
   } else {
     taskDetails.classList.remove("hidden"); // Show task details
     editTaskForm.classList.add("hidden"); // Hide edit form
   }
+}
+
+// Function to populate the edit form
+function populateEditForm(task) {
+  if (!task) return;
+
+  // Get all projects
+  const projects = getProjects();
+  const projectSelect = editTaskForm.querySelector("#edit-task-project");
+
+  if (!projectSelect) {
+    console.error("Project select element not found in edit form");
+    return;
+  }
+
+  // Populate project picker dropdown first
+  populateProjectPicker(projects, projectSelect, task.project);
+
+  // Populate other form fields
+  const nameInput = editTaskForm.querySelector("#edit-task-name");
+  const descInput = editTaskForm.querySelector("#edit-task-description");
+  const dateInput = editTaskForm.querySelector("#edit-task-due-date");
+  const priorityInput = editTaskForm.querySelector("#edit-task-priority");
+
+  if (nameInput) nameInput.value = task.title || "";
+  if (descInput) descInput.value = task.description || "";
+  if (dateInput) dateInput.value = task.dueDate || "";
+  if (priorityInput) priorityInput.value = task.priority || "medium";
 }
