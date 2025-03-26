@@ -39,9 +39,8 @@ function closeExpandedTaskModal() {
 expandedTaskModal.addEventListener("click", (e) => {
   const modalContent = expandedTaskModal.querySelector(".modal-content");
   console.log("Clicked inside #expanded-task-modal");
-
   if (!modalContent.contains(e.target)) {
-    console.log("Clicked inside #expanded-task-modal, closing modal...");
+    console.log("Clicked outside .modal-content, closing modal...");
     closeExpandedTaskModal();
     // Reset edit mode to ensure the expanded task modal is shown
     toggleEditMode(false);

@@ -1,6 +1,4 @@
 // dom-render.js
-// Render projects and tasks
-
 import { getProjects } from "./state.js";
 
 // Render all projects
@@ -39,9 +37,20 @@ export function renderTodos(project) {
     li.dataset.index = index; // Add an index to identify the task
     li.innerHTML = `
       <span class="task-circle ${todo.completed ? "completed" : ""}"></span>
-      <span class="task-text">${todo.title}"></span>
+      <span class="task-text">${todo.title}</span>
     `;
     taskList.appendChild(li);
+  });
+
+  // Use event delegation to handle task clicks
+  taskList.addEventListener("click", (e) => {
+    const clickedTask = e.target.closest("li"); // Find the closest <li> element
+    if (clickedTask) {
+      const taskIndex = clickedTask.dataset.index; // Get the task index
+      const task = project.todos[taskIndex]; // Get the corresponding task
+      console.log("Task clicked:", task);
+      openExpandedTaskModal(task);
+    }
   });
 
   return taskList; // Return the ul element
@@ -71,7 +80,7 @@ export function populateProjectPicker(
 
     // Mark the option as selected if it matches the specified project
     if (project.name === selectedProject) {
-      option.selected === true;
+      option.selected = true;
     }
 
     selectElement.appendChild(option);

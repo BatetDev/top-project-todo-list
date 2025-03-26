@@ -1,10 +1,5 @@
 // modal.js
 
-// Modal functionality logic
-import { populateProjectPicker, openExpandedTaskModal } from "./dom-render.js";
-import { toggleEditMode, editTaskForm, currentTask } from "./dom-modals.js";
-import { getProjects, saveState } from "./state.js";
-
 // Initialize modal functionality
 export function initModal(renderProjectsCallback) {
   const addTaskButton = document.querySelector("#add-task-btn");
