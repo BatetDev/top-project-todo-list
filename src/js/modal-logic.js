@@ -1,5 +1,7 @@
 // modal-logic.js
-import { populateProjectPicker } from "./dom-render.js";
+import { createTodo } from "./project-todo.js";
+import { addTodoToProject } from "./project-todo.js";
+import { populateProjectPicker, renderProjects } from "./dom-render.js";
 import { getProjects, saveState } from "./state.js";
 
 // Initialize modal functionality
