@@ -18,8 +18,11 @@ export function initModal(renderProjectsCallback) {
     addTaskButton.style.display = "none";
 
     // Populate the project picker dynamically
-    const projects = getProjects(); // Use centralized state
-    populateProjectPicker(projects, projectPicker);
+    if (projectPicker) {
+      populateProjectPicker(projectPicker);
+    } else {
+      console.error("Project picker element (#task-project) not found.");
+    }
   });
 
   // Close modal when clicking outside of it

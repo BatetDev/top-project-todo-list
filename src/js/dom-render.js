@@ -1,5 +1,6 @@
 // dom-render.js
 import { getProjects } from "./state.js";
+import { openExpandedTaskModal } from "./dom-modals.js"; // Import the function
 
 // Render all projects
 export function renderProjects() {
@@ -49,7 +50,7 @@ export function renderTodos(project) {
       const taskIndex = clickedTask.dataset.index; // Get the task index
       const task = project.todos[taskIndex]; // Get the corresponding task
       console.log("Task clicked:", task);
-      openExpandedTaskModal(task);
+      openExpandedTaskModal(task); // Call the imported function
     }
   });
 

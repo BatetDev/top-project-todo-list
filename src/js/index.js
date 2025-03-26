@@ -15,12 +15,20 @@ const projects = getProjects();
 // Add default project ("Inbox") only if no projects exist
 if (projects.length === 0) {
   const inboxProject = createProject("Inbox");
-  addTodoToProject(inboxProject);
+  addTodoToProject(
+    inboxProject,
+    createTodo("Sample Task", "Description", "2025-03-20", "medium")
+  );
   saveState();
 }
 
 // Populate project picker and render initial projects
-populateProjectPicker(projects);
+const projectPicker = document.querySelector("#task-project");
+if (projectPicker) {
+  populateProjectPicker(projectPicker);
+} else {
+  console.error("Project picker element (#task-project) not found.");
+}
 renderProjects(projects);
 
 // Initialize modal functionality
