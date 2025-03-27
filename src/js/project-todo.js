@@ -1,4 +1,5 @@
 // project-todo.js
+// create and manage projects and todos
 
 // Factory function for creating projects
 export function createProject(name) {
