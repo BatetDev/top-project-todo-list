@@ -1,5 +1,6 @@
 // state.js
-// Centralized state management for projects
+// Centralized state management for projects and persistence
+
 let projects = [];
 
 // Initialize the state (load from localStorage if available)
@@ -21,13 +22,13 @@ export function getProjects() {
 // Setter for projects
 export function setProjects(newProjects) {
   projects = newProjects;
-  saveState(); // Save changes to localStorage immediately
+  saveState();
 }
 
 // Function to add a new project
 export function addProject(newProject) {
   projects.push(newProject);
-  saveState(); // Save changes to localStorage immediately
+  saveState();
 }
 
 // Function to save the current state to localStorage

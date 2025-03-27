@@ -25,6 +25,8 @@ export function initModal(renderProjectsCallback) {
     }
   });
 
+  // TODO: Project picker not populated, possible selector issue
+
   // Close modal when clicking outside of it
   document.addEventListener("click", (event) => {
     if (
