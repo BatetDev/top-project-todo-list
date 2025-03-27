@@ -1,6 +1,6 @@
 // dom-modals.js
 let currentTask = null; // Variable to store the currently selected task
-export { currentTask }; // Export currentTask for use in other modules
+export { currentTask };
 import { getProjects } from "./state.js";
 import { populateProjectPicker } from "./dom-render.js";
 
@@ -32,8 +32,6 @@ export function openExpandedTaskModal(task) {
 
 // Function to close the expanded task modal
 function closeExpandedTaskModal() {
-  // Hide the modal by adding the "hidden" class
-  console.log("closeExpandedTaskModal is closing modal...");
   expandedTaskModal.classList.add("hidden");
 }
 

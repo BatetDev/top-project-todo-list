@@ -1,6 +1,6 @@
 // dom-render.js
 import { getProjects } from "./state.js";
-import { openExpandedTaskModal } from "./dom-modals.js"; // Import the function
+import { openExpandedTaskModal } from "./dom-modals.js";
 
 // Render all projects
 export function renderProjects() {
