@@ -23,7 +23,6 @@ export function renderProjects() {
     const taskList = renderTodos(project);
     projectCard.appendChild(taskList);
 
-    // Append the project card to the main content
     main.appendChild(projectCard);
   });
 }
@@ -50,11 +49,11 @@ export function renderTodos(project) {
       const taskIndex = clickedTask.dataset.index; // Get the task index
       const task = project.todos[taskIndex]; // Get the corresponding task
       console.log("Task clicked:", task);
-      openExpandedTaskModal(task); // Call the imported function
+      openExpandedTaskModal(task);
     }
   });
 
-  return taskList; // Return the ul element
+  return taskList;
 }
 
 // Function to populate the project picker dropdown
