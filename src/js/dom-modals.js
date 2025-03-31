@@ -1,10 +1,9 @@
 // dom-modals.js
-let currentTask = null; // Variable to store the currently selected task
+let currentTask = null;
 export { currentTask };
 import { getProjects } from "./state.js";
 import { populateProjectPicker } from "./dom-render.js";
 
-// Select the expanded task modal and its elements
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
 
 // Function to open the expanded task modal

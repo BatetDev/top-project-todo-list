@@ -4,7 +4,7 @@ import { openExpandedTaskModal } from "./dom-modals.js";
 
 // Render all projects
 export function renderProjects() {
-  const projects = getProjects(); // Use centralized state
+  const projects = getProjects(); // Fetch the current state of projects
   const main = document.querySelector("main");
   main.innerHTML = ""; // Clear the main content before rendering
 
@@ -19,7 +19,7 @@ export function renderProjects() {
     projectTitle.textContent = project.name;
     projectCard.appendChild(projectTitle);
 
-    // Add the task list by calling renderTodos
+    // Add the task list
     const taskList = renderTodos(project);
     projectCard.appendChild(taskList);
 
