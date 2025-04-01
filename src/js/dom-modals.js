@@ -9,8 +9,6 @@ const expandedTaskModal = document.querySelector("#expanded-task-modal");
 // Function to open the expanded task modal
 export function openExpandedTaskModal(task) {
   console.log("Task passed to openExpandedTaskModal:", task);
-
-  // Store the current task
   currentTask = task;
 
   // Populate the modal with task details
