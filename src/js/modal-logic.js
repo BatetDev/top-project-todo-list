@@ -18,8 +18,10 @@ export function initModal(renderProjectsCallback) {
     addTaskButton.style.display = "none";
 
     // Populate the project picker dynamically
+    const projects = getProjects();
+
     if (projectPicker) {
-      populateProjectPicker(projectPicker);
+      populateProjectPicker(projects, projectPicker);
     } else {
       console.error("Project picker element (#task-project) not found.");
     }
