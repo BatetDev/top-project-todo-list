@@ -50,7 +50,7 @@ export function handleAddTaskFormSubmit(addTaskForm, renderProjectsCallback) {
 // Function to populate the edit task form with task details
 export function populateEditTaskForm(task) {
   console.log("Populating edit form with task:", task);
-  const projects = getProjects(); // Use centralized state
+  const projects = getProjects();
   const nameField = document.querySelector("#edit-task-name");
   const descriptionField = document.querySelector("#edit-task-description");
   const dueDateField = document.querySelector("#edit-task-due-date");
@@ -81,7 +81,7 @@ export function populateEditTaskForm(task) {
 export function handleEditTaskFormSubmit() {
   const editTaskForm = document.querySelector("#edit-task-form");
   editTaskForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent page reload
+    event.preventDefault();
     console.log("Save Changes button clicked. Form submission prevented.");
     // TODO: Implement logic to update the task in the centralized state
   });
