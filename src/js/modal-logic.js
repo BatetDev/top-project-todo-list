@@ -15,7 +15,7 @@ export function initModal(renderProjectsCallback) {
   // Show modal and hide "+" button
   addTaskButton.addEventListener("click", () => {
     modal.classList.remove("hidden");
-    addTaskButton.style.display = "none";
+    addTaskButton.classList.add("hidden");
 
     // Populate the project picker dynamically
     const projects = getProjects();
@@ -27,8 +27,6 @@ export function initModal(renderProjectsCallback) {
     }
   });
 
-  // TODO: Project picker not populated, possible selector issue
-
   // Close modal when clicking outside of it
   document.addEventListener("click", (event) => {
     if (
@@ -36,7 +34,7 @@ export function initModal(renderProjectsCallback) {
       !addTaskButton.contains(event.target)
     ) {
       modal.classList.add("hidden");
-      addTaskButton.style.display = "block";
+      addTaskButton.classList.remove("hidden");
     }
   });
 }
