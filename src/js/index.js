@@ -24,20 +24,22 @@ if (projects.length === 0) {
 
 // Populate project picker and render initial projects
 const projectPicker = document.querySelector("#task-project");
+
 if (projectPicker) {
   populateProjectPicker(projectPicker);
 } else {
   console.error("Project picker element (#task-project) not found.");
 }
+
 renderProjects(projects);
 
-// Initialize modal functionality
+// Display add task modal and initializes it's functionality
 displayAddTaskModal(() => {
   renderProjects(projects);
   saveState();
 });
 
-// Handle form submissions
+// Handle add task form submissions
 handleAddTaskFormSubmit(document.querySelector("#add-task-form"), () => {
   renderProjects(projects);
   saveState();
