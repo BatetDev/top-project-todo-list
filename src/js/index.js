@@ -3,7 +3,7 @@ import "../styles/main.css";
 import { initializeState, getProjects, saveState } from "./state.js";
 import { createProject, addTodoToProject } from "./project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
-import { initModal } from "./modal-logic.js";
+import { displayAddTaskModal } from "./modal-logic.js";
 import { handleAddTaskFormSubmit } from "./form-handlers.js";
 
 // Initialize app state
@@ -32,7 +32,7 @@ if (projectPicker) {
 renderProjects(projects);
 
 // Initialize modal functionality
-initModal(() => {
+displayAddTaskModal(() => {
   renderProjects(projects);
   saveState();
 });

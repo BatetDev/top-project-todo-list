@@ -3,7 +3,7 @@ import { populateProjectPicker } from "./dom-render.js";
 import { getProjects, saveState } from "./state.js";
 
 // Initialize modal functionality
-export function initModal(renderProjectsCallback) {
+export function displayAddTaskModal(renderProjectsCallback) {
   const addTaskButton = document.querySelector("#add-task-btn");
   const modal = document.querySelector("#add-task-modal");
   const modalContent = document.querySelector(".modal-content");
