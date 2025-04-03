@@ -48,6 +48,7 @@ expandedTaskModal.addEventListener("click", (e) => {
 export const taskDetails = expandedTaskModal.querySelector(".task-details");
 export const editTaskForm = expandedTaskModal.querySelector("#edit-task-form");
 const editTaskBtn = expandedTaskModal.querySelector("#edit-task-btn");
+const deleteTaskBtn = expandedTaskModal.querySelector("#delete-task-btn");
 
 // Add edit button event listener
 editTaskBtn.addEventListener("click", () => {
@@ -98,3 +99,9 @@ function populateEditForm(task) {
   if (dateInput) dateInput.value = task.dueDate || "";
   if (priorityInput) priorityInput.value = task.priority || "medium";
 }
+
+// Add event listener for the delete button
+deleteTaskBtn.addEventListener("click", () => {
+  console.log("Delete button clicked. Initiating task deletion...");
+  // TODO: Implement task deletion logic here
+});
