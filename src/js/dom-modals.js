@@ -1,8 +1,8 @@
 // dom-modals.js
 let currentTask = null;
 export { currentTask };
-import { getProjects } from "./state.js";
-import { populateProjectPicker } from "./dom-render.js";
+import { getProjects, saveState } from "./state.js";
+import { populateProjectPicker, renderProjects } from "./dom-render.js";
 
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
 
@@ -103,5 +103,30 @@ function populateEditForm(task) {
 // Add event listener for the delete button
 deleteTaskBtn.addEventListener("click", () => {
   console.log("Delete button clicked. Initiating task deletion...");
-  // TODO: Implement task deletion logic here
+
+  // Get the centralized state (projects array)
+  const projects = getProjects();
+
+  // Find the project containing the current task
+  const project = projects.find((p) =>
+    p.todos.some((todo) => todo === currentTask)
+  );
+
+  if (!project) {
+    console.error("Project containing the task no found.");
+    return;
+  }
+
+  // Remove the task from the project's todos array
+  project.todos = project.todos.filter((todo) => todo !== currentTask);
+
+  console.log("Task deleted from project:", project);
+
+  // Save the updated state to localStorage
+  saveState();
+
+  // Re-render the UI to reflect the changes
+  renderProjects();
+
+  closeExpandedTaskModal();
 });
