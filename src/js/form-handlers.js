@@ -97,14 +97,30 @@ export function handleEditTaskFormSubmit() {
     const editedTaskProject =
       document.querySelector("#edit-task-project").value;
 
-    console.log("Edited Task Details:", {
-      title: editedTaskName,
-      description: editedTaskDescription,
-      dueDate: editedTaskDueDate,
-      priority: editedTaskPriority,
-      project: editedTaskProject,
-    });
+    // Get the centralized state (projects array)
+    const projects = getProjects();
 
-    // TODO: Update the centralized state with these values
+    // Find the project containing the current task
+    const project = projects.find((p) =>
+      p.todos.some((todo) => todo === currentTask)
+    );
+
+    if (!project) {
+      console.error("Project containing the task not found");
+      return;
+    }
+
+    // Locate the task in the project's todos array
+    const taskIndex = project.todos.findIndex((todo) => todo === currentTask);
+
+    if (taskIndex === -1) {
+      console.error("Task not found in the project's todos array.");
+      return;
+    }
+
+    // Log the located task for debugging purposes
+    console.log("Located Task:", project.todos[taskIndex]);
+
+    // TODO: Update the task's properties with the new values
   });
 }
