@@ -130,6 +130,13 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
 
     console.log("Updated Task:", project.todos[taskIndex]);
 
+    // Update the currentTask reference
+    currentTask.title = editedTaskName;
+    currentTask.description = editedTaskDescription;
+    currentTask.dueDate = editedTaskDueDate;
+    currentTask.priority = editedTaskPriority;
+    currentTask.project = editedTaskProject;
+
     // Save the updated state to localStorage
     saveState();
 
