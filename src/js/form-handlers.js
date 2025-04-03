@@ -121,6 +121,15 @@ export function handleEditTaskFormSubmit() {
     // Log the located task for debugging purposes
     console.log("Located Task:", project.todos[taskIndex]);
 
-    // TODO: Update the task's properties with the new values
+    // Update the task's properties with the new values
+    project.todos[taskIndex].title = editedTaskName;
+    project.todos[taskIndex].description = editedTaskDescription;
+    project.todos[taskIndex].dueDate = editedTaskDueDate;
+    project.todos[taskIndex].priority = editedTaskPriority;
+    project.todos[taskIndex].project = editedTaskProject;
+
+    console.log("Updated Task:", project.todos[taskIndex]);
+
+    // TODO: Save the updated state to localStorage
   });
 }
