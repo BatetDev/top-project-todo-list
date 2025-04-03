@@ -121,6 +121,24 @@
           </form>
         </div>
       </div>
+
+      <!-- Delete Confirmation Modal -->
+      <div id="delete-confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+          <!-- Modal Heading -->
+          <h3>Delete Task?</h3>
+          <!-- Modal Description -->
+          <p>
+            This will permanently delete
+            <strong id="task-to-delete-name"></strong> and can't be undone.
+          </p>
+          <!-- Modal Buttons -->
+          <div class="confirmation-buttons">
+            <button id="cancel-delete-btn">NO</button>
+            <button id="confirm-delete-btn">YES</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Floating Add Task Button -->
