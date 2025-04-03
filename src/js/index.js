@@ -49,4 +49,7 @@ handleAddTaskFormSubmit(document.querySelector("#add-task-form"), () => {
 });
 
 // Handle form submissions for editing tasks
-handleEditTaskFormSubmit();
+handleEditTaskFormSubmit(() => {
+  renderProjects(projects);
+  saveState();
+});

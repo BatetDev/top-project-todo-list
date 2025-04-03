@@ -78,7 +78,7 @@ export function populateEditTaskForm(task) {
 }
 
 // Attach event listener for saving changes
-export function handleEditTaskFormSubmit() {
+export function handleEditTaskFormSubmit(renderProjectsCallback) {
   const editTaskForm = document.querySelector("#edit-task-form");
   editTaskForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -133,6 +133,10 @@ export function handleEditTaskFormSubmit() {
     // Save the updated state to localStorage
     saveState();
 
-    // TODO: Re-render the UI to reflect the changes
+    // Re-render the UI to reflect the changes
+    renderProjectsCallback();
+
+    // Switch back to view mode
+    toggleEditMode(false);
   });
 }
