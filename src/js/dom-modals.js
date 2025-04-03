@@ -100,9 +100,51 @@ function populateEditForm(task) {
   if (priorityInput) priorityInput.value = task.priority || "medium";
 }
 
+// Select the delete confimation modal and its elements
+const deleteConfirmationModal = document.querySelector(
+  "#delete-confirmation-modal"
+);
+const taskToDeleteName = deleteConfirmationModal.querySelector(
+  "#task-to-delete-name"
+);
+
+// Function to show the delete confirmation modal
+export function showDeleteConfirmationModal(task) {
+  console.log("Showing delete confirmation modal for task:", task);
+  // Set the task name in the modal
+  taskToDeleteName.textContent = task.title || "Unnamed Task";
+  // Show the modal bt removing the "hidden" class
+  deleteConfirmationModal.classList.remove("hidden");
+}
+
+// Select the cancel deletion button
+const cancelDeleteBtn =
+  deleteConfirmationModal.querySelector("#cancel-delete-btn");
+
+// CLose the delete confirmation modal
+function closeDeleteConfirmationModal() {
+  console.log("Closing delete confirmation moda...");
+  deleteConfirmationModal.classList.add("hidden");
+}
+
+// Close modal when clicking outside the modal content
+deleteConfirmationModal.addEventListener("click", (e) => {
+  const modalContent = deleteConfirmationModal.querySelector(".modal-content");
+  if (!modalContent.contains(e.target)) {
+    closeDeleteConfirmationModal();
+  }
+});
+
+// Add event listener and functionality for the Cancel button
+cancelDeleteBtn.addEventListener("click", () => {
+  closeDeleteConfirmationModal();
+});
+
 // Add event listener for the delete button
 deleteTaskBtn.addEventListener("click", () => {
   console.log("Delete button clicked. Initiating task deletion...");
+  // Show the delete confirmation modal with the current task details
+  showDeleteConfirmationModal(currentTask);
 
   // Get the centralized state (projects array)
   const projects = getProjects();
