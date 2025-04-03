@@ -82,7 +82,29 @@ export function handleEditTaskFormSubmit() {
   const editTaskForm = document.querySelector("#edit-task-form");
   editTaskForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("Save Changes button clicked. Form submission prevented.");
-    // TODO: Implement logic to update the task in the centralized state
+
+    // Capture edited values from the form fields
+    const editedTaskName = document.querySelector("#edit-task-name").value;
+    const editedTaskDescription = document.querySelector(
+      "#edit-task-description"
+    ).value;
+    const editedTaskDueDate = document.querySelector(
+      "#edit-task-due-date"
+    ).value;
+    const editedTaskPriority = document.querySelector(
+      "#edit-task-priority"
+    ).value;
+    const editedTaskProject =
+      document.querySelector("#edit-task-project").value;
+
+    console.log("Edited Task Details:", {
+      title: editedTaskName,
+      description: editedTaskDescription,
+      dueDate: editedTaskDueDate,
+      priority: editedTaskPriority,
+      project: editedTaskProject,
+    });
+
+    // TODO: Update the centralized state with these values
   });
 }

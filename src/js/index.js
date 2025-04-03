@@ -26,7 +26,7 @@ if (projects.length === 0) {
 const projectPicker = document.querySelector("#task-project");
 
 if (projectPicker) {
-  populateProjectPicker(projectPicker);
+  populateProjectPicker(projects, projectPicker);
 } else {
   console.error("Project picker element (#task-project) not found.");
 }
