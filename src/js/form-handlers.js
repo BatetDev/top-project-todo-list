@@ -136,6 +136,19 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     // Re-render the UI to reflect the changes
     renderProjectsCallback();
 
+    // Update the expanded task modal with the new details
+    const expandedTaskModal = document.querySelector("#expanded-task-modal");
+    expandedTaskModal.querySelector("#task-title").textContent =
+      currentTask.title || "No title";
+    expandedTaskModal.querySelector("#task-description").textContent =
+      currentTask.description || "No description";
+    expandedTaskModal.querySelector("#task-due-date").textContent =
+      currentTask.dueDate || "No due date";
+    expandedTaskModal.querySelector("#task-priority").textContent =
+      currentTask.priority || "No priority";
+    expandedTaskModal.querySelector("#task-project").textContent =
+      currentTask.project || "No project";
+
     // Switch back to view mode
     toggleEditMode(false);
   });
