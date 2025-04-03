@@ -4,7 +4,10 @@ import { initializeState, getProjects, saveState } from "./state.js";
 import { createProject, addTodoToProject } from "./project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
 import { displayAddTaskModal } from "./modal-logic.js";
-import { handleAddTaskFormSubmit } from "./form-handlers.js";
+import {
+  handleAddTaskFormSubmit,
+  handleEditTaskFormSubmit,
+} from "./form-handlers.js";
 
 // Initialize app state
 initializeState();
