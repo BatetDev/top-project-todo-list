@@ -130,6 +130,9 @@ export function handleEditTaskFormSubmit() {
 
     console.log("Updated Task:", project.todos[taskIndex]);
 
-    // TODO: Save the updated state to localStorage
+    // Save the updated state to localStorage
+    saveState();
+
+    // TODO: Re-render the UI to reflect the changes
   });
 }
