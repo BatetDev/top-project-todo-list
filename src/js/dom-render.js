@@ -1,6 +1,7 @@
 // dom-render.js
 import { getProjects } from "./state.js";
 import { openExpandedTaskModal } from "./dom-modals.js";
+import { toggleTodoCompletion } from "./project-todo.js";
 
 // Render all projects
 export function renderProjects() {
@@ -36,7 +37,9 @@ export function renderTodos(project) {
     const li = document.createElement("li");
     li.dataset.index = index; // Add an index to identify the task
     li.innerHTML = `
-      <span class="task-circle ${todo.completed ? "completed" : ""}"></span>
+      <span class="task-circle ${
+        todo.completed ? "completed" : ""
+      }" data-action="toggle"></span>
       <span class="task-text">${todo.title}</span>
     `;
     taskList.appendChild(li);
@@ -45,15 +48,30 @@ export function renderTodos(project) {
   // Use event delegation to handle task clicks
   taskList.addEventListener("click", (e) => {
     const clickedTask = e.target.closest("li"); // Find the closest <li> element
-    if (clickedTask) {
-      const taskIndex = clickedTask.dataset.index; // Get the task index
-      const task = project.todos[taskIndex]; // Get the corresponding task
-      console.log("Task clicked:", task);
-      openExpandedTaskModal(task);
+    if (!clickedTask) return; // Exit if no task is clicked
+
+    const taskIndex = clickedTask.dataset.index; // Get the task index
+    const task = project.todos[taskIndex]; // Get the corresponding task
+
+    // Check if the click was on the task completion circle
+    if (e.target.matches(".task-circle[data-action='toggle']")) {
+      console.log("Task circle clicked. Toggling completion...");
+      toggleTaskCompletion(task); // Toggle the completed status
+      return;
     }
+
+    // Otherwise, open the expanded task modal
+    console.log("Task clicked:", task);
+    openExpandedTaskModal(task);
   });
 
   return taskList;
+}
+
+// Function to toggle task completion
+function toggleTaskCompletion(task) {
+  console.log("Toggling completion for task:", task);
+  task.completed = !task.completed; // Toggle the completed status
 }
 
 // Function to populate the project picker dropdown
