@@ -56,7 +56,7 @@ export function renderTodos(project) {
     // Check if the click was on the task completion circle
     if (e.target.matches(".task-circle[data-action='toggle']")) {
       console.log("Task circle clicked. Toggling completion...");
-      toggleTaskCompletion(task); // Toggle the completed status
+      toggleTaskCompletion(task, clickedTask, e.target);
       return;
     }
 
@@ -69,9 +69,13 @@ export function renderTodos(project) {
 }
 
 // Function to toggle task completion
-function toggleTaskCompletion(task) {
+function toggleTaskCompletion(task, taskElement, circleElement) {
   console.log("Toggling completion for task:", task);
   task.completed = !task.completed; // Toggle the completed status
+
+  // Update UI elements
+  taskElement.classList.toggle("completed", task.completed);
+  circleElement.classList.toggle("completed", task.completed);
 }
 
 // Function to populate the project picker dropdown
