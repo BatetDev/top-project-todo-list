@@ -53,3 +53,57 @@ handleEditTaskFormSubmit(() => {
   renderProjects(projects);
   saveState();
 });
+
+// Select the main content area and navigation buttons
+const main = document.querySelector("main");
+const todayTab = document.querySelector("#today-tab");
+const searchTab = document.querySelector("#search-tab");
+const projectsTab = document.querySelector("#projects-tab");
+
+// Function to render the default view (Today)
+function renderTodayView() {
+  console.log("Rendering Today view...");
+  const projects = getProjects();
+  renderProjects(projects);
+}
+
+// Function to render the Projects view
+function renderProjectsView() {
+  console.log("Rendering Projects view...");
+  // For now, reuse the renderProjects function
+  // Later, create a dedicated function for rendering the Projects screen
+  const projects = getProjects();
+  renderProjects(projects);
+}
+
+// Function to render the Search view (placeholder)
+function renderSearchView() {
+  console.log("Rendering Search view...");
+  main.innerHTML = "<p>Search functionality coming soon...</p>";
+}
+
+// Add event listeners to navigation buttons
+todayTab.addEventListener("click", () => {
+  setActiveTab(todayTab);
+  renderTodayView();
+});
+
+searchTab.addEventListener("click", () => {
+  setActiveTab(searchTab);
+  renderSearchView();
+});
+
+projectsTab.addEventListener("click", () => {
+  setActiveTab(projectsTab);
+  renderProjectsView();
+});
+
+// Helper function to set the active tab
+function setActiveTab(activeTab) {
+  const navButtons = document.querySelectorAll(".nav-btn");
+  navButtons.forEach((btn) => btn.classList.remove("active"));
+  activeTab.classList.add("active");
+}
+
+// Initialize the default view
+renderTodayView();
