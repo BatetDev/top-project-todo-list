@@ -1,7 +1,7 @@
 // dom-render.js
 import { getProjects } from "./state.js";
 import { openExpandedTaskModal } from "./dom-modals.js";
-import { toggleTodoCompletion } from "./project-todo.js";
+import { toggleTaskCompletion } from "./project-todo.js";
 
 // Render all projects
 export function renderProjects() {
@@ -66,16 +66,6 @@ export function renderTodos(project) {
   });
 
   return taskList;
-}
-
-// Function to toggle task completion
-function toggleTaskCompletion(task, taskElement, circleElement) {
-  console.log("Toggling completion for task:", task);
-  task.completed = !task.completed; // Toggle the completed status
-
-  // Update UI elements
-  taskElement.classList.toggle("completed", task.completed);
-  circleElement.classList.toggle("completed", task.completed);
 }
 
 // Function to populate the project picker dropdown

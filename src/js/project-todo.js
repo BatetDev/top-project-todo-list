@@ -33,8 +33,17 @@ export function createTodo(
 }
 
 // Toggle the completion status of a todo
-export function toggleTodoCompletion(todo) {
+export function toggleTaskCompletion(todo, taskElement, circleElement) {
+  // Toggle data
   todo.completed = !todo.completed;
+
+  // Update UI if elements are provided
+  if (taskElement && circleElement) {
+    taskElement.classList.toggle("completed", todo.completed);
+    circleElement.classList.toggle("completed", todo.completed);
+  }
+
+  return todo.completed;
 }
 
 // Update the priority of a todo
