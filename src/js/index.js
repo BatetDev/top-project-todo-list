@@ -70,10 +70,60 @@ function renderTodayView() {
 // Function to render the Projects view
 function renderProjectsView() {
   console.log("Rendering Projects view...");
-  // For now, reuse the renderProjects function
-  // Later, create a dedicated function for rendering the Projects screen
+  const main = document.querySelector("main");
+  main.innerHTML = ""; // Clear the main content area
+
+  // Create a container for the header and add project button
+  const headerContainer = document.createElement("div");
+  headerContainer.style.display = "flex";
+  headerContainer.style.justifyContent = "space-between";
+  headerContainer.style.alignItems = "center";
+  headerContainer.style.marginBottom = "20px";
+
+  // Create a header for the Projects screen
+  const header = document.createElement("h2");
+  header.textContent = "My Projects";
+  header.style.color = "#b87333";
+  header.style.margin = "0";
+  headerContainer.appendChild(header);
+
+  // Add a "+" button to add new projects
+  const addProjectButton = document.createElement("button");
+  addProjectButton.textContent = "+";
+  addProjectButton.style.backgroundColor = "#b87333";
+  addProjectButton.style.color = "#fafafa";
+  addProjectButton.style.border = "none";
+  addProjectButton.style.borderRadius = "5px";
+  addProjectButton.style.padding = "5px 10px";
+  addProjectButton.style.fontSize = "1rem";
+  addProjectButton.style.cursor = "pointer";
+  addProjectButton.style.fontWeight = "bold";
+  headerContainer.appendChild(addProjectButton);
+
+  main.appendChild(headerContainer);
+
+  // Create a container for the project list
+  const projectList = document.createElement("ul");
+  projectList.style.listStyleType = "none";
+  projectList.style.padding = "0";
+
+  // Get the list of projects from centralized state
   const projects = getProjects();
-  renderProjects(projects);
+
+  // Add each project to the list
+  projects.forEach((project) => {
+    const li = document.createElement("li");
+    li.textContent = project.name;
+    li.style.marginBottom = "10px";
+    li.style.padding = "10px";
+    li.style.backgroundColor = "#2b2b2b";
+    li.style.borderRadius = "5px";
+    li.style.color = "#fafafa";
+    li.style.cursor = "pointer";
+    projectList.appendChild(li);
+  });
+
+  main.appendChild(projectList);
 }
 
 // Function to render the Search view (placeholder)
