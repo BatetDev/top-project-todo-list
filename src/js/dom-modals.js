@@ -121,7 +121,7 @@ export function showDeleteConfirmationModal(task) {
 const cancelDeleteBtn =
   deleteConfirmationModal.querySelector("#cancel-delete-btn");
 
-// CLose the delete confirmation modal
+// Close the delete confirmation modal
 function closeDeleteConfirmationModal() {
   console.log("Closing delete confirmation moda...");
   deleteConfirmationModal.classList.add("hidden");
@@ -158,6 +158,13 @@ const confirmDeleteBtn = deleteConfirmationModal.querySelector(
 // Add event listener for the Confirm button
 confirmDeleteBtn.addEventListener("click", () => {
   console.log("User confirmed deletion. Proceeding to delete task...");
+
+  // Check if currentTask is valid
+  if (!currentTask) {
+    console.error("Error: currentTask is null or undefined.");
+    closeDeleteConfirmationModal();
+    return;
+  }
 
   // Get the centralized state (projects array)
   const projects = getProjects();
