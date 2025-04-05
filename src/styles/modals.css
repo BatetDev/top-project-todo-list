@@ -91,3 +91,17 @@
 .task-details.hidden {
   display: none;
 }
+
+/* Add Project Modal */
+#add-project-modal {
+  z-index: 1002;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#add-project-modal .modal-content {
+  background-color: #444;
+  animation: slide-up 0.2s ease-in-out;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}

@@ -98,8 +98,14 @@ function renderProjectsView() {
   addProjectButton.style.fontSize = "1rem";
   addProjectButton.style.cursor = "pointer";
   addProjectButton.style.fontWeight = "bold";
-  headerContainer.appendChild(addProjectButton);
 
+  // Add click event listener to open the Add Project Modal
+  addProjectButton.addEventListener("click", () => {
+    console.log("Add Project button clicked. Opening modal...");
+    showAddProjectModal();
+  });
+
+  headerContainer.appendChild(addProjectButton);
   main.appendChild(headerContainer);
 
   // Create a container for the project list
@@ -157,3 +163,31 @@ function setActiveTab(activeTab) {
 
 // Initialize the default view
 renderTodayView();
+
+// Function to show the Add Project Modal
+function showAddProjectModal() {
+  const modal = document.querySelector("#add-project-modal");
+  modal.classList.remove("hidden");
+}
+
+// Function to close the Add Project Modal
+function closeAddProjectModal() {
+  const modal = document.querySelector("#add-project-modal");
+  modal.classList.add("hidden");
+  const form = document.querySelector("#add-project-form");
+  form.reset(); // Reset the form fields
+}
+
+// Add event listener to the Cancel button
+document
+  .querySelector("#cancel-add-project-btn")
+  .addEventListener("click", () => {
+    console.log("Cancel button clicked. Closing Add Project modal...");
+    closeAddProjectModal();
+  });
+
+// Add event listener to close the modal when clicking outside
+document.querySelector("#add-project-modal").addEventListener("click", (e) => {
+  console.log("Clicked outside modal content. Closing Add Project modal....");
+  closeAddProjectModal();
+});

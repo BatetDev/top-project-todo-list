@@ -150,5 +150,26 @@
       <button id="search-tab" class="nav-btn active">Search</button>
       <button id="projects-tab" class="nav-btn active">Projects</button>
     </nav>
+
+    <!-- Add Project Modal -->
+    <div id="add-project-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Add New Project</h2>
+        <form id="add-project-form">
+          <!-- Project Name -->
+          <label for="project-name">Project Name</label>
+          <input
+            type="text"
+            id="project-name"
+            placeholder="Enter project name"
+            required
+          />
+          <!-- Action Buttons -->
+          <div style="display: flex; justify-content: space-between"></div>
+          <button type="submit" style="background-color: #b87333">Save</button>
+          <button type="button" id="cancel-add-project-btn">Cancel</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
