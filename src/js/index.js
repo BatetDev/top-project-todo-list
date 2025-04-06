@@ -1,6 +1,11 @@
 /* index.js */
 import "../styles/main.css";
-import { initializeState, getProjects, saveState } from "./state.js";
+import {
+  initializeState,
+  getProjects,
+  saveState,
+  addProject,
+} from "./state.js";
 import { createProject, addTodoToProject } from "./project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
 import { displayAddTaskModal } from "./modal-logic.js";
