@@ -188,8 +188,11 @@ document
 
 // Add event listener to close the modal when clicking outside
 document.querySelector("#add-project-modal").addEventListener("click", (e) => {
-  console.log("Clicked outside modal content. Closing Add Project modal....");
-  closeAddProjectModal();
+  // Only close if clicking directly on the modal backdrop
+  if (e.target.id === "add-project-modal") {
+    console.log("Clicked outside modal content. Closing Add Project modal....");
+    closeAddProjectModal();
+  }
 });
 
 // Function to handle form submission in the Add Project Modal
