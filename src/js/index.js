@@ -44,7 +44,7 @@ if (projectPicker) {
 renderProjects(projects);
 
 // Initialize modal functionality
-initModal(() => {
+displayAddTaskModal(() => {
   renderProjects(projects);
   saveState();
 });
