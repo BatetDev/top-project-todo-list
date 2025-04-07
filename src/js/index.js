@@ -300,7 +300,7 @@ function renameProject(project) {
   }
 
   const projects = getProjects();
-  const isDuplicate = project.some(
+  const isDuplicate = projects.some(
     (p) => p.name.toLowerCase() === newName.toLowerCase() && p !== project
   );
 
