@@ -88,7 +88,7 @@ function renderProjectsView() {
   // Create a header for the Projects screen
   const header = document.createElement("h2");
   header.textContent = "My Projects";
-  header.style.color = "#b87333"; // Greco-Roman aesthetic
+  header.style.color = "#b87333";
   header.style.margin = "0";
   headerContainer.appendChild(header);
 
@@ -290,3 +290,26 @@ function handleAddProjectFormSubmit() {
 
 // Call the function to attach the event listener
 handleAddProjectFormSubmit();
+
+// Function to rename a project
+function renameProject(project) {
+  const newName = prompt("Enter a new name for the project:", project.name);
+  if (!newName || newName.trim() === "") {
+    alert("Project name cannot be empty.");
+    return;
+  }
+
+  const projects = getProjects();
+  const isDuplicate = project.some(
+    (p) => p.name.toLowerCase() === newName.toLowerCase() && p !== project
+  );
+
+  if (isDuplicate) {
+    alert("A project with this name already exists.");
+    return;
+  }
+
+  project.name = newName.trim();
+  saveState();
+  renderProjectsView();
+}
