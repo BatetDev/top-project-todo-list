@@ -1,8 +1,8 @@
 // index.js
 import "../styles/main.css";
-import { initializeState } from "./state.js";
+import { initializeState, getProjects, saveState } from "./state.js";
 import { createProject, addTodoToProject } from "./project-todo.js";
-import { renderProjects } from "./dom-render.js";
+import { renderProjects, populateProjectPicker } from "./dom-render.js";
 import { displayAddTaskModal } from "./modal-logic.js";
 import { handleAddTaskFormSubmit } from "./form-handlers.js";
 import {
@@ -10,6 +10,13 @@ import {
   renderSearchView,
   renderProjectsView,
 } from "./navigation.js";
+import {
+  showAddProjectModal,
+  closeAddProjectModal,
+  handleAddProjectFormSubmit as handleProjectFormSubmit,
+  renameProject,
+  deleteProject,
+} from "./project-ui.js";
 
 // Initialize app state
 initializeState();
@@ -30,14 +37,14 @@ if (projects.length === 0) {
 // Populate project picker and render initial projects
 const projectPicker = document.querySelector("#task-project");
 if (projectPicker) {
-  populateProjectPicker(projectPicker);
+  populateProjectPicker(projects, projectPicker);
 } else {
   console.error("Project picker element (#task-project) not found.");
 }
 renderProjects(projects);
 
 // Initialize modal functionality
-displayAddTaskModal(() => {
+initModal(() => {
   renderProjects(projects);
   saveState();
 });
@@ -47,3 +54,25 @@ handleAddTaskFormSubmit(document.querySelector("#add-task-form"), () => {
   renderProjects(projects);
   saveState();
 });
+
+// Initialize navigation
+renderTodayView();
+
+// Add event listener to the Cancel button in the Add Project Modal
+document
+  .querySelector("#cancel-add-project-btn")
+  .addEventListener("click", () => {
+    console.log("Cancel button clicked. Closing Add Project modal...");
+    closeAddProjectModal();
+  });
+
+// Add event listener to close the modal when clicking outside
+document.querySelector("#add-project-modal").addEventListener("click", (e) => {
+  if (e.target.id === "add-project-modal") {
+    console.log("Clicked outside modal content. Closing Add Project modal....");
+    closeAddProjectModal();
+  }
+});
+
+// Attach the event listener for the Add Project form submission
+handleProjectFormSubmit();
