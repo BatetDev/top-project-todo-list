@@ -313,3 +313,28 @@ function renameProject(project) {
   saveState();
   renderProjectsView();
 }
+
+// Function to delete a project
+function deleteProject(project) {
+  if (!confirm(`Are you sure you want to delete "${project.name}"?`)) return;
+
+  const projects = getProjects();
+  const inbox = projects.find((p) => p.name === "Inbox");
+
+  // Move tasks to Inbox
+  if (inbox && project.todos.length > 0) {
+    project.todos.forEach((todo) => {
+      todo.project = "Inbox";
+      inbox.todos.push(todo);
+    });
+  }
+
+  // Remove the project
+  const index = projects.indexOf(project);
+  if (index > -1) {
+    projects.splice(index, 1);
+  }
+
+  saveState();
+  renderProjectsView();
+}
