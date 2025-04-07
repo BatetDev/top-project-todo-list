@@ -88,7 +88,7 @@ function renderProjectsView() {
   // Create a header for the Projects screen
   const header = document.createElement("h2");
   header.textContent = "My Projects";
-  header.style.color = "#b87333";
+  header.style.color = "#b87333"; // Greco-Roman aesthetic
   header.style.margin = "0";
   headerContainer.appendChild(header);
 
@@ -124,13 +124,52 @@ function renderProjectsView() {
   // Add each project to the list
   projects.forEach((project) => {
     const li = document.createElement("li");
-    li.textContent = project.name;
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.alignItems = "center";
     li.style.marginBottom = "10px";
     li.style.padding = "10px";
     li.style.backgroundColor = "#2b2b2b";
     li.style.borderRadius = "5px";
     li.style.color = "#fafafa";
     li.style.cursor = "pointer";
+
+    // Project name
+    const projectName = document.createElement("span");
+    projectName.textContent = project.name;
+    li.appendChild(projectName);
+
+    // Actions container (edit and delete icons)
+    if (project.name !== "Inbox") {
+      const actionsContainer = document.createElement("div");
+      actionsContainer.style.display = "flex";
+      actionsContainer.style.gap = "10px";
+
+      // Edit icon
+      const editIcon = document.createElement("span");
+      editIcon.textContent = "✏️";
+      editIcon.style.cursor = "pointer";
+      editIcon.title = "Rename Project";
+      editIcon.addEventListener("click", () => {
+        console.log(`Edit icon clicked for project: ${project.name}`);
+        renameProject(project);
+      });
+      actionsContainer.appendChild(editIcon);
+
+      // Delete icon
+      const deleteIcon = document.createElement("span");
+      deleteIcon.textContent = "🗑️";
+      deleteIcon.style.cursor = "pointer";
+      deleteIcon.title = "Delete Project";
+      deleteIcon.addEventListener("click", () => {
+        console.log(`Delete icon clicked for project: ${project.name}`);
+        deleteProject(project);
+      });
+      actionsContainer.appendChild(deleteIcon);
+
+      li.appendChild(actionsContainer);
+    }
+
     projectList.appendChild(li);
   });
 
