@@ -97,3 +97,27 @@
   background-color: #444;
   color: #fafafa;
 }
+
+/* Project Form Styles */
+.project-form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.project-save-btn {
+  background-color: #b87333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.project-cancel-btn {
+  background-color: transparent;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

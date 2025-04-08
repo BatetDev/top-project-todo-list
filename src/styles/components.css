@@ -1,0 +1,49 @@
+/* Project View Styles */
+.projects-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.projects-title {
+  color: #b87333;
+  margin: 0;
+}
+
+.add-project-button {
+  background-color: #b87333;
+  color: #fafafa;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.project-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.project-action-icon {
+  cursor: pointer;
+}

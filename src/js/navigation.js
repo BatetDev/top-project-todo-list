@@ -23,78 +23,55 @@ export function renderTodayView() {
 // Function to render the Projects view
 export function renderProjectsView() {
   console.log("Rendering Projects view...");
-  main.innerHTML = ""; // Clear the main content area
-  // Create a container for the header and add project button
+  main.innerHTML = "";
+
   const headerContainer = document.createElement("div");
-  headerContainer.style.display = "flex";
-  headerContainer.style.justifyContent = "space-between";
-  headerContainer.style.alignItems = "center";
-  headerContainer.style.marginBottom = "20px";
-  // Create a header for the Projects screen
+  headerContainer.classList.add("projects-header-container");
+
   const header = document.createElement("h2");
   header.textContent = "My Projects";
-  header.style.color = "#b87333";
-  header.style.margin = "0";
+  header.classList.add("projects-title");
   headerContainer.appendChild(header);
-  // Add a "+" button to add new projects
+
   const addProjectButton = document.createElement("button");
   addProjectButton.textContent = "+";
-  addProjectButton.style.backgroundColor = "#b87333";
-  addProjectButton.style.color = "#fafafa";
-  addProjectButton.style.border = "none";
-  addProjectButton.style.borderRadius = "5px";
-  addProjectButton.style.padding = "5px 10px";
-  addProjectButton.style.fontSize = "1rem";
-  addProjectButton.style.cursor = "pointer";
-  addProjectButton.style.fontWeight = "bold";
-  // Add click event listener to open the Add Project Modal
+  addProjectButton.classList.add("add-project-button");
   addProjectButton.addEventListener("click", () => {
     console.log("Add Project button clicked. Opening modal...");
     showAddProjectModal();
   });
   headerContainer.appendChild(addProjectButton);
   main.appendChild(headerContainer);
-  // Create a container for the project list
+
   const projectList = document.createElement("ul");
-  projectList.style.listStyleType = "none";
-  projectList.style.padding = "0";
-  // Get the list of projects from centralized state
+  projectList.classList.add("project-list");
+
   const projects = getProjects();
-  // Add each project to the list
   projects.forEach((project) => {
     const li = document.createElement("li");
-    li.style.display = "flex";
-    li.style.justifyContent = "space-between";
-    li.style.alignItems = "center";
-    li.style.marginBottom = "10px";
-    li.style.padding = "10px";
-    li.style.backgroundColor = "#2b2b2b";
-    li.style.borderRadius = "5px";
-    li.style.color = "#fafafa";
-    li.style.cursor = "pointer";
-    // Project name
+    li.classList.add("project-item");
+
     const projectName = document.createElement("span");
     projectName.textContent = project.name;
     li.appendChild(projectName);
-    // Actions container (edit and delete icons)
+
     if (project.name !== "Inbox") {
       const actionsContainer = document.createElement("div");
-      actionsContainer.style.display = "flex";
-      actionsContainer.style.gap = "10px";
-      // Edit icon
+      actionsContainer.classList.add("project-actions");
+
       const editIcon = document.createElement("span");
       editIcon.textContent = "✏️";
-      editIcon.style.cursor = "pointer";
+      editIcon.classList.add("project-action-icon");
       editIcon.title = "Rename Project";
       editIcon.addEventListener("click", () => {
         console.log(`Edit icon clicked for project: ${project.name}`);
         renameProject(project);
       });
       actionsContainer.appendChild(editIcon);
-      // Delete icon
+
       const deleteIcon = document.createElement("span");
       deleteIcon.textContent = "🗑️";
-      deleteIcon.style.cursor = "pointer";
+      deleteIcon.classList.add("project-action-icon");
       deleteIcon.title = "Delete Project";
       deleteIcon.addEventListener("click", () => {
         console.log(`Delete icon clicked for project: ${project.name}`);
