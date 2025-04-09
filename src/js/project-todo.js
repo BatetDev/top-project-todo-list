@@ -36,22 +36,28 @@ export function createTodo(
 
 // Toggle the completion status of a todo
 export function toggleTaskCompletion(todo, taskElement, circleElement) {
-  // Toggle data
+  // Toggle the completed status
   todo.completed = !todo.completed;
 
   // Update UI if elements are provided
   if (taskElement && circleElement) {
-    taskElement.classList.toggle("completed", todo.completed);
+    if (todo.completed) {
+      // Add the animation class
+      taskElement.classList.add("completed-animation");
+
+      // Wait for the animation to complete before removing the task
+      setTimeout(() => {
+        taskElement.remove(); // Remove the task from the DOM
+      }, 300); // Match the duration of the animation (0.3s)
+    } else {
+      // If unchecking completion, remove the animation class
+      taskElement.classList.remove("completed-animation");
+    }
+
+    // Update the circle's appearance
     circleElement.classList.toggle("completed", todo.completed);
   }
 
-  // Save the update state to localStorage
+  // Save the updated state to localStorage
   saveState();
-
-  return todo.completed;
-}
-
-// Update the priority of a todo
-export function updateTodoPriority(todo, newPriority) {
-  todo.priority = newPriority;
 }
