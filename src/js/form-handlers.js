@@ -4,6 +4,8 @@ import { addTodoToProject } from "./project-todo.js";
 import { toggleEditMode, currentTask } from "./dom-modals.js";
 import { getProjects, saveState } from "./state.js";
 
+import { format, parseISO } from "date-fns";
+
 // Handle form submission for adding tasks
 export function handleAddTaskFormSubmit(addTaskForm, renderProjectsCallback) {
   addTaskForm.addEventListener("submit", (event) => {
