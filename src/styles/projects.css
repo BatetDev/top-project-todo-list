@@ -37,7 +37,7 @@
 .task-circle {
   width: 20px;
   height: 20px;
-  border: 2px solid #b87333;
+  border: 3px solid #b87333;
   border-radius: 50%;
   cursor: pointer;
   flex-shrink: 0;
