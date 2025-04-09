@@ -77,11 +77,29 @@ export function populateEditTaskForm(task) {
   populateProjectPicker(projects, projectField, task.project || "Inbox");
 }
 
-// Attach event listener for saving changes
+// Handle form submissions for editing tasks
 export function handleEditTaskFormSubmit(renderProjectsCallback) {
   const editTaskForm = document.querySelector("#edit-task-form");
-  editTaskForm.addEventListener("submit", (event) => {
+
+  if (!editTaskForm) {
+    console.error("Edit task form not found!");
+    return;
+  }
+
+  console.log("Edit task form found:", editTaskForm);
+
+  // Remove any existing event listeners to prevent duplicates
+  editTaskForm.removeEventListener("submit", handleSubmit);
+
+  // Attach the event listener
+  editTaskForm.addEventListener("submit", handleSubmit);
+
+  function handleSubmit(event) {
+    console.log("Submit event triggered."); // Debugging log
+
+    // Prevent the default form submission behavior
     event.preventDefault();
+    console.log("Form submission prevented."); // Debugging log
 
     // Capture edited values from the form fields
     const editedTaskName = document.querySelector("#edit-task-name").value;
@@ -96,6 +114,15 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     ).value;
     const editedTaskProject =
       document.querySelector("#edit-task-project").value;
+
+    // Log the captured values for debugging
+    console.log("Edited Task Values:", {
+      editedTaskName,
+      editedTaskDescription,
+      editedTaskDueDate,
+      editedTaskPriority,
+      editedTaskProject,
+    });
 
     // Get the centralized state (projects array)
     const projects = getProjects();
@@ -118,17 +145,12 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
       return;
     }
 
-    // Log the located task for debugging purposes
-    console.log("Located Task:", project.todos[taskIndex]);
-
     // Update the task's properties with the new values
     project.todos[taskIndex].title = editedTaskName;
     project.todos[taskIndex].description = editedTaskDescription;
     project.todos[taskIndex].dueDate = editedTaskDueDate;
     project.todos[taskIndex].priority = editedTaskPriority;
     project.todos[taskIndex].project = editedTaskProject;
-
-    console.log("Updated Task:", project.todos[taskIndex]);
 
     // Update the currentTask reference
     currentTask.title = editedTaskName;
@@ -156,7 +178,13 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     expandedTaskModal.querySelector("#task-project").textContent =
       currentTask.project || "No project";
 
+    // Update the priority circle's data-priority attribute
+    const priorityCircle = expandedTaskModal.querySelector(".task-circle");
+    if (priorityCircle) {
+      priorityCircle.setAttribute("data-priority", currentTask.priority);
+    }
+
     // Switch back to view mode
     toggleEditMode(false);
-  });
+  }
 }

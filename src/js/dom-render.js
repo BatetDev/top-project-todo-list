@@ -39,7 +39,7 @@ export function renderTodos(project) {
     li.innerHTML = `
       <span class="task-circle ${
         todo.completed ? "completed" : ""
-      }" data-action="toggle"></span>
+      }" data-action="toggle" data-priority="${todo.priority}"></span>
       <span class="task-text">${todo.title}</span>
     `;
     taskList.appendChild(li);

@@ -23,6 +23,12 @@ export function openExpandedTaskModal(task) {
   expandedTaskModal.querySelector("#task-project").textContent =
     task.project || "No project";
 
+  // Update the priority circle's data-priority attribute
+  const priorityCircle = expandedTaskModal.querySelector(".task-circle");
+  if (priorityCircle) {
+    priorityCircle.setAttribute("data-priority", task.priority);
+  }
+
   // Show the modal by removing the "hidden" class
   expandedTaskModal.classList.remove("hidden");
 }

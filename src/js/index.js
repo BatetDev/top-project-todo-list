@@ -4,7 +4,10 @@ import { initializeState, getProjects, saveState } from "./state.js";
 import { createProject, addTodoToProject } from "./project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
 import { displayAddTaskModal } from "./modal-logic.js";
-import { handleAddTaskFormSubmit } from "./form-handlers.js";
+import {
+  handleAddTaskFormSubmit,
+  handleEditTaskFormSubmit,
+} from "./form-handlers.js";
 import {
   renderTodayView,
   renderSearchView,
@@ -41,7 +44,7 @@ if (projectPicker) {
 } else {
   console.error("Project picker element (#task-project) not found.");
 }
-renderProjects(projects);
+renderProjects();
 
 // Initialize modal functionality
 displayAddTaskModal(() => {
@@ -49,8 +52,14 @@ displayAddTaskModal(() => {
   saveState();
 });
 
-// Handle form submissions
+// Handle form submissions for adding tasks
 handleAddTaskFormSubmit(document.querySelector("#add-task-form"), () => {
+  renderProjects(projects);
+  saveState();
+});
+
+// Handle form submissions for editing tasks
+handleEditTaskFormSubmit(() => {
   renderProjects(projects);
   saveState();
 });
@@ -69,7 +78,7 @@ document
 // Add event listener to close the modal when clicking outside
 document.querySelector("#add-project-modal").addEventListener("click", (e) => {
   if (e.target.id === "add-project-modal") {
-    console.log("Clicked outside modal content. Closing Add Project modal....");
+    console.log("Clicked outside modal content. Closing Add Project modal...");
     closeAddProjectModal();
   }
 });
