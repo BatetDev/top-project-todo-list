@@ -7,23 +7,21 @@ import { format, parseISO } from "date-fns";
 
 // Render all projects
 export function renderProjects() {
-  const projects = getProjects(); // Fetch the current state of projects
   const main = document.querySelector("main");
-  main.innerHTML = ""; // Clear the main content before rendering
+  main.innerHTML = "";
+
+  const projects = getProjects();
 
   projects.forEach((project) => {
-    // Create the project card
-    const projectCard = document.createElement("article");
+    const projectCard = document.createElement("div");
     projectCard.classList.add("project-card");
 
-    // Add the project title
     const projectTitle = document.createElement("h2");
-    projectTitle.classList.add("project-title");
     projectTitle.textContent = project.name;
     projectCard.appendChild(projectTitle);
 
-    // Add the task list
-    const taskList = renderTodos(project);
+    // Always pass false to show only incomplete tasks
+    const taskList = renderTodos(project, false);
     projectCard.appendChild(taskList);
 
     main.appendChild(projectCard);
@@ -31,23 +29,27 @@ export function renderProjects() {
 }
 
 // Render todos for a single project
-export function renderTodos(project) {
+export function renderTodos(project, filterCompleted = false) {
   const taskList = document.createElement("ul");
   taskList.classList.add("task-list");
 
-  project.todos.forEach((todo, index) => {
+  // Filter tasks to show only incomplete ones
+  const filteredTodos = project.todos.filter((todo) => !todo.completed);
+
+  // Map the filtered todos with their original indices
+  const todosWithIndices = filteredTodos.map((todo) => ({
+    todo,
+    index: project.todos.indexOf(todo),
+  }));
+
+  todosWithIndices.forEach(({ todo, index }) => {
     const li = document.createElement("li");
-    li.dataset.index = index; // Add an index to identify the task
+    li.dataset.index = index;
     li.innerHTML = `
-      <span class="task-circle ${
-        todo.completed ? "completed" : ""
-      }" data-action="toggle" data-priority="${todo.priority}"></span>
+      <span class="task-circle" 
+            data-action="toggle" 
+            data-priority="${todo.priority || "medium"}"></span>
       <span class="task-text">${todo.title}</span>
-      <span class="task-due-date">${
-        todo.dueDate
-          ? format(parseISO(todo.dueDate), "MMM d, yyyy")
-          : "No due date"
-      }</span>
     `;
     taskList.appendChild(li);
   });
