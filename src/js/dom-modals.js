@@ -4,7 +4,7 @@ export { currentTask };
 import { getProjects, saveState } from "./state.js";
 import { populateProjectPicker, renderProjects } from "./dom-render.js";
 
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 
 const expandedTaskModal = document.querySelector("#expanded-task-modal");
 
@@ -19,7 +19,7 @@ export function openExpandedTaskModal(task) {
   expandedTaskModal.querySelector("#task-description").textContent =
     task.description || "No description";
   expandedTaskModal.querySelector("#task-due-date").textContent = task.dueDate
-    ? format(new Date(task.dueDate), "MMMM d, yyyy")
+    ? format(parseISO(task.dueDate), "MMMM d, yyyy")
     : "No due date";
   expandedTaskModal.querySelector("#task-priority").textContent =
     task.priority || "No priority";

@@ -172,7 +172,9 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     expandedTaskModal.querySelector("#task-description").textContent =
       currentTask.description || "No description";
     expandedTaskModal.querySelector("#task-due-date").textContent =
-      currentTask.dueDate || "No due date";
+      currentTask.dueDate
+        ? format(parseISO(currentTask.dueDate), "MMMM d, yyyy")
+        : "No due date";
     expandedTaskModal.querySelector("#task-priority").textContent =
       currentTask.priority || "No priority";
     expandedTaskModal.querySelector("#task-project").textContent =

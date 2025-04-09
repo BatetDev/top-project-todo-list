@@ -3,7 +3,7 @@ import { getProjects } from "./state.js";
 import { openExpandedTaskModal } from "./dom-modals.js";
 import { toggleTaskCompletion } from "./project-todo.js";
 
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 
 // Render all projects
 export function renderProjects() {
@@ -45,7 +45,7 @@ export function renderTodos(project) {
       <span class="task-text">${todo.title}</span>
       <span class="task-due-date">${
         todo.dueDate
-          ? format(new Date(todo.dueDate), "MMM d, yyyy")
+          ? format(parseISO(todo.dueDate), "MMM d, yyyy")
           : "No due date"
       }</span>
     `;
