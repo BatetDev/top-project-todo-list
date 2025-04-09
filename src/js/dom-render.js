@@ -3,6 +3,8 @@ import { getProjects } from "./state.js";
 import { openExpandedTaskModal } from "./dom-modals.js";
 import { toggleTaskCompletion } from "./project-todo.js";
 
+import { format } from "date-fns";
+
 // Render all projects
 export function renderProjects() {
   const projects = getProjects(); // Fetch the current state of projects
@@ -41,6 +43,11 @@ export function renderTodos(project) {
         todo.completed ? "completed" : ""
       }" data-action="toggle" data-priority="${todo.priority}"></span>
       <span class="task-text">${todo.title}</span>
+      <span class="task-due-date">${
+        todo.dueDate
+          ? format(new Date(todo.dueDate), "MMM d, yyyy")
+          : "No due date"
+      }</span>
     `;
     taskList.appendChild(li);
   });
