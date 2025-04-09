@@ -48,6 +48,19 @@
   transition: background-color 0.2s ease-in-out;
 }
 
+/* Task Circle Colors Based on Priority */
+.task-circle[data-priority="low"] {
+  border-color: green;
+}
+
+.task-circle[data-priority="medium"] {
+  border-color: yellow;
+}
+
+.task-circle[data-priority="high"] {
+  border-color: red;
+}
+
 .task-text {
   line-height: 1;
   text-align: left;
