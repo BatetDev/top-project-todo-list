@@ -111,3 +111,39 @@ export function populateProjectPicker(
     console.log("Projects:", projects);
   }
 }
+
+// Render the Archive view
+export function renderArchive() {
+  const main = document.querySelector("main");
+  main.innerHTML = ""; // Clear the main content area
+
+  const projects = getProjects();
+
+  // Flatten all tasks from all projects into a single array
+  const allTasks = projects.flatMap((project) => project.todos);
+
+  // Filter only completed tasks
+  const completedTasks = allTasks.filter((task) => task.completed);
+
+  // Create a container for the archive
+  const archiveContainer = document.createElement("div");
+  archiveContainer.classList.add("archive-container");
+
+  if (completedTasks.length === 0) {
+    // Fallback message if there are no completed tasks
+    archiveContainer.textContent = "No completed tasks to display.";
+  } else {
+    // Render each completed task
+    completedTasks.forEach((task) => {
+      const taskElement = document.createElement("div");
+      taskElement.classList.add("archive-task");
+      taskElement.innerHTML = `
+        <span class="task-circle completed" data-action="toggle"></span>
+        <span class="task-text">${task.title}</span>
+      `;
+      archiveContainer.appendChild(taskElement);
+    });
+  }
+
+  main.appendChild(archiveContainer);
+}
