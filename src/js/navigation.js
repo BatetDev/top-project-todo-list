@@ -32,6 +32,30 @@ export function renderProjectsView() {
     (project) => project.name !== "Inbox"
   );
 
+  // Create a container for the header and add project button
+  const headerContainer = document.createElement("div");
+  headerContainer.classList.add("projects-header-container");
+
+  // Header title
+  const header = document.createElement("h2");
+  header.textContent = "My Projects";
+  header.classList.add("projects-title");
+  headerContainer.appendChild(header);
+
+  // Add Project button
+  const addProjectButton = document.createElement("button");
+  addProjectButton.textContent = "+";
+  addProjectButton.classList.add("add-project-button");
+
+  // Add click event listener to open the Add Project Modal
+  addProjectButton.addEventListener("click", () => {
+    console.log("Add Project button clicked. Opening modal...");
+    showAddProjectModal();
+  });
+
+  headerContainer.appendChild(addProjectButton);
+  main.appendChild(headerContainer);
+
   if (filteredProjects.length === 0) {
     // Fallback message if there are no custom projects
     const noProjectsMessage = document.createElement("p");
