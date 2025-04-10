@@ -1,6 +1,7 @@
 // project-ui.js
-import { getProjects, saveState } from "./state.js";
+import { getProjects, addProject, saveState } from "./state.js";
 import { renderProjectsView } from "./navigation.js";
+import { createProject } from "./project-todo.js";
 
 // Function to show the Add Project Modal
 export function showAddProjectModal() {
