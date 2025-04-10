@@ -1,5 +1,5 @@
 // navigation.js
-import { renderProjects } from "./dom-render.js";
+import { renderArchive, renderProjects } from "./dom-render.js";
 import { getProjects } from "./state.js";
 import {
   showAddProjectModal,
@@ -106,7 +106,7 @@ todayTab.addEventListener("click", () => {
 
 archiveTab.addEventListener("click", () => {
   setActiveTab(archiveTab);
-  renderSearchView();
+  renderArchive();
 });
 
 projectsTab.addEventListener("click", () => {

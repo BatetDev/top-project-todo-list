@@ -138,8 +138,10 @@ export function renderArchive() {
       const taskElement = document.createElement("div");
       taskElement.classList.add("archive-task");
       taskElement.innerHTML = `
-        <span class="task-circle completed" data-action="toggle"></span>
         <span class="task-text">${task.title}</span>
+        <span class="task-due-date">
+          ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ""}
+        </span>
       `;
       archiveContainer.appendChild(taskElement);
     });

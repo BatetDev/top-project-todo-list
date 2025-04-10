@@ -48,3 +48,9 @@
 .project-action-icon {
   cursor: pointer;
 }
+
+/* Task Due dates */
+.task-due-date {
+  font-size: 0.9rem;
+  color: #aaa;
+}
