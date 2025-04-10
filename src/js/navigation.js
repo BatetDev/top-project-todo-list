@@ -9,13 +9,13 @@ import {
 
 // Select the main content area and navigation buttons
 const main = document.querySelector("main");
-const todayTab = document.querySelector("#today-tab");
+const homeTab = document.querySelector("#home-tab");
 const archiveTab = document.querySelector("#archive-tab");
 const projectsTab = document.querySelector("#projects-tab");
 
 // Function to render the default view (Today)
-export function renderTodayView() {
-  console.log("Rendering Today view...");
+export function renderHomeView() {
+  console.log("Rendering Home view...");
   const projects = getProjects();
   renderProjects(projects);
 }
@@ -99,9 +99,9 @@ function setActiveTab(activeTab) {
 }
 
 // Add event listeners to navigation buttons
-todayTab.addEventListener("click", () => {
-  setActiveTab(todayTab);
-  renderTodayView();
+homeTab.addEventListener("click", () => {
+  setActiveTab(homeTab);
+  renderHomeView();
 });
 
 archiveTab.addEventListener("click", () => {
@@ -115,4 +115,4 @@ projectsTab.addEventListener("click", () => {
 });
 
 // Initialize the default view
-renderTodayView();
+renderHomeView();

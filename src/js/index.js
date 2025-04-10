@@ -9,8 +9,8 @@ import {
   handleEditTaskFormSubmit,
 } from "./form-handlers.js";
 import {
-  renderTodayView,
-  renderSearchView,
+  renderHomeView,
+  renderArchive,
   renderProjectsView,
 } from "./navigation.js";
 import {
@@ -52,20 +52,20 @@ displayAddTaskModal(() => {
   saveState();
 });
 
-// Handle form submissions for adding tasks
+// Handle form submissions for ADDING tasks
 handleAddTaskFormSubmit(document.querySelector("#add-task-form"), () => {
   renderProjects(projects);
   saveState();
 });
 
-// Handle form submissions for editing tasks
+// Handle form submissions for EDITING tasks
 handleEditTaskFormSubmit(() => {
   renderProjects(projects);
   saveState();
 });
 
 // Initialize navigation
-renderTodayView();
+renderHomeView();
 
 // Add event listener to the Cancel button in the Add Project Modal
 document
