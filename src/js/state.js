@@ -52,6 +52,6 @@ export function saveState() {
   try {
     localStorage.setItem("projects", JSON.stringify(projects));
   } catch (error) {
-    console.error("Failed to save projects:", error);
+    console.error("Failed to save projects to localStorage:", error);
   }
 }
