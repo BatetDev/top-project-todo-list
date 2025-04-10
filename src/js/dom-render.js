@@ -50,6 +50,9 @@ export function renderTodos(project, filterCompleted = false) {
             data-action="toggle" 
             data-priority="${todo.priority || "medium"}"></span>
       <span class="task-text">${todo.title}</span>
+          <span class="task-due-date">
+      ${todo.dueDate ? format(parseISO(todo.dueDate), "MMM d") : ""}
+    </span>
     `;
     taskList.appendChild(li);
   });
