@@ -10,7 +10,7 @@ import {
 // Select the main content area and navigation buttons
 const main = document.querySelector("main");
 const todayTab = document.querySelector("#today-tab");
-const searchTab = document.querySelector("#search-tab");
+const archiveTab = document.querySelector("#archive-tab");
 const projectsTab = document.querySelector("#projects-tab");
 
 // Function to render the default view (Today)
@@ -104,8 +104,8 @@ todayTab.addEventListener("click", () => {
   renderTodayView();
 });
 
-searchTab.addEventListener("click", () => {
-  setActiveTab(searchTab);
+archiveTab.addEventListener("click", () => {
+  setActiveTab(archiveTab);
   renderSearchView();
 });
 
