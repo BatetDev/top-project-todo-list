@@ -1,7 +1,7 @@
 // index.js
 import "../styles/main.css";
 import { initializeState, getProjects, saveState } from "./state.js";
-import { createProject, addTodoToProject } from "./project-todo.js";
+import { createProject, addTodoToProject, createTodo } from "./project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
 import { displayAddTaskModal } from "./modal-logic.js";
 import {
