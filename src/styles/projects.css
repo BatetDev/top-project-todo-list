@@ -22,6 +22,14 @@
   margin-bottom: 10px;
 }
 
+/* Fallback message in case of no projects in PROJECTS's tab list */
+.project-list p {
+  text-align: center;
+  font-size: 1rem;
+  color: #bbb;
+  margin-top: 20px;
+}
+
 /* Task List */
 .task-list li {
   background-color: #333333;

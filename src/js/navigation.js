@@ -20,45 +20,43 @@ export function renderHomeView() {
   renderProjects(projects);
 }
 
-// Function to render the Projects view
+// Render the Projects view
 export function renderProjectsView() {
-  console.log("Rendering Projects view...");
-  main.innerHTML = "";
-
-  const headerContainer = document.createElement("div");
-  headerContainer.classList.add("projects-header-container");
-
-  const header = document.createElement("h2");
-  header.textContent = "My Projects";
-  header.classList.add("projects-title");
-  headerContainer.appendChild(header);
-
-  const addProjectButton = document.createElement("button");
-  addProjectButton.textContent = "+";
-  addProjectButton.classList.add("add-project-button");
-  addProjectButton.addEventListener("click", () => {
-    console.log("Add Project button clicked. Opening modal...");
-    showAddProjectModal();
-  });
-  headerContainer.appendChild(addProjectButton);
-  main.appendChild(headerContainer);
-
-  const projectList = document.createElement("ul");
-  projectList.classList.add("project-list");
+  const main = document.querySelector("main");
+  main.innerHTML = ""; // Clear the main content area
 
   const projects = getProjects();
-  projects.forEach((project) => {
-    const li = document.createElement("li");
-    li.classList.add("project-item");
 
-    const projectName = document.createElement("span");
-    projectName.textContent = project.name;
-    li.appendChild(projectName);
+  // Exclude the "Inbox" project
+  const filteredProjects = projects.filter(
+    (project) => project.name !== "Inbox"
+  );
 
-    if (project.name !== "Inbox") {
+  if (filteredProjects.length === 0) {
+    // Fallback message if there are no custom projects
+    const noProjectsMessage = document.createElement("p");
+    noProjectsMessage.textContent = "No custom projects to display.";
+    noProjectsMessage.style.color = "#888"; // Subtle gray color
+    main.appendChild(noProjectsMessage);
+  } else {
+    // Render each custom project
+    const projectList = document.createElement("ul");
+    projectList.classList.add("project-list");
+
+    filteredProjects.forEach((project) => {
+      const li = document.createElement("li");
+      li.classList.add("project-item");
+
+      // Project name
+      const projectName = document.createElement("span");
+      projectName.textContent = project.name;
+      li.appendChild(projectName);
+
+      // Actions container (edit and delete icons)
       const actionsContainer = document.createElement("div");
       actionsContainer.classList.add("project-actions");
 
+      // Edit icon
       const editIcon = document.createElement("span");
       editIcon.textContent = "✏️";
       editIcon.classList.add("project-action-icon");
@@ -69,6 +67,7 @@ export function renderProjectsView() {
       });
       actionsContainer.appendChild(editIcon);
 
+      // Delete icon
       const deleteIcon = document.createElement("span");
       deleteIcon.textContent = "🗑️";
       deleteIcon.classList.add("project-action-icon");
@@ -78,11 +77,13 @@ export function renderProjectsView() {
         deleteProject(project);
       });
       actionsContainer.appendChild(deleteIcon);
+
       li.appendChild(actionsContainer);
-    }
-    projectList.appendChild(li);
-  });
-  main.appendChild(projectList);
+      projectList.appendChild(li);
+    });
+
+    main.appendChild(projectList);
+  }
 }
 
 // Function to render the Search view (placeholder)
