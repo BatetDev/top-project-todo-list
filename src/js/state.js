@@ -1,16 +1,32 @@
 // state.js
 // Centralized state management for projects and persistence
 
+// state.js
+
 let projects = [];
 
 // Initialize the state (load from localStorage if available)
 export function initializeState() {
-  const savedProjects = JSON.parse(localStorage.getItem("projects"));
-  if (savedProjects && Array.isArray(savedProjects)) {
-    projects = savedProjects;
-  } else {
-    // Default project if no data exists
-    projects = [{ name: "Inbox", todos: [] }];
+  try {
+    const savedProjects = localStorage.getItem("projects");
+    if (savedProjects) {
+      const parsedProjects = JSON.parse(savedProjects);
+      if (Array.isArray(parsedProjects)) {
+        projects = parsedProjects;
+      } else {
+        console.error(
+          "Invalid state found in localStorage. Initializing empty state."
+        );
+        projects = [];
+      }
+    } else {
+      console.log("No saved state found. Initializing empty state.");
+      projects = [];
+    }
+  } catch (error) {
+    console.error("Error loading state from localStorage:", error);
+    console.log("Initializing empty state.");
+    projects = [];
   }
 }
 
