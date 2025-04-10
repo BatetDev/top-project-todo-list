@@ -113,7 +113,7 @@ export function populateProjectPicker(
 }
 
 // Render the Archive view
-export function renderArchive() {
+export function renderArchiveView() {
   const main = document.querySelector("main");
   main.innerHTML = ""; // Clear the main content area
 

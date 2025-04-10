@@ -10,7 +10,7 @@ import {
 } from "./form-handlers.js";
 import {
   renderHomeView,
-  renderArchive,
+  renderArchiveView,
   renderProjectsView,
 } from "./navigation.js";
 import {
