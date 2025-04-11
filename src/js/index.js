@@ -24,6 +24,9 @@ import {
 // Initialize app state
 initializeState();
 
+// Log the projects array to verify the state
+console.log("Projects after initialization:", getProjects());
+
 // Get the centralized projects array
 const projects = getProjects();
 

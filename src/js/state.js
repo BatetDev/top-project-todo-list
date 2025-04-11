@@ -1,7 +1,7 @@
 // state.js
 // Centralized state management for projects and persistence
 
-// state.js
+import { createProject, createTodo, addTodoToProject } from "./project-todo.js";
 
 let projects = [];
 
@@ -27,6 +27,17 @@ export function initializeState() {
     console.error("Error loading state from localStorage:", error);
     console.log("Initializing empty state.");
     projects = [];
+  }
+
+  // Add default "Inbox" project if no projects exist
+  if (projects.length === 0) {
+    const inboxProject = createProject("Inbox");
+    addTodoToProject(
+      inboxProject,
+      createTodo("Sample Task", "Description", "2025-03-20", "medium")
+    );
+    projects.push(inboxProject); // Add the Inbox project to the state
+    saveState(); // Save the updated state to localStorage
   }
 }
 
