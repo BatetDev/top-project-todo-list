@@ -1,8 +1,8 @@
 // dom-modals.js
 let currentTask = null;
 export { currentTask };
-import { getProjects, saveState } from "./state.js";
-import { populateProjectPicker, renderProjects } from "./dom-render.js";
+import { getProjects, saveState } from "../core/state.js";
+import { populateProjectPicker, renderProjects } from "../dom-render.js";
 
 import { format, parseISO } from "date-fns";
 

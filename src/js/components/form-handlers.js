@@ -1,8 +1,8 @@
 // form-handlers.js
-import { createTodo } from "./project-todo.js";
-import { addTodoToProject } from "./project-todo.js";
+import { createTodo } from "../core/project-todo.js";
+import { addTodoToProject } from "../core/project-todo.js";
 import { toggleEditMode, currentTask } from "./dom-modals.js";
-import { getProjects, saveState } from "./state.js";
+import { getProjects, saveState } from "../core/state.js";
 
 import { format, parseISO } from "date-fns";
 

@@ -1,13 +1,17 @@
 // index.js
 import "../styles/main.css";
-import { initializeState, getProjects, saveState } from "./state.js";
-import { createProject, addTodoToProject, createTodo } from "./project-todo.js";
+import { initializeState, getProjects, saveState } from "./core/state.js";
+import {
+  createProject,
+  addTodoToProject,
+  createTodo,
+} from "./core/project-todo.js";
 import { renderProjects, populateProjectPicker } from "./dom-render.js";
-import { displayAddTaskModal } from "./modal-logic.js";
+import { displayAddTaskModal } from "./components/modal-logic.js";
 import {
   handleAddTaskFormSubmit,
   handleEditTaskFormSubmit,
-} from "./form-handlers.js";
+} from "./components/form-handlers.js";
 import {
   renderHomeView,
   renderArchiveView,
@@ -19,7 +23,7 @@ import {
   handleAddProjectFormSubmit as handleProjectFormSubmit,
   renameProject,
   deleteProject,
-} from "./project-ui.js";
+} from "./components/project-ui.js";
 
 // Initialize app state
 initializeState();

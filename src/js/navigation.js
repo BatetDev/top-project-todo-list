@@ -1,11 +1,11 @@
 // navigation.js
 import { renderArchiveView, renderProjects } from "./dom-render.js";
-import { getProjects } from "./state.js";
+import { getProjects } from "./core/state.js";
 import {
   showAddProjectModal,
   renameProject,
   deleteProject,
-} from "./project-ui.js";
+} from "./components/project-ui.js";
 
 // Select the main content area and navigation buttons
 const main = document.querySelector("main");

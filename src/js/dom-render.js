@@ -1,7 +1,7 @@
 // dom-render.js
-import { getProjects, clearArchive } from "./state.js";
-import { openExpandedTaskModal } from "./dom-modals.js";
-import { toggleTaskCompletion } from "./project-todo.js";
+import { getProjects, clearArchive } from "./core/state.js";
+import { openExpandedTaskModal } from "./components/dom-modals.js";
+import { toggleTaskCompletion } from "./core/project-todo.js";
 
 import { format, parseISO } from "date-fns";
 

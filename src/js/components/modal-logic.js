@@ -1,6 +1,6 @@
 // modal-logic.js
-import { populateProjectPicker } from "./dom-render.js";
-import { getProjects, saveState } from "./state.js";
+import { populateProjectPicker } from "../dom-render.js";
+import { getProjects, saveState } from "../core/state.js";
 
 // Display add task modal and initializes it's functionality
 export function displayAddTaskModal(renderProjectsCallback) {
