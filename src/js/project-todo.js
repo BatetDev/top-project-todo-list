@@ -45,13 +45,17 @@ export function toggleTaskCompletion(todo, taskElement, circleElement) {
       // Add the animation class
       taskElement.classList.add("completed-animation");
 
+      // Set the completion date
+      todo.completedDate = new Date().toISOString(); // Store as ISO string for consistency
+
       // Wait for the animation to complete before removing the task
       setTimeout(() => {
         taskElement.remove(); // Remove the task from the DOM
       }, 300); // Match the duration of the animation (0.3s)
     } else {
-      // If unchecking completion, remove the animation class
+      // If unchecking completion, remove the animation class and clear the completion date
       taskElement.classList.remove("completed-animation");
+      delete todo.completedDate; // Remove the completion date
     }
 
     // Update the circle's appearance
