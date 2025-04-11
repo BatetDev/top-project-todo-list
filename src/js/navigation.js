@@ -20,17 +20,11 @@ export function renderHomeView() {
   renderProjects(projects);
 }
 
-// Render the Projects view
+// Function to render the Projects view
 export function renderProjectsView() {
+  console.log("Rendering Projects view...");
   const main = document.querySelector("main");
-  main.innerHTML = ""; // Clear the main content area
-
-  const projects = getProjects();
-
-  // Exclude the "Inbox" project
-  const filteredProjects = projects.filter(
-    (project) => project.name !== "Inbox"
-  );
+  main.innerHTML = "";
 
   // Create a container for the header and add project button
   const headerContainer = document.createElement("div");
@@ -46,22 +40,43 @@ export function renderProjectsView() {
   const addProjectButton = document.createElement("button");
   addProjectButton.textContent = "+";
   addProjectButton.classList.add("add-project-button");
-
-  // Add click event listener to open the Add Project Modal
   addProjectButton.addEventListener("click", () => {
     console.log("Add Project button clicked. Opening modal...");
     showAddProjectModal();
   });
-
   headerContainer.appendChild(addProjectButton);
+
   main.appendChild(headerContainer);
 
+  const projects = getProjects();
+
+  // Exclude the "Inbox" project
+  const filteredProjects = projects.filter(
+    (project) => project.name !== "Inbox"
+  );
+
   if (filteredProjects.length === 0) {
-    // Fallback message if there are no custom projects
-    const noProjectsMessage = document.createElement("p");
-    noProjectsMessage.textContent = "No custom projects to display.";
-    noProjectsMessage.style.color = "#888"; // Subtle gray color
-    main.appendChild(noProjectsMessage);
+    // Fallback wrapper for image and message
+    const fallbackWrapper = document.createElement("div");
+    fallbackWrapper.classList.add("fallback-wrapper");
+
+    // Fallback image
+    const fallbackImage = document.createElement("img");
+    fallbackImage.src = "https://picsum.photos/250/350";
+    fallbackImage.alt = "No custom projects";
+    fallbackImage.classList.add("fallback-image");
+
+    // Fallback message
+    const fallbackMessage = document.createElement("p");
+    fallbackMessage.textContent = "No custom projects to display.";
+    fallbackMessage.classList.add("fallback-message");
+
+    // Append image and message to the wrapper
+    fallbackWrapper.appendChild(fallbackImage);
+    fallbackWrapper.appendChild(fallbackMessage);
+
+    // Append the wrapper to the main container
+    main.appendChild(fallbackWrapper);
   } else {
     // Render each custom project
     const projectList = document.createElement("ul");
