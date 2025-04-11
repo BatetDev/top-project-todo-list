@@ -142,7 +142,7 @@ export function renderArchiveView() {
       taskElement.classList.add("archive-task");
       taskElement.innerHTML = `
         <span class="task-text">${task.title}</span>
-        <span class="task-completed-label">Completed</span>
+        <span class="task-completed-label">Completed on</span>
         <span class="task-completed-date">
           ${
             task.completedDate
@@ -154,6 +154,16 @@ export function renderArchiveView() {
       archiveContainer.appendChild(taskElement);
     });
   }
+
+  // Add the "Clear Archive" button
+  const clearArchiveButton = document.createElement("button");
+  clearArchiveButton.textContent = "Clear Archive";
+  clearArchiveButton.classList.add("clear-archive-button");
+  clearArchiveButton.addEventListener("click", () => {
+    clearArchive(); // Call the function to delete all completed tasks
+    renderArchiveView(); // Re-render the Archive view after clearing
+  });
+  archiveContainer.appendChild(clearArchiveButton);
 
   main.appendChild(archiveContainer);
 }
