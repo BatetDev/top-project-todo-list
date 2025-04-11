@@ -1,9 +1,6 @@
-// project-todo.js
-// create and manage projects and todos
+// core/project-todo.js
 
-import { saveState } from "./state";
-
-// Factory function for creating projects
+// Factory function to create a project
 export function createProject(name) {
   return {
     name,
@@ -11,12 +8,7 @@ export function createProject(name) {
   };
 }
 
-// Add a todo to a project's todos array
-export function addTodoToProject(project, todo) {
-  project.todos.push(todo);
-}
-
-// Factory function for creating Todo tasks
+// Factory function to create a todo
 export function createTodo(
   title,
   description,
@@ -31,7 +23,13 @@ export function createTodo(
     priority,
     project,
     completed: false,
+    completedDate: null, // Add a property for storing completion date
   };
+}
+
+// Function to add a todo to a project
+export function addTodoToProject(project, todo) {
+  project.todos.push(todo);
 }
 
 // Toggle the completion status of a todo
@@ -61,7 +59,4 @@ export function toggleTaskCompletion(todo, taskElement, circleElement) {
     // Update the circle's appearance
     circleElement.classList.toggle("completed", todo.completed);
   }
-
-  // Save the updated state to localStorage
-  saveState();
 }

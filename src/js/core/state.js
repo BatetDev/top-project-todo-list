@@ -1,7 +1,6 @@
-// state.js
-// Centralized state management for projects and persistence
+// core/state.js
 
-import { createProject, createTodo, addTodoToProject } from "./project-todo.js";
+import { createProject, addTodoToProject } from "./project-todo.js";
 
 let projects = [];
 
@@ -69,12 +68,8 @@ export function saveState() {
 
 // Function to clear all completed tasks from all projects
 export function clearArchive() {
-  const projects = getProjects();
   projects.forEach((project) => {
-    // Remove all completed tasks from the project's todos array
     project.todos = project.todos.filter((todo) => !todo.completed);
   });
-
-  // Save the updated state to localStorage
   saveState();
 }
