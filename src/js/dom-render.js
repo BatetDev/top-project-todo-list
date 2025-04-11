@@ -133,8 +133,22 @@ export function renderArchiveView() {
   archiveContainer.classList.add("archive-container");
 
   if (completedTasks.length === 0) {
-    // Fallback message if there are no completed tasks
-    archiveContainer.textContent = "No completed tasks to display.";
+    // Fallback message and image if there are no completed tasks
+    const fallbackWrapper = document.createElement("div");
+    fallbackWrapper.classList.add("fallback-wrapper");
+
+    const fallbackImage = document.createElement("img");
+    fallbackImage.src = "https://picsum.photos/250/350";
+    fallbackImage.alt = "No archived tasks";
+    fallbackImage.classList.add("fallback-image");
+
+    const fallbackMessage = document.createElement("p");
+    fallbackMessage.textContent = "No archived tasks to display.";
+    fallbackMessage.classList.add("fallback-message");
+
+    fallbackWrapper.appendChild(fallbackImage);
+    fallbackWrapper.appendChild(fallbackMessage);
+    archiveContainer.appendChild(fallbackWrapper);
   } else {
     // Render each completed task
     completedTasks.forEach((task) => {
@@ -160,7 +174,6 @@ export function renderArchiveView() {
   clearArchiveButton.textContent = "Clear Archive";
   clearArchiveButton.classList.add("clear-archive-button");
   clearArchiveButton.addEventListener("click", () => {
-    // Show a confirmation dialog
     const isConfirmed = confirm(
       "Are you sure you want to permanently delete all archived tasks? This action cannot be undone."
     );

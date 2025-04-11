@@ -84,3 +84,23 @@
 .clear-archive-button:hover {
   background-color: #9a5c2b;
 }
+
+/* Style for the fallback wrapper */
+.fallback-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the fallback image */
+.fallback-image {
+  width: 250px;
+  height: auto;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Style for the fallback message */
+.fallback-message {
+  font-size: 1rem;
+  color: #888;
+}
