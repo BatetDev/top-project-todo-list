@@ -67,3 +67,20 @@
   color: #b87333;
   margin-left: 5px;
 }
+
+/* Clear Archive button */
+.clear-archive-button {
+  background-color: #b87333;
+  background-color: #fafafa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+}
+
+.clear-archive-button:hover {
+  background-color: #9a5c2b;
+}

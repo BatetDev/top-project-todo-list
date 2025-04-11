@@ -1,5 +1,5 @@
 // dom-render.js
-import { getProjects } from "./state.js";
+import { getProjects, clearArchive } from "./state.js";
 import { openExpandedTaskModal } from "./dom-modals.js";
 import { toggleTaskCompletion } from "./project-todo.js";
 
