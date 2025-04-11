@@ -142,8 +142,13 @@ export function renderArchiveView() {
       taskElement.classList.add("archive-task");
       taskElement.innerHTML = `
         <span class="task-text">${task.title}</span>
-        <span class="task-due-date">
-          ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ""}
+        <span class="task-completed-label">Completed</span>
+        <span class="task-completed-date">
+          ${
+            task.completedDate
+              ? format(parseISO(task.completedDate), "MM/dd/yyyy")
+              : ""
+          }
         </span>
       `;
       archiveContainer.appendChild(taskElement);
