@@ -160,8 +160,14 @@ export function renderArchiveView() {
   clearArchiveButton.textContent = "Clear Archive";
   clearArchiveButton.classList.add("clear-archive-button");
   clearArchiveButton.addEventListener("click", () => {
-    clearArchive(); // Call the function to delete all completed tasks
-    renderArchiveView(); // Re-render the Archive view after clearing
+    // Show a confirmation dialog
+    const isConfirmed = confirm(
+      "Are you sure you want to permanently delete all archived tasks? This action cannot be undone."
+    );
+    if (isConfirmed) {
+      clearArchive(); // Call the function to delete all completed tasks
+      renderArchiveView(); // Re-render the Archive view after clearing
+    }
   });
   archiveContainer.appendChild(clearArchiveButton);
 
