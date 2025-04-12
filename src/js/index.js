@@ -12,11 +12,7 @@ import {
   handleAddTaskFormSubmit,
   handleEditTaskFormSubmit,
 } from "./components/form-handlers.js";
-import {
-  renderHomeView,
-  renderArchiveView,
-  renderProjectsView,
-} from "./navigation.js";
+import { renderHomeView } from "./views/home-view.js";
 import {
   showAddProjectModal,
   closeAddProjectModal,
@@ -24,6 +20,7 @@ import {
   renameProject,
   deleteProject,
 } from "./components/project-ui.js";
+import "./navigation.js";
 
 // Initialize app state
 initializeState();

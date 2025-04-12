@@ -1,7 +1,8 @@
 // navigation.js
 import { renderProjects } from "./dom-render.js";
-import { renderArchiveView } from "./views/archive-view.js";
+import { renderHomeView } from "./views/home-view.js";
 import { renderProjectsView } from "./views/projects-view.js";
+import { renderArchiveView } from "./views/archive-view.js";
 import { getProjects } from "./core/state.js";
 import {
   showAddProjectModal,
@@ -15,12 +16,9 @@ const homeTab = document.querySelector("#home-tab");
 const archiveTab = document.querySelector("#archive-tab");
 const projectsTab = document.querySelector("#projects-tab");
 
-// Function to render the default view (Today)
-export function renderHomeView() {
-  console.log("Rendering Home view...");
-  const projects = getProjects();
-  renderProjects(projects);
-}
+console.log("Home tab element:", homeTab);
+console.log("Archive tab element:", archiveTab);
+console.log("Projects tab element:", projectsTab);
 
 // Helper function to set the active tab
 function setActiveTab(activeTab) {
@@ -30,20 +28,24 @@ function setActiveTab(activeTab) {
 }
 
 // Add event listeners to navigation buttons
-homeTab.addEventListener("click", () => {
+homeTab.addEventListener("click", (e) => {
+  console.log("Home tab clicked", e.target);
   setActiveTab(homeTab);
   renderHomeView();
 });
 
-archiveTab.addEventListener("click", () => {
+archiveTab.addEventListener("click", (e) => {
+  console.log("Archive tab clicked", e.target);
   setActiveTab(archiveTab);
   renderArchiveView();
 });
 
-projectsTab.addEventListener("click", () => {
+projectsTab.addEventListener("click", (e) => {
+  console.log("Projects tab clicked", e.target);
   setActiveTab(projectsTab);
   renderProjectsView();
 });
 
 // Initialize the default view
+setActiveTab(homeTab);
 renderHomeView();
