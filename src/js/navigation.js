@@ -126,12 +126,6 @@ export function renderProjectsView() {
   }
 }
 
-// Function to render the Search view (placeholder)
-export function renderSearchView() {
-  console.log("Rendering Search view...");
-  main.innerHTML = "<p>Search functionality coming soon...</p>";
-}
-
 // Helper function to set the active tab
 function setActiveTab(activeTab) {
   const navButtons = document.querySelectorAll(".nav-btn");
