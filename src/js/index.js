@@ -14,19 +14,13 @@ import {
 } from "./components/form-handlers.js";
 import { renderHomeView } from "./views/home-view.js";
 import {
-  showAddProjectModal,
   closeAddProjectModal,
-  handleAddProjectFormSubmit as handleProjectFormSubmit,
-  renameProject,
-  deleteProject,
+  handleAddProjectFormSubmit,
 } from "./components/project-ui.js";
 import "./navigation.js";
 
 // Initialize app state
 initializeState();
-
-// Log the projects array to verify the state
-console.log("Projects after initialization:", getProjects());
 
 // Get the centralized projects array
 const projects = getProjects();
@@ -75,17 +69,15 @@ renderHomeView();
 document
   .querySelector("#cancel-add-project-btn")
   .addEventListener("click", () => {
-    console.log("Cancel button clicked. Closing Add Project modal...");
     closeAddProjectModal();
   });
 
 // Add event listener to close the modal when clicking outside
 document.querySelector("#add-project-modal").addEventListener("click", (e) => {
   if (e.target.id === "add-project-modal") {
-    console.log("Clicked outside modal content. Closing Add Project modal...");
     closeAddProjectModal();
   }
 });
 
 // Attach the event listener for the Add Project form submission
-handleProjectFormSubmit();
+handleAddProjectFormSubmit();
