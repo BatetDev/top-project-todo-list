@@ -65,11 +65,3 @@ export function saveState() {
     console.error("Failed to save projects to localStorage:", error);
   }
 }
-
-// Function to clear all completed tasks from all projects
-export function clearArchive() {
-  projects.forEach((project) => {
-    project.todos = project.todos.filter((todo) => !todo.completed);
-  });
-  saveState();
-}

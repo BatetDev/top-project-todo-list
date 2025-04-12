@@ -1,5 +1,6 @@
 // navigation.js
-import { renderArchiveView, renderProjects } from "./dom-render.js";
+import { renderProjects } from "./dom-render.js";
+import { renderArchiveView } from "./views/archive-view.js";
 import { getProjects } from "./core/state.js";
 import {
   showAddProjectModal,
