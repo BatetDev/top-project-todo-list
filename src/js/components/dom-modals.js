@@ -10,7 +10,6 @@ const expandedTaskModal = document.querySelector("#expanded-task-modal");
 
 // Function to open the expanded task modal
 export function openExpandedTaskModal(task) {
-  console.log("Task passed to openExpandedTaskModal:", task);
   currentTask = task;
 
   // Populate the modal with task details
@@ -44,9 +43,7 @@ function closeExpandedTaskModal() {
 // Close modal when clicking outside the modal content
 expandedTaskModal.addEventListener("click", (e) => {
   const modalContent = expandedTaskModal.querySelector(".modal-content");
-  console.log("Clicked inside #expanded-task-modal");
   if (!modalContent.contains(e.target)) {
-    console.log("Clicked outside .modal-content, closing modal...");
     closeExpandedTaskModal();
     // Reset edit mode to ensure the expanded task modal is shown
     toggleEditMode(false);
@@ -61,7 +58,6 @@ const deleteTaskBtn = expandedTaskModal.querySelector("#delete-task-btn");
 
 // Add edit button event listener
 editTaskBtn.addEventListener("click", () => {
-  console.log("Edit button clicked");
   toggleEditMode(true);
 });
 
@@ -119,7 +115,6 @@ const taskToDeleteName = deleteConfirmationModal.querySelector(
 
 // Function to show the delete confirmation modal
 export function showDeleteConfirmationModal(task) {
-  console.log("Showing delete confirmation modal for task:", task);
   // Set the task name in the modal
   taskToDeleteName.textContent = `"${task.title}"` || "Unnamed Task";
   // Show the modal bt removing the "hidden" class
@@ -132,7 +127,6 @@ const cancelDeleteBtn =
 
 // Close the delete confirmation modal
 function closeDeleteConfirmationModal() {
-  console.log("Closing delete confirmation moda...");
   deleteConfirmationModal.classList.add("hidden");
   expandedTaskModal.classList.remove("hidden");
 }
@@ -152,7 +146,6 @@ cancelDeleteBtn.addEventListener("click", () => {
 
 // Add event listener for the delete button
 deleteTaskBtn.addEventListener("click", () => {
-  console.log("Delete button clicked. Initiating confirmation...");
   // Show the delete confirmation confirmation modal with the current task details
   showDeleteConfirmationModal(currentTask);
 
@@ -166,8 +159,6 @@ const confirmDeleteBtn = deleteConfirmationModal.querySelector(
 
 // Add event listener for the Confirm button
 confirmDeleteBtn.addEventListener("click", () => {
-  console.log("User confirmed deletion. Proceeding to delete task...");
-
   // Check if currentTask is valid
   if (!currentTask) {
     console.error("Error: currentTask is null or undefined.");
@@ -175,7 +166,6 @@ confirmDeleteBtn.addEventListener("click", () => {
     return;
   }
 
-  // Get the centralized state (projects array)
   const projects = getProjects();
 
   // Find the project containing the current task
@@ -191,18 +181,12 @@ confirmDeleteBtn.addEventListener("click", () => {
   // Remove the task from the project's todos array
   project.todos = project.todos.filter((todo) => todo !== currentTask);
 
-  console.log("Task deleted from project:", project);
-
-  // Save the updated state to localStorage
   saveState();
 
-  // Re-render the UI to reflect the changes
   renderProjects();
 
-  // Close the confirmation modal
   closeDeleteConfirmationModal();
 
-  // Close the expanded task modal
   closeExpandedTaskModal();
 });
 
