@@ -7,7 +7,6 @@ import {
 
 // Function to render the Projects view
 export function renderProjectsView() {
-  console.log("Rendering Projects view...");
   const main = document.querySelector("main");
   main.innerHTML = "";
 
@@ -26,7 +25,6 @@ export function renderProjectsView() {
   addProjectButton.textContent = "+";
   addProjectButton.classList.add("add-project-button");
   addProjectButton.addEventListener("click", () => {
-    console.log("Add Project button clicked. Opening modal...");
     showAddProjectModal();
   });
   headerContainer.appendChild(addProjectButton);
@@ -97,7 +95,6 @@ export function renderProjectsView() {
       deleteIcon.classList.add("project-action-icon");
       deleteIcon.title = "Delete Project";
       deleteIcon.addEventListener("click", () => {
-        console.log(`Delete icon clicked for project: ${project.name}`);
         deleteProject(project);
       });
       actionsContainer.appendChild(deleteIcon);
