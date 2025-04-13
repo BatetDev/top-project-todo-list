@@ -104,13 +104,11 @@ export function renderTodos(project, filterCompleted = false) {
 
     // Check if the click was on the task completion circle
     if (e.target.matches(".task-circle[data-action='toggle']")) {
-      console.log("Task circle clicked. Toggling completion...");
       toggleTaskCompletion(task, clickedTask, e.target);
       return;
     }
 
     // Otherwise, open the expanded task modal
-    console.log("Task clicked:", task);
     openExpandedTaskModal(task);
   });
 
