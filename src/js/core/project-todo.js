@@ -23,7 +23,7 @@ export function createTodo(
     priority,
     project,
     completed: false,
-    completedDate: null, // Add a property for storing completion date
+    completedDate: null,
   };
 }
 
@@ -34,21 +34,19 @@ export function addTodoToProject(project, todo) {
 
 // Toggle the completion status of a todo
 export function toggleTaskCompletion(todo, taskElement, circleElement) {
-  // Toggle the completed status
   todo.completed = !todo.completed;
 
   // Update UI if elements are provided
   if (taskElement && circleElement) {
     if (todo.completed) {
-      // Add the animation class
       taskElement.classList.add("completed-animation");
 
       // Set the completion date
-      todo.completedDate = new Date().toISOString(); // Store as ISO string for consistency
+      todo.completedDate = new Date().toISOString();
 
       // Wait for the animation to complete before removing the task
       setTimeout(() => {
-        taskElement.remove(); // Remove the task from the DOM
+        taskElement.remove();
       }, 300); // Match the duration of the animation (0.3s)
     } else {
       // If unchecking completion, remove the animation class and clear the completion date
