@@ -1,13 +1,12 @@
 // modal-logic.js
 import { populateProjectPicker } from "../dom-render.js";
-import { getProjects, saveState } from "../core/state.js";
+import { getProjects } from "../core/state.js";
 
 // Display add task modal and initializes it's functionality
 export function displayAddTaskModal(renderProjectsCallback) {
   const addTaskButton = document.querySelector("#add-task-btn");
   const modal = document.querySelector("#add-task-modal");
   const modalContent = document.querySelector(".modal-content");
-  const addTaskForm = document.querySelector("#add-task-form");
 
   // Get the project picker dropdown
   const projectPicker = document.querySelector("#task-project");
