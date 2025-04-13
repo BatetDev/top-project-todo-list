@@ -1,4 +1,5 @@
 // project-ui.js
+
 import { getProjects, addProject, saveState } from "../core/state.js";
 import { renderProjectsView } from "../views/projects-view.js";
 import { createProject } from "../core/project-todo.js";
@@ -14,7 +15,7 @@ export function closeAddProjectModal() {
   const modal = document.querySelector("#add-project-modal");
   modal.classList.add("hidden");
   const form = document.querySelector("#add-project-form");
-  form.reset(); // Reset the form fields
+  form.reset();
 }
 
 // Function to handle form submission in the Add Project Modal
@@ -22,7 +23,7 @@ export function handleAddProjectFormSubmit() {
   const addProjectForm = document.querySelector("#add-project-form");
   const modal = document.querySelector("#add-project-modal");
   addProjectForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
     // Get the project name from the input field
     const projectNameInput = document.querySelector("#project-name");
     const projectName = projectNameInput.value.trim();
@@ -51,7 +52,6 @@ export function handleAddProjectFormSubmit() {
     // Reset the form fields and close the modal
     projectNameInput.value = "";
     modal.classList.add("hidden");
-    console.log(`Project "${projectName}" added successfully.`);
   });
 }
 
