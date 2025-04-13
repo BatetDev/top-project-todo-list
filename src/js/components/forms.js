@@ -1,8 +1,7 @@
 // components/forms.js
 
 import { getProjects, saveState } from "../core/state.js";
-import { createTodo, toggleTaskCompletion } from "../core/project-todo.js";
-import { populateProjectPicker } from "../utils/helpers.js";
+import { createTodo } from "../core/project-todo.js";
 import { openExpandedTaskModal } from "./modals.js";
 
 // Handle form submission for adding tasks
