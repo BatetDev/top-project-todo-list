@@ -37,21 +37,18 @@ export function handleAddTaskFormSubmit(addTaskForm, renderProjectsCallback) {
       // Add the new todo to the selected project's todos array
       addTodoToProject(selectedProject, newTodo);
 
-      // Save the updated state to localStorage
       saveState();
 
       // Re-render the projects to update the UI
       renderProjectsCallback();
     }
 
-    // Reset form fields
     addTaskForm.reset();
   });
 }
 
 // Function to populate the edit task form with task details
 export function populateEditTaskForm(task) {
-  console.log("Populating edit form with task:", task);
   const projects = getProjects();
   const nameField = document.querySelector("#edit-task-name");
   const descriptionField = document.querySelector("#edit-task-description");
@@ -88,8 +85,6 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     return;
   }
 
-  console.log("Edit task form found:", editTaskForm);
-
   // Remove any existing event listeners to prevent duplicates
   editTaskForm.removeEventListener("submit", handleSubmit);
 
@@ -97,11 +92,8 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
   editTaskForm.addEventListener("submit", handleSubmit);
 
   function handleSubmit(event) {
-    console.log("Submit event triggered."); // Debugging log
-
     // Prevent the default form submission behavior
     event.preventDefault();
-    console.log("Form submission prevented."); // Debugging log
 
     // Capture edited values from the form fields
     const editedTaskName = document.querySelector("#edit-task-name").value;
@@ -116,15 +108,6 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     ).value;
     const editedTaskProject =
       document.querySelector("#edit-task-project").value;
-
-    // Log the captured values for debugging
-    console.log("Edited Task Values:", {
-      editedTaskName,
-      editedTaskDescription,
-      editedTaskDueDate,
-      editedTaskPriority,
-      editedTaskProject,
-    });
 
     // Get the centralized state (projects array)
     const projects = getProjects();
@@ -161,10 +144,8 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     currentTask.priority = editedTaskPriority;
     currentTask.project = editedTaskProject;
 
-    // Save the updated state to localStorage
     saveState();
 
-    // Re-render the UI to reflect the changes
     renderProjectsCallback();
 
     // Update the expanded task modal with the new details
