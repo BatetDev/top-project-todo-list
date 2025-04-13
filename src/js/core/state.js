@@ -1,6 +1,6 @@
 // core/state.js
 
-import { createProject, addTodoToProject } from "./project-todo.js";
+import { createProject, addTodoToProject, createTodo } from "./project-todo.js";
 
 let projects = [];
 
@@ -31,11 +31,78 @@ export function initializeState() {
   // Add default "Inbox" project if no projects exist
   if (projects.length === 0) {
     const inboxProject = createProject("Inbox");
+
     addTodoToProject(
       inboxProject,
-      createTodo("Sample Task", "Description", "2025-03-20", "medium")
+      createTodo(
+        "Study Socrates' Dialogues",
+        "Reflect on the Socratic method of questioning.",
+        "2025-03-20",
+        "high"
+      )
     );
+    addTodoToProject(
+      inboxProject,
+      createTodo(
+        "Write a treatise on virtue",
+        "Explore Aristotle's concept of eudaimonia.",
+        "2025-03-22",
+        "medium"
+      )
+    );
+    addTodoToProject(
+      inboxProject,
+      createTodo(
+        "Experiment with levers",
+        "Channel Archimedes: 'Give me a place to stand, and I shall move the Earth.'",
+        "2025-03-25",
+        "low"
+      )
+    );
+
     projects.push(inboxProject); // Add the Inbox project to the state
+
+    const symposiumProject = createProject("Philosophers' Symposium");
+
+    addTodoToProject(
+      symposiumProject,
+      createTodo(
+        "Prepare Plato's Allegory of the Cave",
+        "Illustrate the journey from ignorance to enlightenment.",
+        "2025-04-01",
+        "high"
+      )
+    );
+    addTodoToProject(
+      symposiumProject,
+      createTodo(
+        "Debate Zeno's Paradoxes",
+        "Discuss the impossibility of motion and infinite divisibility.",
+        "2025-04-05",
+        "medium"
+      )
+    );
+    addTodoToProject(
+      symposiumProject,
+      createTodo(
+        "Compose a hymn to Apollo",
+        "Celebrate reason, light, and prophecy.",
+        "2025-04-10",
+        "low"
+      )
+    );
+    addTodoToProject(
+      symposiumProject,
+      createTodo(
+        "Organize a banquet for philosophers",
+        "Invite Socrates, Plato, and Aristotle to discuss wisdom.",
+        "2025-04-15",
+        "high"
+      )
+    );
+
+    projects.push(symposiumProject);
+
     saveState(); // Save the updated state to localStorage
   }
 }
