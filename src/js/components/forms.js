@@ -34,7 +34,7 @@ export function handleAddTaskFormSubmit(addTaskForm, renderProjectsCallback) {
     if (selectedProject) {
       // Add the new todo to the selected project's todos array
       selectedProject.todos.push(newTodo);
-      saveState(); // Persist the updated state
+      saveState();
     }
 
     // Re-render the UI
