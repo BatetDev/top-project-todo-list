@@ -4,7 +4,7 @@ import { format, parseISO } from "date-fns";
 // Render the Archive view
 export function renderArchiveView() {
   const main = document.querySelector("main");
-  main.innerHTML = ""; // Clear the main content area
+  main.innerHTML = "";
 
   const projects = getProjects();
 
@@ -64,8 +64,8 @@ export function renderArchiveView() {
       "Are you sure you want to permanently delete all archived tasks? This action cannot be undone."
     );
     if (isConfirmed) {
-      clearArchive(); // Call the function to delete all completed tasks
-      renderArchiveView(); // Re-render the Archive view after clearing
+      clearArchive();
+      renderArchiveView();
     }
   });
   archiveContainer.appendChild(clearArchiveButton);
@@ -75,11 +75,11 @@ export function renderArchiveView() {
 
 // Function to clear all completed tasks from all projects
 export function clearArchive() {
-  const projects = getProjects(); // Fetch the current projects dynamically
+  const projects = getProjects();
 
   projects.forEach((project) => {
     project.todos = project.todos.filter((todo) => !todo.completed);
   });
 
-  saveState(); // Save the updated state to localStorage
+  saveState();
 }
