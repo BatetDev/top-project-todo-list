@@ -1,88 +1,49 @@
 /* components/cards.css */
 
-/* Base Card Styles */
-.card {
-  background-color: #2b2b2b;
-  border: 1px solid #444444;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Card Header */
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.card-header h3 {
-  font-size: 1.2rem;
-  color: #d4af37ff;
+/* Task List */
+.task-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
   margin: 0;
 }
 
-.card-header .actions {
+.task-list li {
   display: flex;
-  gap: 10px;
+  align-items: center; /* Align checkbox, text, and due date vertically */
+  justify-content: space-between; /* Space between checkbox/text and due date */
+  padding: 10px; /* Padding for spacing */
+  border-radius: 5px; /* Rounded corners for each task */
+  margin-bottom: 8px; /* Space between tasks */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Slight background for contrast */
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
 }
 
-/* Card Body */
-.card-body {
-  margin-bottom: 10px;
+.task-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
 }
 
-.card-body p {
-  font-size: 1rem;
-  color: #cccccc;
-  line-height: 1.6;
+.task-list li.completed {
+  opacity: 0.6; /* Dim completed tasks */
+  text-decoration: line-through; /* Strike through completed tasks */
 }
 
-/* Card Footer */
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #999;
-}
-
-.card-footer .priority {
-  font-weight: bold;
-  color: #cf4452;
-}
-
-.card-footer .due-date {
-  color: #b87333;
-}
-
-/* Task-Specific Styles */
-.task-card {
-  cursor: pointer;
-}
-
-.task-card.completed {
-  opacity: 0.6;
-  text-decoration: line-through;
-}
-
+/* Task Circle (Checkbox) */
 .task-circle {
   width: 20px;
   height: 20px;
-  border: 2px solid #444444;
+  border: 2px solid #616161;
   border-radius: 50%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 10px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .task-circle.completed {
@@ -90,15 +51,44 @@
   border-color: #b87333;
 }
 
-/* Task List */
-.task-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* Task Text */
+.task-text {
+  font-family: "Courier Prime", monospace;
+  font-size: 1rem;
+  color: #cccccc;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.task-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+/* Task Due Date */
+.task-due-date {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.9rem;
+  color: #b87333;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+/* Priority Indicator */
+.task-priority {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Task Circle Colors Based on Priority */
+.task-circle[data-priority="low"] {
+  border-color: green;
+}
+
+.task-circle[data-priority="medium"] {
+  border-color: yellow;
+}
+
+.task-circle[data-priority="high"] {
+  border-color: red;
 }
