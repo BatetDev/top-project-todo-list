@@ -89,3 +89,16 @@
   background-color: #b87333;
   border-color: #b87333;
 }
+
+/* Task List */
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
