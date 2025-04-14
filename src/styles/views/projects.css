@@ -1,0 +1,73 @@
+/* views/projects.css */
+
+/* Projects Header */
+.projects-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.projects-header-container h2 {
+  font-size: 1.5rem;
+  color: #d4af37ff;
+  margin: 0;
+}
+
+.add-project-button {
+  background-color: #b87333;
+  color: #fafafa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-project-button:hover {
+  background-color: #cf4452;
+}
+
+/* Project List */
+.project-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px;
+  background-color: #2b2b2b;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-item:hover {
+  transform: translateY(-3px);
+}
+
+.project-item.completed {
+  opacity: 0.6;
+}
+
+.project-name {
+  font-size: 1.2rem;
+  color: #cccccc;
+  font-weight: bold;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.project-actions .btn {
+  padding: 5px 10px;
+}
