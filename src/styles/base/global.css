@@ -1,5 +1,21 @@
 /* base/global.css */
 
+/* base/global.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #1a1a1a;
+}
+
 /* Box Sizing */
 * {
   box-sizing: border-box;
