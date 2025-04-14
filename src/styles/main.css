@@ -1,6 +1,9 @@
 /* main.css */
+
+/* Normalize */
+@import "normalize.css";
+
 /* Base-level styles */
-@import "base/reset.css";
 @import "base/typography.css";
 @import "base/layout.css";
 
