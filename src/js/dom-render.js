@@ -86,10 +86,12 @@ export function renderTodos(project, filterCompleted = false) {
       <span class="task-circle" 
             data-action="toggle" 
             data-priority="${todo.priority || "medium"}"></span>
-      <span class="task-text">${todo.title}</span>
-          <span class="task-due-date">
-      ${todo.dueDate ? format(parseISO(todo.dueDate), "MMM d") : ""}
-    </span>
+      <div class=task-details>
+        <span class="task-text">${todo.title}</span>
+        <span class="task-due-date">
+          ${todo.dueDate ? format(parseISO(todo.dueDate), "MMM d") : ""}
+        </span>
+      </div>
     `;
     taskList.appendChild(li);
   });

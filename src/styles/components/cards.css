@@ -21,6 +21,7 @@
     0.05
   ); /* Slight background for contrast */
   transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  cursor: pointer;
 }
 
 .task-list li:hover {
@@ -51,24 +52,32 @@
   border-color: #b87333;
 }
 
+/* Task Details Container */
+.task-details {
+  display: flex;
+  justify-content: space-between; /* Space between task text and due date */
+  align-items: center; /* Align vertically */
+  flex-grow: 1; /* Allow it to take up available space */
+  margin-left: 10px; /* Space between checkbox and task details */
+}
+
 /* Task Text */
 .task-text {
   font-family: "Courier Prime", monospace;
   font-size: 1rem;
-  color: #cccccc;
-  flex-grow: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: #cccccc; /* Light gray for readability */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  flex-shrink: 1; /* Allow text to shrink if needed */
 }
 
 /* Task Due Date */
 .task-due-date {
   font-family: "Courier Prime", monospace;
   font-size: 0.9rem;
-  color: #b87333;
-  margin-left: 10px;
-  flex-shrink: 0;
+  color: #b87333; /* Warm bronze for due dates */
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Priority Indicator */
