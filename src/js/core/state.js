@@ -37,7 +37,7 @@ export function initializeState() {
       createTodo(
         "Study Socrates' Dialogues",
         "Reflect on the Socratic method of questioning.",
-        "2025-03-20",
+        "2025-04-20",
         "high"
       )
     );
@@ -46,7 +46,7 @@ export function initializeState() {
       createTodo(
         "Write a treatise on virtue",
         "Explore Aristotle's concept of eudaimonia.",
-        "2025-03-22",
+        "2025-04-22",
         "medium"
       )
     );
@@ -55,21 +55,21 @@ export function initializeState() {
       createTodo(
         "Experiment with levers",
         "Channel Archimedes: 'Give me a place to stand, and I shall move the Earth.'",
-        "2025-03-25",
+        "2025-04-25",
         "low"
       )
     );
 
-    projects.push(inboxProject); // Add the Inbox project to the state
+    projects.push(inboxProject);
 
     const symposiumProject = createProject("Philosophers' Symposium");
 
     addTodoToProject(
       symposiumProject,
       createTodo(
-        "Prepare Plato's Allegory of the Cave",
-        "Illustrate the journey from ignorance to enlightenment.",
-        "2025-04-01",
+        "Prove the Pythagorean theorem",
+        "Demonstrate a² + b² = c² geometrically.",
+        "2025-05-01",
         "high"
       )
     );
@@ -78,7 +78,7 @@ export function initializeState() {
       createTodo(
         "Debate Zeno's Paradoxes",
         "Discuss the impossibility of motion and infinite divisibility.",
-        "2025-04-05",
+        "2025-05-05",
         "medium"
       )
     );
@@ -87,23 +87,14 @@ export function initializeState() {
       createTodo(
         "Compose a hymn to Apollo",
         "Celebrate reason, light, and prophecy.",
-        "2025-04-10",
+        "2025-05-10",
         "low"
-      )
-    );
-    addTodoToProject(
-      symposiumProject,
-      createTodo(
-        "Organize a banquet for philosophers",
-        "Invite Socrates, Plato, and Aristotle to discuss wisdom.",
-        "2025-04-15",
-        "high"
       )
     );
 
     projects.push(symposiumProject);
 
-    saveState(); // Save the updated state to localStorage
+    saveState();
   }
 }
 

@@ -1,8 +1,16 @@
 /* main.css */
-@import "normalize.css";
-@import "base.css";
-@import "buttons.css";
-@import "modals.css";
-@import "projects.css";
-@import "forms.css";
-@import "components.css";
+/* Base-level styles */
+@import "base/reset.css";
+@import "base/typography.css";
+@import "base/layout.css";
+
+/* Reusable components */
+@import "components/buttons.css";
+@import "components/modals.css";
+@import "components/forms.css";
+@import "components/cards.css";
+
+/* View-specific styles */
+@import "views/home.css";
+@import "views/projects.css";
+@import "views/archive.css";
