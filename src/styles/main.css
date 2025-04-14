@@ -4,6 +4,7 @@
 @import "normalize.css";
 
 /* Base-level styles */
+@import "base/global.css";
 @import "base/typography.css";
 @import "base/layout.css";
 
