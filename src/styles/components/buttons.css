@@ -1,0 +1,57 @@
+/* components/buttons.css */
+
+/* Base Button Styles */
+.btn {
+  background-color: #b87333;
+  color: #fafafa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.btn:hover {
+  background-color: #cf4452;
+  transform: scale(1.02);
+}
+
+/* Floating Action Button (FAB) */
+.floating-btn {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #b33f4a;
+  color: #fafafa;
+  font-size: 2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Clear Archive Button */
+.clear-archive-button {
+  background-color: #9a5c2b;
+  color: #fafafa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+}
+
+.clear-archive-button:hover {
+  background-color: #b87333;
+}
