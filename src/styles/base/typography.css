@@ -1,0 +1,70 @@
+/* base/typography.css */
+
+/* Global Font Family */
+body {
+  font-family: "Courier Prime", monospace;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  color: #d4af37ff;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Paragraphs */
+p {
+  font-weight: 700;
+  text-align: center;
+  color: #cccccc;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: #b87333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #cf4452;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
