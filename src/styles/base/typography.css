@@ -1,5 +1,15 @@
 /* base/typography.css */
 
+/* base/typography.css */
+
+/* Load Dalek Pinpoint Font */
+@font-face {
+  font-family: "Dalek Pinpoint";
+  src: url("../../assets/fonts/DalekPinpointBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Global Font Family */
 body {
   font-family: "Courier Prime", monospace;
@@ -8,19 +18,23 @@ body {
 }
 
 /* Headings */
-h1,
+h1 {
+  font-family: "Dalek Pinpoint", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #d4af37ff;
+  margin-bottom: 10px;
+}
+
 h2,
 h3 {
-  font-family: "Playfair Display", serif;
   color: #d4af37ff;
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
 h2 {
+  font-family: "Dalek Pinpoint", sans-serif;
   font-size: 2rem;
 }
 
