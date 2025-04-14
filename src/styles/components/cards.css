@@ -2,30 +2,25 @@
 
 /* Task List */
 .task-list {
-  list-style-type: none; /* Remove bullet points */
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .task-list li {
   display: flex;
-  align-items: center; /* Align checkbox, text, and due date vertically */
-  justify-content: space-between; /* Space between checkbox/text and due date */
-  padding: 10px; /* Padding for spacing */
-  border-radius: 5px; /* Rounded corners for each task */
-  margin-bottom: 8px; /* Space between tasks */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.05
-  ); /* Slight background for contrast */
-  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.055);
+  transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 }
 
 .task-list li:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .task-list li.completed {
@@ -55,29 +50,30 @@
 /* Task Details Container */
 .task-details {
   display: flex;
-  justify-content: space-between; /* Space between task text and due date */
-  align-items: center; /* Align vertically */
-  flex-grow: 1; /* Allow it to take up available space */
-  margin-left: 10px; /* Space between checkbox and task details */
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: 10px;
+  padding-top: 4px;
 }
 
 /* Task Text */
 .task-text {
   font-family: "Courier Prime", monospace;
   font-size: 1rem;
-  color: #cccccc; /* Light gray for readability */
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Add ellipsis for long text */
-  flex-shrink: 1; /* Allow text to shrink if needed */
+  color: #cccccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
 }
 
 /* Task Due Date */
 .task-due-date {
   font-family: "Courier Prime", monospace;
   font-size: 0.9rem;
-  color: #b87333; /* Warm bronze for due dates */
-  flex-shrink: 0; /* Prevent shrinking */
+  color: #b87333;
+  flex-shrink: 0;
 }
 
 /* Priority Indicator */
