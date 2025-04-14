@@ -139,3 +139,37 @@
 .left-0 {
   left: 0;
 }
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #121245;
+  border-top: 1px solid #444;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-family: "Courier Prime", monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-btn.active {
+  color: #b87333;
+  font-weight: bold;
+}
+
+.nav-btn:hover {
+  color: #fb8136;
+}
