@@ -19,24 +19,35 @@
   transform: scale(1.02);
 }
 
-/* Floating Action Button (FAB) */
+/* Floating Add Task Button */
 .floating-btn {
   position: fixed;
   bottom: 60px;
-  right: 24px;
+  right: 20px;
   width: 50px;
   height: 50px;
   background-color: #b33f4a;
   color: #fafafa;
-  font-size: 2rem;
-  font-weight: 700;
-  border: none;
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 0;
+  border: 3px solid rgba(140, 50, 75, 0.75);
   border-radius: 25%;
   cursor: pointer;
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
-  align-items: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.floating-btn:hover {
+  transform: scale(1.01);
+  background-color: #cf4452;
+  border: transparent;
+  box-shadow: 0px 6px 8px rgba(207, 68, 82, 0.55);
 }
 
 /* Clear Archive Button */

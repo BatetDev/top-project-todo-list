@@ -14,7 +14,7 @@
   padding: 10px 15px;
   border-radius: 6px;
   margin-bottom: 8px;
-  background-color: #262627de;
+  background-color: #262629de;
   transition: all 0.25s ease-in-out;
   cursor: pointer;
 }
@@ -26,8 +26,8 @@
 }
 
 .task-list li.completed {
-  opacity: 0.6; /* Dim completed tasks */
-  text-decoration: line-through; /* Strike through completed tasks */
+  opacity: 0.6;
+  text-decoration: line-through;
 }
 
 /* Task Circle (Checkbox) */
@@ -43,19 +43,11 @@
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.25s ease-in-out;
-  background: radial-gradient(
-    circle,
-    transparent,
-    transparent
-  ); /* Initial transparent background */
+  background: radial-gradient(circle, transparent, transparent);
 }
 
 .task-circle:hover {
-  background: radial-gradient(
-    circle,
-    #cc7f37,
-    #b87333
-  ); /* Subtle gradient on hover */
+  background: radial-gradient(circle, #cc7f37, #b87333);
 }
 
 .task-circle.completed {
@@ -91,7 +83,8 @@
   text-align: right;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #cc7f37;
+  font-style: italic;
+  color: #d68438;
   flex-shrink: 0;
 }
 
