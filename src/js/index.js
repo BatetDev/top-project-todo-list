@@ -81,3 +81,5 @@ document.querySelector("#add-project-modal").addEventListener("click", (e) => {
 
 // Attach the event listener for the Add Project form submission
 handleAddProjectFormSubmit();
+
+lucide.createIcons();

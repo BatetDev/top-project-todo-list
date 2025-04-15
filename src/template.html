@@ -16,6 +16,14 @@
     <div class="container">
       <!-- Header Section -->
       <header>
+        <span
+          class="lucide lucide-pencil edit-icon"
+          title="Rename Project"
+        ></span>
+        <span
+          class="lucide lucide-trash delete-icon"
+          title="Delete Project"
+        ></span>
         <h1>Eurekist</h1>
         <p class="tagline">From Chaos to Clarity</p>
       </header>
@@ -74,8 +82,8 @@
           <div class="modal-header">
             <h3 id="task-title">Task Title</h3>
             <div class="modal-actions">
-              <button id="edit-task-btn">Edit</button>
-              <button id="delete-task-btn">Delete</button>
+              <button id="edit-task-btn" class="btn">Edit</button>
+              <button id="delete-task-btn" class="btn">Delete</button>
             </div>
           </div>
           <!-- Task Details View -->
@@ -178,5 +186,7 @@
         </form>
       </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
   </body>
 </html>
