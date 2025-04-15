@@ -71,19 +71,16 @@
       <!-- Expanded Task View Modal -->
       <div id="expanded-task-modal" class="modal hidden">
         <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="task-title">Task Title</h3>
+            <div class="modal-actions">
+              <button id="edit-task-btn">Edit</button>
+              <button id="delete-task-btn">Delete</button>
+            </div>
+          </div>
           <!-- Task Details View -->
           <div class="task-details">
-            <div class="modal-header">
-              <h3 id="task-title">Task Title</h3>
-              <div class="modal-actions">
-                <button id="edit-task-btn">Edit</button>
-                <button id="delete-task-btn">Delete</button>
-              </div>
-            </div>
-            <p id="task-description"></p>
-            <p>Due Date: <span id="task-due-date"></span></p>
-            <p>Priority: <span id="task-priority"></span></p>
-            <p>Project: <span id="task-project"></span></p>
+            <!-- This div will contain the task details populated by JavaScript -->
           </div>
 
           <!-- Edit Task Form -->

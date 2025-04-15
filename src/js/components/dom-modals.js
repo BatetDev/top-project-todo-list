@@ -1,38 +1,54 @@
 // dom-modals.js
+import { format, parseISO } from "date-fns";
+
+// Select modal elements
+export const expandedTaskModal = document.getElementById("expanded-task-modal");
+export const deleteConfirmationModal = document.getElementById(
+  "delete-confirmation-modal"
+);
+
 let currentTask = null;
 export { currentTask };
 import { getProjects, saveState } from "../core/state.js";
 import { populateProjectPicker, renderProjects } from "../dom-render.js";
 
-import { format, parseISO } from "date-fns";
-
-const expandedTaskModal = document.querySelector("#expanded-task-modal");
-
 // Function to open the expanded task modal
 export function openExpandedTaskModal(task) {
-  currentTask = task;
-
-  // Populate the modal with task details
-  expandedTaskModal.querySelector("#task-title").textContent =
-    task.title || "No title";
-  expandedTaskModal.querySelector("#task-description").textContent =
-    task.description || "No description";
-  expandedTaskModal.querySelector("#task-due-date").textContent = task.dueDate
-    ? format(parseISO(task.dueDate), "MMMM d, yyyy")
-    : "No due date";
-  expandedTaskModal.querySelector("#task-priority").textContent =
-    task.priority || "No priority";
-  expandedTaskModal.querySelector("#task-project").textContent =
-    task.project || "No project";
-
-  // Update the priority circle's data-priority attribute
-  const priorityCircle = expandedTaskModal.querySelector(".task-circle");
-  if (priorityCircle) {
-    priorityCircle.setAttribute("data-priority", task.priority);
+  if (!task) {
+    console.error("No task provided to openExpandedTaskModal");
+    return;
   }
 
-  // Show the modal by removing the "hidden" class
-  expandedTaskModal.classList.remove("hidden");
+  currentTask = task;
+
+  // Get all required elements
+  const modalTitle = expandedTaskModal?.querySelector("#task-title");
+  const modalTaskDetails = expandedTaskModal?.querySelector(".task-details");
+
+  if (!modalTitle || !modalTaskDetails) {
+    console.error("Required modal elements not found");
+    return;
+  }
+
+  try {
+    modalTitle.textContent = task.title || "Untitled Task";
+    modalTaskDetails.innerHTML = `
+      <p><strong>Description:</strong> ${
+        task.description || "No description"
+      }</p>
+      <p><strong>Due Date:</strong> ${
+        task.dueDate
+          ? format(parseISO(task.dueDate), "MMM d, yyyy")
+          : "No due date"
+      }</p>
+      <p><strong>Priority:</strong> ${task.priority || "medium"}</p>
+      <p><strong>Project:</strong> ${task.project || "Inbox"}</p>
+    `;
+    modalTaskDetails.classList.add("expanded");
+    expandedTaskModal.classList.remove("hidden");
+  } catch (error) {
+    console.error("Error updating modal content:", error);
+  }
 }
 
 // Function to close the expanded task modal
@@ -106,9 +122,6 @@ function populateEditForm(task) {
 }
 
 // Select the delete confimation modal and its elements
-const deleteConfirmationModal = document.querySelector(
-  "#delete-confirmation-modal"
-);
 const taskToDeleteName = deleteConfirmationModal.querySelector(
   "#task-to-delete-name"
 );

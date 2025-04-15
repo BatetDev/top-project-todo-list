@@ -9,6 +9,11 @@ module.exports = merge(common, {
   devServer: {
     static: "./dist",
     hot: true,
-    watchFiles: ["./src/template.html"],
+    watchFiles: ["src/**/*"],
+    client: {
+      overlay: true,
+      progress: true,
+    },
+    liveReload: true,
   },
 });

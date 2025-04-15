@@ -14,19 +14,31 @@ let currentTask = null;
 export function openExpandedTaskModal(task) {
   currentTask = task;
 
-  // Populate the modal with task details
-  const taskDetails = expandedTaskModal.querySelector(".task-details");
-  taskDetails.innerHTML = `
-    <p><strong>Title:</strong> ${task.title}</p>
-    <p><strong>Description:</strong> ${task.description || "No description"}</p>
-    <p><strong>Due Date:</strong> ${
-      task.dueDate
-        ? format(parseISO(task.dueDate), "MMM d, yyyy")
-        : "No due date"
-    }</p>
-    <p><strong>Priority:</strong> ${task.priority || "medium"}</p>
-    <p><strong>Project:</strong> ${task.project || "Inbox"}</p>
-  `;
+  // Get references to elements
+  const modalTitle = expandedTaskModal.querySelector("#task-title");
+  const modalTaskDetails = expandedTaskModal.querySelector(".task-details");
+
+  // Update title
+  if (modalTitle) {
+    modalTitle.textContent = task.title;
+  }
+
+  // Update task details
+  if (modalTaskDetails) {
+    modalTaskDetails.innerHTML = `
+      <p><strong>Description:</strong> ${
+        task.description || "No description"
+      }</p>
+      <p><strong>Due Date:</strong> ${
+        task.dueDate
+          ? format(parseISO(task.dueDate), "MMM d, yyyy")
+          : "No due date"
+      }</p>
+      <p><strong>Priority:</strong> ${task.priority || "medium"}</p>
+      <p><strong>Project:</strong> ${task.project || "Inbox"}</p>
+    `;
+    modalTaskDetails.classList.add("expanded");
+  }
 
   // Show the modal
   expandedTaskModal.classList.remove("hidden");
@@ -34,8 +46,12 @@ export function openExpandedTaskModal(task) {
 
 // Function to close the expanded task modal
 export function closeExpandedTaskModal() {
+  const modalTaskDetails = expandedTaskModal.querySelector(
+    ".modal-content .task-details"
+  );
+  modalTaskDetails.classList.remove("expanded");
   expandedTaskModal.classList.add("hidden");
-  currentTask = null; // Reset the current task
+  currentTask = null;
 }
 
 // Function to show the delete confirmation modal
@@ -60,14 +76,20 @@ export function closeDeleteConfirmationModal() {
 document.addEventListener("DOMContentLoaded", () => {
   // Close expanded task modal when clicking outside the modal content
   window.addEventListener("click", (e) => {
-    if (!expandedTaskModal.contains(e.target)) {
+    if (
+      !expandedTaskModal.contains(e.target) &&
+      !expandedTaskModal.classList.contains("hidden")
+    ) {
       closeExpandedTaskModal();
     }
   });
 
   // Close delete confirmation modal when clicking outside the modal content
   window.addEventListener("click", (e) => {
-    if (!deleteConfirmationModal.contains(e.target)) {
+    if (
+      !deleteConfirmationModal.contains(e.target) &&
+      !deleteConfirmationModal.classList.contains("hidden")
+    ) {
       closeDeleteConfirmationModal();
     }
   });
