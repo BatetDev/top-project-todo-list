@@ -97,3 +97,36 @@
 .task-circle[data-priority="high"] {
   border-color: red;
 }
+
+/* Fade-out Animation for Completed Tasks */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Fill Animation for Completed Circle */
+@keyframes fill-circle {
+  from {
+    background-color: transparent;
+    border-color: #444444;
+  }
+  to {
+    background-color: #b87333;
+    border-color: #b87333;
+  }
+}
+
+/* Apply Animations to Completed Tasks */
+.task-list li.completed-animation {
+  animation: fade-out 0.3s ease-in-out forwards;
+}
+
+.task-list li.completed-animation .task-circle {
+  animation: fill-circle 0.3s ease-in-out forwards;
+}
