@@ -10,19 +10,20 @@
 
 /* Global Font Family */
 body {
-  font-family: "Cinzel", monospace;
-  line-height: 1.6;
+  font-family: "Cinzel", sans-serif;
+  line-height: 1.5;
   color: #e0e0e0;
 }
 
 /* Headings */
 h1 {
   font-family: "Dalek Pinpoint", sans-serif;
-  font-size: 3rem;
+  font-size: 3.25rem;
   text-align: center;
   letter-spacing: 1px;
   color: #d4af37ff;
   margin-bottom: 10px;
+  letter-spacing: 2px;
 }
 
 h2,
@@ -61,4 +62,14 @@ a {
 a:hover {
   text-decoration: underline;
   color: #cf4452;
+}
+
+/* Style for the tagline below the h1 */
+.tagline {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #cccccc;
+  margin-top: 5px;
+  text-align: center;
 }
