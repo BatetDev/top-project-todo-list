@@ -12,7 +12,7 @@
 body {
   font-family: "Cinzel", sans-serif;
   line-height: 1.5;
-  color: #e0e0e0;
+  color: var(--secondary-color);
 }
 
 /* Headings */
@@ -30,6 +30,7 @@ h2,
 h3 {
   color: #d4af37ff;
   margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
 h2 {
@@ -69,7 +70,8 @@ a:hover {
   font-family: "Cinzel", serif;
   font-size: 1.1rem;
   font-style: italic;
-  color: #cccccc;
+  letter-spacing: 0.5px;
+  color: #fafafa;
   margin-top: 5px;
   text-align: center;
 }

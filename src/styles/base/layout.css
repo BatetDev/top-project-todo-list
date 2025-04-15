@@ -9,8 +9,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #121245e3;
-  border-top: 1px solid #444;
+  background: linear-gradient(135deg, #292e3dec, #282d3cec);
+  border-top: 2px solid #212121;
   padding: 12px 0;
   z-index: 999;
 }
@@ -24,11 +24,11 @@
   font-family: "Dalek Pinpoint", sans-serif;
   letter-spacing: 0.5px;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.25s ease-in-out;
 }
 
 .nav-btn.active {
-  color: #b87333;
+  color: #cc7f37;
   font-weight: bold;
 }
 
