@@ -1,7 +1,5 @@
 /* base/typography.css */
 
-/* base/typography.css */
-
 /* Load Dalek Pinpoint Font */
 @font-face {
   font-family: "Dalek Pinpoint";
@@ -12,7 +10,7 @@
 
 /* Global Font Family */
 body {
-  font-family: "Courier Prime", monospace;
+  font-family: "Cinzel", monospace;
   line-height: 1.6;
   color: #e0e0e0;
 }
@@ -39,11 +37,13 @@ h2 {
 }
 
 h3 {
+  font-family: "Cinzel", sans-serif;
   font-size: 1.5rem;
 }
 
 /* Paragraphs */
 p {
+  font-family: "Cinzel", sans-serif;
   font-weight: 700;
   text-align: center;
   color: #cccccc;
@@ -55,30 +55,10 @@ a {
   color: #b87333;
   text-decoration: none;
   font-weight: bold;
+  font-family: "Cinzel", sans-serif;
 }
 
 a:hover {
   text-decoration: underline;
   color: #cf4452;
-}
-
-/* Utility Classes */
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.text-italic {
-  font-style: italic;
 }

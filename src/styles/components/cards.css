@@ -59,8 +59,8 @@
 
 /* Task Text */
 .task-text {
-  font-family: "Courier Prime", monospace;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: #cccccc;
   white-space: nowrap;
   overflow: hidden;
@@ -70,8 +70,8 @@
 
 /* Task Due Date */
 .task-due-date {
-  font-family: "Courier Prime", monospace;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: #b87333;
   flex-shrink: 0;
 }
