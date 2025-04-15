@@ -62,7 +62,7 @@ export function initializeState() {
 
     projects.push(inboxProject);
 
-    const symposiumProject = createProject("Philosophers' Symposium");
+    const symposiumProject = createProject("13th Athenian Symposium");
 
     addTodoToProject(
       symposiumProject,

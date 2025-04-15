@@ -18,7 +18,7 @@ body {
 /* Headings */
 h1 {
   font-family: "Dalek Pinpoint", sans-serif;
-  font-size: 3.25rem;
+  font-size: 3.5rem;
   text-align: center;
   letter-spacing: 1px;
   color: #d4af37ff;
@@ -34,12 +34,12 @@ h3 {
 
 h2 {
   font-family: "Dalek Pinpoint", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 h3 {
   font-family: "Cinzel", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 /* Paragraphs */
@@ -67,7 +67,7 @@ a:hover {
 /* Style for the tagline below the h1 */
 .tagline {
   font-family: "Cinzel", serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: italic;
   color: #cccccc;
   margin-top: 5px;

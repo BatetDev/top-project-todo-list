@@ -1,6 +1,16 @@
 /* base/global.css */
 
-/* base/global.css */
+:root {
+  /* Priority Colors */
+  --priority-high: #dd5a33; /* Red-Bronze */
+  --priority-medium: #d8b74b; /* Golden */
+  --priority-low: #50c878; /* Emerald Green */
+
+  /* Other Global Variables */
+  --primary-color: #b87333; /* Warm Bronze */
+  --secondary-color: #fafafa; /* Off-White */
+  --background-color: #1a1a1a; /* Dark Background */
+}
 
 html,
 body {
@@ -15,7 +25,6 @@ body {
   align-items: center;
   background-color: #1a1a1a;
   padding: 10px;
-  font-family: "Cinzel", sans-serif;
 }
 
 /* Box Sizing */
