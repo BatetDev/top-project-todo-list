@@ -71,3 +71,67 @@
   font-size: 0.9rem;
   margin-top: 5px;
 }
+
+/* Add Task Form Container */
+#add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 2px solid #b87333;
+  border-radius: 8px;
+  background-color: #292e3d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Labels */
+#add-task-form label {
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #d4af37ff;
+  font-weight: 700;
+}
+
+/* Form Inputs, Textareas, and Selects */
+#add-task-form input,
+#add-task-form textarea,
+#add-task-form select {
+  padding: 10px;
+  border: 1px solid #da8973;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  color: #fafafa;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Hover Effect for Inputs */
+#add-task-form input:hover,
+#add-task-form textarea:hover,
+#add-task-form select:hover {
+  border-color: #cf4452;
+}
+
+/* Form Buttons */
+#add-task-form button {
+  background-color: #b87333;
+  border: none;
+  border-radius: 5px;
+  color: #fafafa;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect for Buttons */
+#add-task-form button:hover {
+  background-color: #9a5c2b;
+  transform: scale(1.01);
+}
