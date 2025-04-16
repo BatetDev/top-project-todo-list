@@ -78,11 +78,15 @@
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
   margin-top: 20px;
   display: block;
+  transition: all 0.2s ease-in-out;
 }
 
 .clear-archive-button:hover {
-  background-color: #b87333;
+  background-color: #cf4452;
+  transform: scale(1.01);
 }
