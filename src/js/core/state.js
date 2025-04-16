@@ -11,6 +11,7 @@ export function initializeState() {
     if (savedProjects) {
       const parsedProjects = JSON.parse(savedProjects);
       if (Array.isArray(parsedProjects)) {
+        // Don't filter out completed tasks when loading state
         projects = parsedProjects;
       } else {
         console.error(

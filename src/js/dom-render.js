@@ -70,18 +70,14 @@ export function renderTodos(project, filterCompleted = false) {
   const taskList = document.createElement("ul");
   taskList.classList.add("task-list");
 
-  // Filter tasks to show only incomplete ones
-  const filteredTodos = project.todos.filter((todo) => !todo.completed);
+  // Get only incomplete todos for rendering
+  const incompleteTodos = project.todos.filter((todo) => !todo.completed);
 
-  // Map the filtered todos with their original indices
-  const todosWithIndices = filteredTodos.map((todo) => ({
-    todo,
-    index: project.todos.indexOf(todo),
-  }));
-
-  todosWithIndices.forEach(({ todo, index }) => {
+  incompleteTodos.forEach((todo) => {
     const li = document.createElement("li");
-    li.dataset.index = index;
+    // Use the original index from the full todos array
+    const originalIndex = project.todos.findIndex((t) => t === todo);
+    li.dataset.index = originalIndex;
     li.innerHTML = `
       <span class="task-circle" 
             data-action="toggle" 

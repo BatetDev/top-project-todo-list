@@ -1,5 +1,7 @@
 // core/project-todo.js
 
+import { saveState } from "./state.js";
+
 // Factory function to create a project
 export function createProject(name) {
   return {
@@ -57,4 +59,6 @@ export function toggleTaskCompletion(todo, taskElement, circleElement) {
     // Update the circle's appearance
     circleElement.classList.toggle("completed", todo.completed);
   }
+
+  saveState(); // Ensure state is persisted after toggling
 }
