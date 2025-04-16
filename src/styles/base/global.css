@@ -40,7 +40,7 @@ body {
 
 /* Container Layout */
 .container {
-  background: linear-gradient(135deg, #292e3d, #282d3c);
+  background: linear-gradient(135deg, #292e3def, #282d3cef);
   border: 3px solid #252833;
   border-radius: 8px;
   padding: 20px;

@@ -70,7 +70,7 @@ export function initializeState() {
         "Prove the Pythagorean theorem",
         "Demonstrate a² + b² = c² geometrically.",
         "2025-05-01",
-        "high"
+        "medium"
       )
     );
     addTodoToProject(
@@ -79,7 +79,7 @@ export function initializeState() {
         "Debate Zeno's Paradoxes",
         "Discuss the impossibility of motion and infinite divisibility.",
         "2025-05-05",
-        "medium"
+        "high"
       )
     );
     addTodoToProject(

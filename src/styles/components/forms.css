@@ -72,8 +72,9 @@
   margin-top: 5px;
 }
 
-/* Add Task Form Container */
-#add-task-form {
+/* Add Task Form and Edit Task Form */
+#add-task-form,
+#edit-task-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -85,7 +86,8 @@
 }
 
 /* Form Labels */
-#add-task-form label {
+#add-task-form label,
+#edit-task-form label {
   font-family: "Cinzel", serif;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
@@ -96,42 +98,51 @@
 /* Form Inputs, Textareas, and Selects */
 #add-task-form input,
 #add-task-form textarea,
-#add-task-form select {
+#add-task-form select,
+#edit-task-form input,
+#edit-task-form textarea,
+#edit-task-form select {
   padding: 10px;
   border: 1px solid #da8973;
   border-radius: 5px;
   background-color: #1a1a1a;
   color: #fafafa;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: border-color 0.2s ease-in-out;
 }
 
 /* Hover Effect for Inputs */
 #add-task-form input:hover,
 #add-task-form textarea:hover,
-#add-task-form select:hover {
+#add-task-form select:hover,
+#edit-task-form input:hover,
+#edit-task-form textarea:hover,
+#edit-task-form select:hover {
   border-color: #cf4452;
 }
 
 /* Form Buttons */
-#add-task-form button {
+#add-task-form button,
+#edit-task-form button {
+  margin-top: 4px;
   background-color: #b87333;
   border: none;
   border-radius: 5px;
   color: #fafafa;
   font-family: inherit;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   padding: 10px;
   cursor: pointer;
   text-transform: uppercase;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Hover Effect for Buttons */
-#add-task-form button:hover {
-  background-color: #9a5c2b;
+#add-task-form button:hover,
+#edit-task-form button:hover {
+  background-color: #cf4452;
   transform: scale(1.01);
 }
