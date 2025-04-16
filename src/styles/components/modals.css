@@ -144,6 +144,69 @@
   font-weight: 700;
 }
 
+/* Add Project Modal Content */
+#add-project-modal .modal-content {
+  background-color: #292e3d;
+  border: 2px solid #b87333;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px 24px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  animation: slide-up 0.3s ease-in-out;
+  color: #fafafa;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#add-project-modal .modal-content h2,
+#add-project-modal .modal-content h3 {
+  margin: 0 0 15px 0;
+  color: #d4af37ff;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-align: center;
+}
+
+#add-project-modal .modal-content input[type="text"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #313648;
+  color: #fafafa;
+}
+
+#add-project-modal .modal-content .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+#add-project-modal .modal-content button {
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #b87333;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+#add-project-modal .modal-content button:hover {
+  background: #cf4452;
+}
+
 /* Animations */
 @keyframes slide-up {
   from {

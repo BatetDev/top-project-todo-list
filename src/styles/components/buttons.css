@@ -123,3 +123,12 @@
 #confirm-delete-btn:hover {
   background-color: #e74c3c;
 }
+
+#add-project-form button {
+  font-weight: 900;
+  margin: 0 5px;
+}
+
+.add-project-button {
+  font-size: 50px;
+}

@@ -19,10 +19,15 @@
   color: #fafafa;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 5px;
+  font-size: 2rem;
+  line-height: 1;
+  width: 40px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 900;
+  transition: all 0.2s ease-in-out;
 }
 
 .add-project-button:hover {
