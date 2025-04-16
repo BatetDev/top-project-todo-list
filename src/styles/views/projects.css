@@ -42,15 +42,16 @@
   align-items: center;
   margin-bottom: 10px;
   padding: 15px;
+  font-weight: bold;
   background-color: #2b2b2b;
-  border: 1px solid #444444;
+  border: 1px solid #3c3c3c;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .project-item:hover {
-  transform: translateY(-3px);
+  transform: scale(1.01);
 }
 
 .project-item.completed {
@@ -60,14 +61,23 @@
 .project-name {
   font-size: 1.2rem;
   color: #cccccc;
-  font-weight: bold;
 }
 
 .project-actions {
   display: flex;
+  align-items: center;
+
   gap: 10px;
 }
 
-.project-actions .btn {
-  padding: 5px 10px;
+.project-action-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  color: #d4af37ff;
+  transition: color 0.2s ease;
+}
+
+.project-action-icon:hover {
+  color: #b87333;
 }

@@ -79,25 +79,31 @@ export function renderProjectsView() {
       actionsContainer.classList.add("project-actions");
 
       // Edit icon
-      const editIcon = document.createElement("span");
-      editIcon.textContent = "✏️";
-      editIcon.classList.add("project-action-icon");
+      const editIcon = document.createElement("i");
+      editIcon.dataset.lucide = "settings";
+      editIcon.classList.add("project-action-icon", "edit-project");
       editIcon.title = "Rename Project";
-      editIcon.addEventListener("click", () => {
-        console.log(`Edit icon clicked for project: ${project.name}`);
-        renameProject(project);
-      });
       actionsContainer.appendChild(editIcon);
 
       // Delete icon
-      const deleteIcon = document.createElement("span");
-      deleteIcon.textContent = "🗑️";
-      deleteIcon.classList.add("project-action-icon");
+      const deleteIcon = document.createElement("i");
+      deleteIcon.dataset.lucide = "trash-2";
+      deleteIcon.classList.add("project-action-icon", "delete-project");
       deleteIcon.title = "Delete Project";
-      deleteIcon.addEventListener("click", () => {
-        deleteProject(project);
-      });
       actionsContainer.appendChild(deleteIcon);
+
+      // Add event delegation to the container
+      actionsContainer.addEventListener("click", (e) => {
+        const target = e.target.closest(".project-action-icon");
+        if (!target) return;
+
+        e.stopPropagation();
+        if (target.classList.contains("edit-project")) {
+          renameProject(project);
+        } else if (target.classList.contains("delete-project")) {
+          deleteProject(project);
+        }
+      });
 
       li.appendChild(actionsContainer);
       projectList.appendChild(li);
@@ -105,4 +111,7 @@ export function renderProjectsView() {
 
     main.appendChild(projectList);
   }
+
+  // Create the Lucide icons
+  lucide.createIcons();
 }
