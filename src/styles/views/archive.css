@@ -8,32 +8,6 @@
   padding: 20px;
 }
 
-/* Fallback Wrapper */
-.fallback-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-  text-align: center;
-}
-
-/* Fallback Image */
-.fallback-image {
-  width: 250px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-/* Fallback Message */
-.fallback-message {
-  font-size: 1.2rem;
-  color: #cccccc;
-  font-weight: bold;
-}
-
 /* Archived Task List */
 .archived-task-list {
   list-style-type: none;

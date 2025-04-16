@@ -8,7 +8,7 @@ import { format, parseISO } from "date-fns";
 // Render all projects
 export function renderProjects() {
   const main = document.querySelector("main");
-  main.innerHTML = ""; // Clear the main content before rendering
+  main.innerHTML = "";
 
   const projects = getProjects();
 
@@ -103,7 +103,7 @@ export function renderTodos(project, filterCompleted = false) {
     // Check if the click was on the task completion circle
     if (e.target.matches(".task-circle[data-action='toggle']")) {
       toggleTaskCompletion(task, clickedTask, e.target);
-      renderProjects(); // <-- Add this line to trigger immediate re-render
+      renderProjects();
       return;
     }
 
