@@ -71,15 +71,55 @@
 }
 
 .edit-icon {
-  color: #b87333; /* Warm bronze */
+  color: #b87333;
   cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
 .delete-icon {
-  color: #cf4452; /* Red-bronze */
+  color: #cf4452;
   cursor: pointer;
   width: 20px;
   height: 20px;
+}
+
+/* Base Styles for Confirmation Buttons */
+.confirmation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.confirmation-buttons button {
+  flex: 1;
+  background-color: #b87333;
+  border: none;
+  border-radius: 5px;
+  color: #fafafa;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Cancel Button */
+#cancel-delete-btn {
+  background-color: #444444;
+}
+
+#cancel-delete-btn:hover {
+  background-color: #666666;
+}
+
+/* Confirm Button */
+#confirm-delete-btn {
+  background-color: #cf4452;
+}
+
+#confirm-delete-btn:hover {
+  background-color: #e74c3c;
 }

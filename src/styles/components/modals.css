@@ -72,6 +72,50 @@
   letter-spacing: 0.5px;
 }
 
+.task-details.expanded strong {
+  color: #d54352;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+/* Delete Confirmation Modal Content */
+#delete-confirmation-modal .modal-content {
+  background-color: #292e3d;
+  border: 2px solid #b87333;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: all 0.3s ease-in-out;
+  color: #fafafa;
+}
+
+/* Delete Confirmation Modal Heading */
+#delete-confirmation-modal h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+  color: #d4af37ff;
+  margin-bottom: 10px;
+}
+
+/* Delete Confirmation Modal Description */
+#delete-confirmation-modal p {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #d5d5d5;
+  margin-bottom: 20px;
+}
+
+/* Task Name in Description */
+#delete-confirmation-modal strong {
+  color: #cf4452;
+  font-weight: 700;
+}
+
 /* Animations */
 @keyframes slide-up {
   from {
