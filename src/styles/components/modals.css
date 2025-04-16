@@ -47,8 +47,9 @@
   color: #d4af37ff;
 }
 
-.modal-action {
+.modal-actions {
   display: flex;
+  gap: 10px;
 }
 
 /* Styles for .task-details when the modal is expanded */

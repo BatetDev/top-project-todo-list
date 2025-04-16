@@ -82,8 +82,12 @@
           <div class="modal-header">
             <h3 id="task-title">Task Title</h3>
             <div class="modal-actions">
-              <button id="edit-task-btn" class="btn">Edit</button>
-              <button id="delete-task-btn" class="btn">Delete</button>
+              <button id="edit-task-btn" class="btn">
+                <i data-lucide="settings"></i>
+              </button>
+              <button id="delete-task-btn" class="btn">
+                <i data-lucide="trash-2"></i>
+              </button>
             </div>
           </div>
           <!-- Task Details View -->
@@ -187,6 +191,8 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest">
+      lucide.createIcons();
+    </script>
   </body>
 </html>

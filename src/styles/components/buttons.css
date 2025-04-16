@@ -2,18 +2,18 @@
 
 /* Base Button Styles */
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #b87333;
   color: #fafafa;
   border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
+  border-radius: 5px;
+  padding: 8px;
+  width: fit-content;
+  aspect-ratio: 1 / 1;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
-  font-weight: 900;
-  width: 80px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: background-color 0.2s ease-in-out;
 }
 
 /* Hover Effect */
