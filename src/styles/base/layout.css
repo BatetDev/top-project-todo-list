@@ -19,12 +19,30 @@
   background: none;
   border: none;
   color: #ccc;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: bold;
   font-family: "Dalek Pinpoint", sans-serif;
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: color 0.25s ease-in-out;
+}
+
+.nav-btn#github-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.nav-btn#github-link:hover {
+  opacity: 1;
+}
+
+.nav-btn#github-link i {
+  width: 15px;
+  height: 15px;
 }
 
 .nav-btn.active {
