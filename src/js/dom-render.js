@@ -32,7 +32,7 @@ export function renderProjects() {
 
     // Fallback message
     const fallbackMessage = document.createElement("p");
-    fallbackMessage.textContent = "No tasks? Hail Megas Prokastinator!";
+    fallbackMessage.textContent = "Mortals Must Strive: Add Tasks!";
     fallbackMessage.classList.add("fallback-message");
 
     // Append image and message to the wrapper
