@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/BatetDev/top-project-todo-list">
-    <img src="src/assets/logo.jpg" alt="Logo" width="250" height="250">
+    <img src="src/assets/logo.png" alt="Logo" width="250" height="250">
   </a>
 
   <h3 align="center">Eurekist</h3>
@@ -35,7 +35,7 @@
 
 ## About
 
-A simple todo list application created as part of The Odin Project's JavaScript course. The project emphasizes object-oriented programming principles, modern JavaScript features, and local storage integration.
+A basic todo list application created as part of The Odin Project's JavaScript course. The project emphasizes object-oriented programming principles, modern JavaScript features, and local storage integration.
 
 ### Key Features
 
