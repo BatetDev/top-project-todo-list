@@ -74,6 +74,12 @@ export function populateEditTaskForm(task) {
 
   // Populate the project picker dynamically
   populateProjectPicker(projects, projectField, task.project || "Inbox");
+
+  // Close the expanded task modal when entering edit mode
+  const expandedTaskModal = document.querySelector("#expanded-task-modal");
+  if (expandedTaskModal) {
+    expandedTaskModal.classList.add("hidden");
+  }
 }
 
 // Handle form submissions for editing tasks
@@ -146,9 +152,10 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     saveState();
     renderProjectsCallback();
 
-    // Update the expanded task modal with the new details
+    // Update the expanded task modal with the new details while keeping it hidden
     const expandedTaskModal = document.querySelector("#expanded-task-modal");
     if (expandedTaskModal) {
+      expandedTaskModal.classList.add("hidden"); // Keep it hidden
       const titleElement = expandedTaskModal.querySelector("#task-title");
       const descriptionElement =
         expandedTaskModal.querySelector("#task-description");
