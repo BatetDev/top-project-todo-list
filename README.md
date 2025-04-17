@@ -1,37 +1,20 @@
-<a id="readme-top"></a>
+# Eurekist
 
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/BatetDev/top-project-todo-list">
-    <img src="src/assets/images/logo.png" alt="Logo" width="320" height="210">
-  </a>
 
-  <h3 align="center">Eurekist</h3>
-  <h4 aling="center">TOP: Project Todo List<h4>
+![Logo](src/assets/images/logo.png)
 
-  <p align="center">
-    An Ancient Greece-themed todo list application built with:
-    <br />
-    <br />
-    <a href="https://html.spec.whatwg.org/">
-      <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-    </a>
-    <a href="https://www.w3.org/Style/CSS/">
-      <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-      <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
-    </a>
-    <a href="https://webpack.js.org/">
-      <img src="https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black" alt="Webpack">
-    </a>
-    <br />
-    <br />
-    <a href="https://batetdev.github.io/top-project-todo-list/" target="_blank" rel="noopener noreferrer">Live Demo</a>
-    ·
-    <a href="https://github.com/BatetDev/top-project-todo-list/tree/main">View Code</a>
-  </p>
+### TOP: Project Todo List
+
+**An Ancient Greece-themed todo list application built with:**
+
+[![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
+[![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
+[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)](https://webpack.js.org/)
+
+[Live Demo](https://batetdev.github.io/top-project-todo-list/) · [View Code](https://github.com/BatetDev/top-project-todo-list/tree/main)
+
 </div>
 
 ## About
@@ -57,8 +40,8 @@ A basic todo list application created as part of The Odin Project's JavaScript c
 - Webpack for module bundling
 - date-fns for date manipulation
 - Lucide for icons
-- LeonardoIA for fallback images.
-- Heropatterns for background pattern.
+- LeonardoIA for fallback images
+- Heropatterns for background pattern
 
 ## Getting Started
 
