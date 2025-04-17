@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/BatetDev/top-project-todo-list">
-    <img src="src/assets/images/logo.png" alt="Logo" width="250" height="250">
+    <img src="src/assets/images/logo.png" alt="Logo" width="300" height="200">
   </a>
 
   <h3 align="center">Eurekist</h3>
