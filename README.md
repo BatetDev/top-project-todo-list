@@ -4,13 +4,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/BatetDev/top-project-todo-list">
-    <img src="src/assets/images/logo.png" alt="Logo" width="300" height="200">
+    <img src="src/assets/images/logo.png" alt="Logo" width="320" height="210">
   </a>
 
   <h3 align="center">Eurekist</h3>
+  <h4 aling="center">TOP: Project Todo List<h4>
 
   <p align="center">
-    A Ancient Greece themed todo list application built with:
+    An Ancient Greece-themed todo list application built with:
     <br />
     <br />
     <a href="https://html.spec.whatwg.org/">
