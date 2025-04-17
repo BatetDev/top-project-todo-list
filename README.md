@@ -56,6 +56,8 @@ A simple todo list application created as part of The Odin Project's JavaScript 
 - Webpack for module bundling
 - date-fns for date manipulation
 - Lucide for icons
+- LeonardoIA for fallback images.
+- Heropatterns for background pattern.
 
 ## Getting Started
 
@@ -78,7 +80,8 @@ npm run build
 
 ## Credits
 
-- Project theme inspiration: Ancient Greek Philosophy
+- Original project by: [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list)
 - Icons: [Lucide Icons](https://lucide.dev/)
 - Date handling: [date-fns](https://date-fns.org/)
-- Fallback images: Generated with AI tools
+- Background pattern by: [Hero Patterns](https://heropatterns.com/)
+- Fallback images generated with: [Leonardo.AI](https://leonardo.ai/)
