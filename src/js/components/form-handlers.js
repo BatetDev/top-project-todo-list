@@ -92,22 +92,21 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
   editTaskForm.addEventListener("submit", handleSubmit);
 
   function handleSubmit(event) {
-    // Prevent the default form submission behavior
     event.preventDefault();
 
     // Capture edited values from the form fields
-    const editedTaskName = document.querySelector("#edit-task-name").value;
+    const editedTaskName = document.querySelector("#edit-task-name")?.value;
     const editedTaskDescription = document.querySelector(
       "#edit-task-description"
-    ).value;
+    )?.value;
     const editedTaskDueDate = document.querySelector(
       "#edit-task-due-date"
-    ).value;
+    )?.value;
     const editedTaskPriority = document.querySelector(
       "#edit-task-priority"
-    ).value;
+    )?.value;
     const editedTaskProject =
-      document.querySelector("#edit-task-project").value;
+      document.querySelector("#edit-task-project")?.value;
 
     // Get the centralized state (projects array)
     const projects = getProjects();
@@ -145,28 +144,35 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
     currentTask.project = editedTaskProject;
 
     saveState();
-
     renderProjectsCallback();
 
     // Update the expanded task modal with the new details
     const expandedTaskModal = document.querySelector("#expanded-task-modal");
-    expandedTaskModal.querySelector("#task-title").textContent =
-      currentTask.title || "No title";
-    expandedTaskModal.querySelector("#task-description").textContent =
-      currentTask.description || "No description";
-    expandedTaskModal.querySelector("#task-due-date").textContent =
-      currentTask.dueDate
-        ? format(parseISO(currentTask.dueDate), "MMMM d, yyyy")
-        : "No due date";
-    expandedTaskModal.querySelector("#task-priority").textContent =
-      currentTask.priority || "No priority";
-    expandedTaskModal.querySelector("#task-project").textContent =
-      currentTask.project || "No project";
+    if (expandedTaskModal) {
+      const titleElement = expandedTaskModal.querySelector("#task-title");
+      const descriptionElement =
+        expandedTaskModal.querySelector("#task-description");
+      const dueDateElement = expandedTaskModal.querySelector("#task-due-date");
+      const priorityElement = expandedTaskModal.querySelector("#task-priority");
+      const projectElement = expandedTaskModal.querySelector("#task-project");
+      const priorityCircle = expandedTaskModal.querySelector(".task-circle");
 
-    // Update the priority circle's data-priority attribute
-    const priorityCircle = expandedTaskModal.querySelector(".task-circle");
-    if (priorityCircle) {
-      priorityCircle.setAttribute("data-priority", currentTask.priority);
+      if (titleElement)
+        titleElement.textContent = currentTask.title || "No title";
+      if (descriptionElement)
+        descriptionElement.textContent =
+          currentTask.description || "No description";
+      if (dueDateElement) {
+        dueDateElement.textContent = currentTask.dueDate
+          ? format(parseISO(currentTask.dueDate), "MMMM d, yyyy")
+          : "No due date";
+      }
+      if (priorityElement)
+        priorityElement.textContent = currentTask.priority || "No priority";
+      if (projectElement)
+        projectElement.textContent = currentTask.project || "No project";
+      if (priorityCircle)
+        priorityCircle.setAttribute("data-priority", currentTask.priority);
     }
 
     // Switch back to view mode
