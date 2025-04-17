@@ -30,7 +30,7 @@ export function renderArchiveView() {
     fallbackImage.classList.add("fallback-image");
 
     const fallbackMessage = document.createElement("p");
-    fallbackMessage.textContent = "The archive is empty.";
+    fallbackMessage.textContent = "The Codex Is Barren";
     fallbackMessage.classList.add("fallback-message");
 
     fallbackWrapper.appendChild(fallbackImage);
