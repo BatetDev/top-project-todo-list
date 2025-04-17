@@ -135,14 +135,22 @@ export function handleEditTaskFormSubmit(renderProjectsCallback) {
       return;
     }
 
-    // Update the task's properties with the new values
-    project.todos[taskIndex].title = editedTaskName;
-    project.todos[taskIndex].description = editedTaskDescription;
-    project.todos[taskIndex].dueDate = editedTaskDueDate;
-    project.todos[taskIndex].priority = editedTaskPriority;
-    project.todos[taskIndex].project = editedTaskProject;
+    // Get the target project if it's different from the current one
+    const targetProject = projects.find((p) => p.name === editedTaskProject);
+    if (!targetProject) {
+      console.error("Target project not found");
+      return;
+    }
 
-    // Update the currentTask reference
+    // If the project has changed, move the task to the new project
+    if (project.name !== targetProject.name) {
+      // Remove the task from the current project
+      project.todos.splice(taskIndex, 1);
+      // Add it to the target project
+      targetProject.todos.push(currentTask);
+    }
+
+    // Update the task's properties
     currentTask.title = editedTaskName;
     currentTask.description = editedTaskDescription;
     currentTask.dueDate = editedTaskDueDate;
