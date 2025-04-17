@@ -28,7 +28,7 @@
     </a>
     <br />
     <br />
-    <a href="https://batetdev.github.io/top-project-todo-list/">Live Demo</a>
+    <a href="https://batetdev.github.io/top-project-todo-list/" target="_blank" rel="noopener noreferrer">Live Demo</a>
     ·
     <a href="https://github.com/BatetDev/top-project-todo-list/tree/main">View Code</a>
   </p>
