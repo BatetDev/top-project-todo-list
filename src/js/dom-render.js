@@ -5,6 +5,8 @@ import { toggleTaskCompletion } from "./core/project-todo.js";
 
 import { format, parseISO } from "date-fns";
 
+import fallbackHome from "../assets/images/fallback_home.jpg";
+
 // Render all projects
 export function renderProjects() {
   const main = document.querySelector("main");
@@ -24,13 +26,13 @@ export function renderProjects() {
 
     // Fallback image
     const fallbackImage = document.createElement("img");
-    fallbackImage.src = "https://picsum.photos/250/350";
+    fallbackImage.src = fallbackHome;
     fallbackImage.alt = "No tasks to display";
     fallbackImage.classList.add("fallback-image");
 
     // Fallback message
     const fallbackMessage = document.createElement("p");
-    fallbackMessage.textContent = "No tasks to display.";
+    fallbackMessage.textContent = "No tasks? Hail Megas Prokastinator!";
     fallbackMessage.classList.add("fallback-message");
 
     // Append image and message to the wrapper

@@ -1,5 +1,6 @@
 import { getProjects, saveState } from "../core/state.js";
 import { format, parseISO } from "date-fns";
+import fallbackArchive from "../../assets/images/fallback_archive.jpg";
 
 // Render the Archive view
 export function renderArchiveView() {
@@ -24,12 +25,12 @@ export function renderArchiveView() {
     fallbackWrapper.classList.add("fallback-wrapper");
 
     const fallbackImage = document.createElement("img");
-    fallbackImage.src = "https://picsum.photos/250/350";
+    fallbackImage.src = fallbackArchive;
     fallbackImage.alt = "No archived tasks";
     fallbackImage.classList.add("fallback-image");
 
     const fallbackMessage = document.createElement("p");
-    fallbackMessage.textContent = "No archived tasks to display.";
+    fallbackMessage.textContent = "The archive is empty.";
     fallbackMessage.classList.add("fallback-message");
 
     fallbackWrapper.appendChild(fallbackImage);

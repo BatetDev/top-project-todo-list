@@ -4,6 +4,7 @@ import {
   renameProject,
   deleteProject,
 } from "../components/project-ui";
+import fallbackProjects from "../../assets/images/fallback_projects.jpg";
 
 // Function to render the Projects view
 export function renderProjectsView() {
@@ -45,13 +46,13 @@ export function renderProjectsView() {
 
     // Fallback image
     const fallbackImage = document.createElement("img");
-    fallbackImage.src = "https://picsum.photos/250/350";
+    fallbackImage.src = fallbackProjects;
     fallbackImage.alt = "No custom projects";
     fallbackImage.classList.add("fallback-image");
 
     // Fallback message
     const fallbackMessage = document.createElement("p");
-    fallbackMessage.textContent = "No custom projects to display.";
+    fallbackMessage.textContent = "By Zeus, No Projects!";
     fallbackMessage.classList.add("fallback-message");
 
     // Append image and message to the wrapper
